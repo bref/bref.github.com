@@ -104,7 +104,7 @@ $ git commit -m "Add bref API"</pre>
         <h3>Implémentation</h3>
         <p>Les macros de log sont construites sur le modèle de : </p>
         <pre class="prettyprint">#define LOG(logger, sev) bref::ScopedLogger(logger, sev).log()
-#define LOG_DEBUG(logger) LOG(logger, bref::ILogger::DEBUG)</pre>
+#define LOG_DEBUG(logger) LOG(logger, bref::ILogger::Debug)</pre>
         <p>En réalité, afin de réduire l'utilisation de ressources en log ignoré, la macro LOG teste le niveau de log avant de construire un ScopedLogger et de l'utilisation de streams.</p>
         <p>La classe <a href="#">ScopedLogger</a> est déjà implémentée : 
         Il vous reste donc qu'à implémenter votre classe de log héritant de l'interface <a href="#">ILogger</a> suivante :</p>
@@ -190,7 +190,7 @@ VirtualHosts:
             notre interface IConfHelper :</p>
             <pre class="prettyprint">virtual const BrefValue & findValue(std::string const & key) = 0;
 virtual const BrefValue & findValue(std::string const & key,
-                                    HttpRequestHeader const & request) = 0;</pre>
+                                    HttpRequest const & request) = 0;</pre>
             <p>Nous pouvons par exemple récupérer les deux <em>DocumentRoot</em> de l'exemple ci-contre : notre fonction <code>findValue</code> utilisera le header HTTP <em>Host</em> de la
             requête et la variable de configuration <em>ServerName</em> afin de déterminer quel <em>DocumentRoot</em> retourner.</p>
             </div>
