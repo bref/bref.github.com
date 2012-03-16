@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In  -->
+
+<svg:svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="840"
+   height="190"
+   viewBox="-4.625 -218.072 840 190"
+   overflow="visible"
+   enable-background="new -4.625 -218.072 800 600"
+   xml:space="preserve"
+   id="svg5257"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="uml-logger-config.svg"
+   style="overflow:visible"><svg:metadata
+   id="metadata5388"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></svg:metadata><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1680"
+   inkscape:window-height="906"
+   id="namedview5386"
+   showgrid="false"
+   inkscape:zoom="1"
+   inkscape:cx="400"
+   inkscape:cy="300"
+   inkscape:window-x="0"
+   inkscape:window-y="0"
+   inkscape:window-maximized="0"
+   inkscape:current-layer="svg5257" />
+<svg:defs
+   id="defs5259">
+</svg:defs>
+<svg:path
+   stroke-miterlimit="3"
+   d="m 465.175,-59.038 h 27.16 27.16 c 4.971,0 9,-4.029 9,-9 l 0,0 v -101.809 c 0,-4.971 -4.029,-9 -9,-9 l 0,0 h -27.16 -27.16 c -4.971,0 -9,4.029 -9,9 l 0,0 v 101.809 c 0,4.971 4.029,9 9,9 l 0,0 z"
+   id="path5261"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#3497b8;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:linearGradient
+   id="SVGID_1_"
+   gradientUnits="userSpaceOnUse"
+   x1="-16.9956"
+   y1="431.20749"
+   x2="-16.9956"
+   y2="432.20749"
+   gradientTransform="matrix(45,0,0,-22.5,1279.8125,9534.5625)">
+	<svg:stop
+   offset="0"
+   style="stop-color:#95CEE1"
+   id="stop5264" />
+	<svg:stop
+   offset="1"
+   style="stop-color:#D3ECF3"
+   id="stop5266" />
+</svg:linearGradient>
+<svg:path
+   stroke-miterlimit="3"
+   d="m 501.495,-167.594 h 27 c 4.971,0 9,-4.029 9,-9 v -4.5 c 0,-4.971 -4.029,-9 -9,-9 h -27 c -4.971,0 -9,4.029 -9,9 v 4.5 c 0,4.971 4.029,9 9,9 z"
+   id="path5268"
+   inkscape:connector-curvature="0"
+   style="fill:url(#SVGID_1_);stroke:#3497b8;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   enable-background="new    "
+   font-size="10"
+   id="text5270"
+   style="font-size:10px;font-family:Calibri"
+   x="501.4043"
+   y="-175.84381">Logger<paragraph
+   horizAlign="2" /><tabList /></svg:text>
+
+<svg:linearGradient
+   id="SVGID_2_"
+   gradientUnits="userSpaceOnUse"
+   x1="-3.9414001"
+   y1="383.11569"
+   x2="-3.9414001"
+   y2="384.11569"
+   gradientTransform="matrix(238.63,0,0,-71.6599,1619.1638,27321.111)">
+	<svg:stop
+   offset="0"
+   style="stop-color:#EEF8FB"
+   id="stop5273" />
+	<svg:stop
+   offset="1"
+   style="stop-color:#EAF5F9"
+   id="stop5275" />
+</svg:linearGradient>
+<svg:path
+   stroke-miterlimit="3"
+   d="m 559.235,-132.965 h 119.31 119.32 v -71.66 h -119.32 -119.31 v 71.66 z"
+   id="path5277"
+   inkscape:connector-curvature="0"
+   style="fill:url(#SVGID_2_);stroke:#95cee1;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:path
+   d="m 559.604,-152.84 c 78.84,12 159.041,12 237.881,0 v -4.5 c -78.84,12 -159.041,12 -237.881,0 v 4.5 z"
+   id="path5279"
+   inkscape:connector-curvature="0"
+   style="fill:#95cee1;fill-opacity:0.5" />
+<svg:path
+   d="m 559.235,-121.714 h 238.63 v -31.5 c -79.091,12 -159.54,12 -238.63,0 v 31.5 z"
+   id="path5281"
+   inkscape:connector-curvature="0"
+   style="fill:#95cee1" />
+<svg:text
+   enable-background="new    "
+   font-size="10"
+   id="text5283"
+   style="font-size:10px;font-family:Calibri"
+   x="626.9248"
+   y="-129.96478">Configuration manager<paragraph
+   horizAlign="1" /><tabList /></svg:text>
+
+<svg:linearGradient
+   id="SVGID_3_"
+   gradientUnits="userSpaceOnUse"
+   x1="-6.0897999"
+   y1="386.7417"
+   x2="-6.0897999"
+   y2="387.7417"
+   gradientTransform="matrix(427.47,0,0,-159.01,2826.1738,61454.336)">
+	<svg:stop
+   offset="0"
+   style="stop-color:#EEF8FB"
+   id="stop5286" />
+	<svg:stop
+   offset="1"
+   style="stop-color:#EAF5F9"
+   id="stop5288" />
+</svg:linearGradient>
+<svg:path
+   stroke-miterlimit="3"
+   d="m 9.375,-41.565 h 213.729 213.74 v -159.01 H 223.104 9.375 v 159.01 z"
+   id="path5290"
+   inkscape:connector-curvature="0"
+   style="fill:url(#SVGID_3_);stroke:#95cee1;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:path
+   d="m 9.755,-155.953 c 141.983,-12 284.727,-12 426.71,0 v -4.5 c -141.983,-12 -284.727,-12 -426.71,0 l -0.01,4.5 h 0.01 z"
+   id="path5292"
+   inkscape:connector-curvature="0"
+   style="fill:#95cee1;fill-opacity:0.5" />
+<svg:path
+   d="m 9.375,-160.078 c 142.237,-12 285.232,-12 427.47,0 v -40.5 H 9.375 v 40.5 z"
+   id="path5294"
+   inkscape:connector-curvature="0"
+   style="fill:#95cee1" />
+<svg:text
+   enable-background="new    "
+   font-size="18"
+   id="text5296"
+   style="font-size:18px;font-family:Calibri"
+   x="212.29491"
+   y="-180.32809">Logger<paragraph
+   horizAlign="1" /><tabList /></svg:text>
+
+<svg:rect
+   x="465.17499"
+   y="-80.635986"
+   stroke-miterlimit="3"
+   width="54.323002"
+   height="12.599"
+   id="rect5298"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:rect
+   x="465.17499"
+   y="-130.63699"
+   stroke-miterlimit="3"
+   width="54.323002"
+   height="50.001999"
+   id="rect5300"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text5302"
+   style="font-size:8px;font-family:Calibri"
+   x="466.1748"
+   y="-122.43701">+Debug</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5304"
+   style="font-size:8px;font-family:Calibri"
+   x="466.1748"
+   y="-112.8374">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5306"
+   style="font-size:8px;font-family:Calibri"
+   x="470.15921"
+   y="-112.8374">Info</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5308"
+   style="font-size:8px;font-family:Calibri"
+   x="466.1748"
+   y="-103.23682">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5310"
+   style="font-size:8px;font-family:Calibri"
+   x="470.15921"
+   y="-103.23682">warning</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5312"
+   style="font-size:8px;font-family:Calibri"
+   x="466.1748"
+   y="-93.637207">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5314"
+   style="font-size:8px;font-family:Calibri"
+   x="470.15921"
+   y="-93.637207">Error</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5316"
+   style="font-size:8px;font-family:Calibri"
+   x="466.1748"
+   y="-84.036591">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5318"
+   style="font-size:8px;font-family:Calibri"
+   x="470.15921"
+   y="-84.036591">Fatal</svg:text>
+
+<svg:rect
+   x="465.17499"
+   y="-151.84"
+   stroke-miterlimit="3"
+   width="54.323002"
+   height="21.202999"
+   id="rect5320"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text5322"
+   style="font-size:8px;font-family:Calibri"
+   x="467.08499"
+   y="-143.64011">«enumeration»</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5324"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="478.8447"
+   y="-134.0405">Severity</svg:text>
+
+<svg:rect
+   x="52.575001"
+   y="-142.36499"
+   stroke-miterlimit="3"
+   width="187.19901"
+   height="30.802999"
+   id="rect5326"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text5328"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="53.574699"
+   y="-134.1655">+getSeverity() : Severity</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5330"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="53.574699"
+   y="-124.5654">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5332"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="57.559101"
+   y="-124.5654">setSeverity(in severity : Severity) : void</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5334"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="53.574699"
+   y="-114.96631">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5336"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="57.559101"
+   y="-114.96631">log(in severity : Severity, in message : std::string) : void</svg:text>
+
+<svg:rect
+   x="52.575001"
+   y="-156.769"
+   stroke-miterlimit="3"
+   width="187.19901"
+   height="14.399"
+   id="rect5338"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text5340"
+   style="font-size:8px;font-family:Calibri"
+   x="115.375"
+   y="-147.16888">«interface»</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5342"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="152.3784"
+   y="-147.16888">ILogger</svg:text>
+
+<svg:rect
+   x="258.495"
+   y="-114.87601"
+   stroke-miterlimit="3"
+   width="141.479"
+   height="12.602"
+   id="rect5344"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   enable-background="new    "
+   font-size="8"
+   id="text5346"
+   style="font-size:8px;font-family:Calibri"
+   x="259.4946"
+   y="-106.67529">+log() : std::ostream<paragraph /><tabList /></svg:text>
+
+<svg:rect
+   x="258.495"
+   y="-145.67599"
+   stroke-miterlimit="3"
+   width="141.479"
+   height="30.802999"
+   id="rect5348"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text5350"
+   style="font-size:8px;font-family:Calibri"
+   x="259.4946"
+   y="-137.47559">-ss_ : std::stringstream</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5352"
+   style="font-size:8px;font-family:Calibri"
+   x="259.4946"
+   y="-127.87549">-</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5354"
+   style="font-size:8px;font-family:Calibri"
+   x="261.94379"
+   y="-127.87549">logger_ : ILogger</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5356"
+   style="font-size:8px;font-family:Calibri"
+   x="259.4946"
+   y="-118.2749">-</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5358"
+   style="font-size:8px;font-family:Calibri"
+   x="261.94379"
+   y="-118.2749">severity_ : Severity</svg:text>
+
+<svg:path
+   stroke-miterlimit="3"
+   d="m 258.495,-145.679 h 141.479 v -14.4 H 258.495 v 14.4 z"
+   id="path5360"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   enable-background="new    "
+   font-size="8"
+   id="text5362"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="306.1445"
+   y="-150.479">ScopedLogger<paragraph
+   horizAlign="1" /><tabList /></svg:text>
+
+<svg:path
+   stroke-miterlimit="3"
+   d="m 326.179,-70.366 3.061,-31.909"
+   id="path5364"
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3;stroke-dasharray:5.25, 3.75" />
+<svg:path
+   stroke-miterlimit="3"
+   d="m 326.179,-70.366 -28.8,-10.8"
+   id="path5366"
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3;stroke-dasharray:5.25, 3.75" />
+<svg:path
+   stroke-miterlimit="3"
+   d="m 419.314,-77.566 -9,-10.799 v 10.799 h 9 z m -186.269,25.2 h 186.27 v -25.2 h -9 v -10.799 h -177.27 v 35.999 z"
+   id="path5368"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.23999999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3">
+<paragraph />
+	<tabList />
+</svg:path>
+<svg:text
+   font-size="8"
+   id="text5370"
+   style="font-size:8px;font-family:Calibri"
+   x="237.04491"
+   y="-67.966309">everythings are already implemented in the .h file</svg:text>
+
+<svg:rect
+   x="568.23499"
+   y="-174.41501"
+   stroke-miterlimit="3"
+   width="220.627"
+   height="21.204"
+   id="rect5372"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text5374"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="569.23438"
+   y="-166.2148">+findValue(in key : std::string) : BrefValue</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5376"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="569.23438"
+   y="-156.6152">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5378"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="573.21881"
+   y="-156.6152">findValue(in key : std::string, in request : HttpRequest) : BrefValue</svg:text>
+
+<svg:rect
+   x="568.23499"
+   y="-195.618"
+   stroke-miterlimit="3"
+   width="220.627"
+   height="21.202999"
+   id="rect5380"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text5382"
+   style="font-size:8px;font-family:Calibri"
+   x="659.88483"
+   y="-187.418">«interface»</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text5384"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="658.70508"
+   y="-177.81842">IConfHelper</svg:text>
+
+</svg:svg>

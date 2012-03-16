@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bref. Une API Zia - Documentation - Implémenter notre API</title>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./assets/css/prettify.css" rel="stylesheet">
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-29009488-1']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="index.html">Bref.</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="documentation-intro.html">Découvrir l'API</a></li>
+              <li class="active"><a href="documentation-api.html">Implémenter l'API</a></li>
+              <li><a href="documentation-module.html">Implémenter un module</a></li>
+              <li><a href="doxygen">Doxygen</a></li>
+              <li><a href="https://github.com/bref/bref-api">Le projet sur Github</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>    
+    
+    <div class="container">
+      <header class="jumbotron subhead" id="overview">
+        <h1>Implémenter notre API</h1>
+        <p class="lead">Comment implémenter facilement notre API ? La réponse ici !</p>
+        <div class="subnav">
+          <ul class="nav nav-pills">
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#logger">Logger</a></li>
+            <li><a href="#brefvalue">BrefValue</a></li>
+            <li><a href="#confhelper">IConfHelper</a></li>
+            <li><a href="#httprequest">HttpRequest / HttpResponse</a></li>
+          </ul>
+        </div>
+      </header>
+      
+      <!-- Intro
+       ================================================== -->
+      <section id="intro">
+        <div class="page-header">
+          <h1>Introduction</h1>
+        </div>
+        <div class="row">
+          <div class="span6">
+            <h3>Cloner le repository de notre API</h3>
+            <p>Avant de commencer à implémenter notre API, vous trouverez son code source sur GitHub. Vous pouvez le clonner comme ceci :</p>
+            <pre class="prettyprint">$ git clone git@github.com:bref/bref-api.git
+$ cd bref-api
+$ git checkout stable</pre>
+          </div>
+          <div class="span6">
+            <h3>Utiliser le repository git en submodule</h3>
+            <p>Le repository de notre api est prévu pour être utilisé en tant que submodule et c'est que nous faisons dans notre propre Zia. Par exemple nous voulons l'utiliser dans le dossier <strong>./src/api</strong>,
+            par rapport à la racine de notre repository :</p>
+            <pre class="prettyprint">$ git submodule add git@github.com:bref/bref-api.git src/api
+$ cd src/api
+$ git checkout stable
+$ cd ../..
+$ git add src/api
+$ git commit -m "Add bref API"</pre>
+            <p class="pull-right"><a class="btn" href="http://progit.org/book/fr/ch6-6.html">Plus d'infos sur les submodules &raquo;</a></p>
+          </div>
+      </section>
+
+      
+      <!-- Logger
+       ================================================== -->
+      <section id="logger">
+        <div class="page-header">
+          <h1>Logger</h1>
+        </div>
+        <h3>Implémentation</h3>
+        <p>Les macros de log sont construites sur le modèle de : </p>
+        <pre class="prettyprint">#define LOG(logger, sev) bref::ScopedLogger(logger, sev).log()
+#define LOG_DEBUG(logger) LOG(logger, bref::ILogger::DEBUG)</pre>
+        <p>En réalité, afin de réduire l'utilisation de ressources en log ignoré, la macro LOG teste le niveau de log avant de construire un ScopedLogger et de l'utilisation de streams.</p>
+        <p>La classe <a href="#">ScopedLogger</a> est déjà implémentée : 
+        Il vous reste donc qu'à implémenter votre classe de log héritant de l'interface <a href="#">ILogger</a> suivante :</p>
+        <pre class="prettyprint linenums">
+class ILogger
+{
+public:
+  virtual ~ILogger() {};
+  virtual Severity severity() const = 0;
+  virtual void setSeverity(Severity newSeverity) = 0;
+
+  virtual void log(Severity severity, const std::string & message) = 0;
+};</pre>
+        <p>La méthode log de votre future classe de log sera appelée à la destruction du <a href="#">ScopedLogger</a>, avec en paramètre le niveau de log fourni ainsi que
+        le message à logger.</p>
+      </section>
+      
+      <!-- BrefValue
+       ================================================== -->
+      <section id="brefvalue">
+        <div class="page-header">
+          <h1>BrefValue <small>Un conteneur simple pour la configuration de votre serveur et ses requêtes</small></h1>
+        </div>
+        <p>Nous somme partis du fait qu'il nous fallait un conteneur pour notre configuration YAML, nous avons donc créé celui-ci en pensant à l'<strong>arborescence</strong> de celle-ci,
+        c'est pourquoi celui-ci intègre à la fois deux types : <code class="prettyprint inline">BrefValueList</code> et <code class="prettyprint inline">BrefValueArray</code>, respectivement une <code class="prettyprint inline">std::list</code> et une <code class="prettyprint inline">std::map</code> de BrefValue. Au final ce conteneur est </p>
+        <div class="row">
+          <div class="span6">
+            <h3>Types</h3>
+            <p>Notre conteneur générique permet de stocker les types suivants :</p>
+            <ul>
+              <li><code class="prettyprint inline">std::string</code> ;</li>
+              <li><code class="prettyprint inline">bool</code> ;</li>
+              <li><code class="prettyprint inline">int</code> ;</li>
+              <li><code class="prettyprint inline">BrefValueList</code> : correspondant à une <code class="prettyprint inline">std::list&lt;bref::BrefValue&gt;</code> ;</li>
+              <li><code class="prettyprint inline">BrefValueArray</code> : correspondant à une <code class="prettyprint inline">std::map&lt;std::string, bref::BrefValue&gt;</code>.</li>
+            </ul>
+          </div>
+          <div class="span6">
+            <h3>Implémentation</h3>
+            <p>Pour l'implémenter, rien de plus simple, développez :</p>
+            <ul>
+              <li>Les méthodes de modification de contenu :
+                <ul>
+                  <li>Les setters, par exemple : <code class="prettyprint inline">void setNull()</code> ;</li>
+                  <li>Une méthode pour pusher dans la <code class="prettyprint inline">BrefValueList</code> : <code class="prettyprint inline">void push(const bref::BrefValue &node)</code> ;</li>
+                  <li>Un <code class="prettyprint inline">operator[]</code> pour le <code class="prettyprint inline">BrefValueArray</code> ;</li>
+                </ul>
+              </li>
+              <li>Les méthodes de test du type contenu, par exemple : <code class="prettyprint inline">bool isNull() const</code> ;</li>
+              <li>les méthodes de récuperation de contenu, par exemple : <code class="prettyprint inline">bool asBool() const</code>.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+            
+      <!-- IConfHelper
+       ================================================== -->
+      <section id="confhelper">
+        <div class="page-header">
+          <h1>IConfHelper <small>Récupérez rapidement les éléments de vos BrefValue</small></h1>
+        </div>
+        <p>Avoir un conteneur générique, c'est bien, mais implémenter des méthodes pour le parcourir à chaque fois qu'on en a besoin, ça l'est moins.
+        C'est pourquoi nous avons pensé inclure des méthodes d'aide au parcours de nos <code class="prettyprint inline">BrefValue</code> pour le corps du serveur, mais aussi les modules.</p>
+        
+        <div class="row">
+          <div class="span6">
+            <h3>Exemple</h3>
+            <p>Pour mieux comprendre, voici un exemple simple : vous voulez récupérer une variable <code>DocumentRoot</code> dans votre configuration.</p>
+            <p>Nous avons, ici un extrait de configuration (et oui, en YAML, parcequ'on aime ça) :</p>
+            <pre>DocumentRoot: /var/www
+VirtualHosts:
+  - ServerName: example.com
+    DocumentRoot: /home/vhosts/example.com
+  - ServerName: example.fr
+    DocumentRoot: /home/vhosts/example.fr
+  - ServerName: example.net</pre>
+            <p>En fonction du VirtualHost où que l'on utilise, la racine de celui-ci n'est pas la même, il nous faut donc des méthodes pour récupérer la valeur la plus pertinente, par exemple,
+            le <code>DocumentRoot</code> du VitualHost pour l'host <em>example.com</em> (/home/vhosts/example.com) ou le "général" pour l'host <em>example.net</em> (/var/www).</p>
+          </div>
+          <div class="span6">
+            <h3>Utilisation</h3>
+            <p>Cherchant soit une variable de configuration générique, soit une variablde configuration dépendant du contexte d'une requête HTTP, nous avons donc deux fonctions dans
+            notre interface IConfHelper :</p>
+            <pre class="prettyprint">virtual const BrefValue & findValue(std::string const & key) = 0;
+virtual const BrefValue & findValue(std::string const & key,
+                                    HttpRequestHeader const & request) = 0;</pre>
+            <p>Nous pouvons par exemple récupérer les deux <em>DocumentRoot</em> de l'exemple ci-contre : notre fonction <code>findValue</code> utilisera le header HTTP <em>Host</em> de la
+            requête et la variable de configuration <em>ServerName</em> afin de déterminer quel <em>DocumentRoot</em> retourner.</p>
+            </div>
+        </div>
+      </section>
+
+      <!-- Requêtes HTTP
+       ================================================== -->
+      <section id="httprequest">
+        <div class="page-header">
+          <h1>HttpRequest / HttpResponse <small>Un conteneur pour les requêtes et réponses HTTP</small></h1>
+        </div>
+        <p>Ayant un <a href="#brefvalue">BrefValue</a> dans notre API, nous avons tout simplement créer deux classes, <code class="prettyprint inline">HttpRequest</code> et
+        <code class="prettyprint inline">HttpResponse</code>, héritant toutes les deux d'une map de <a href="#brefvalue">BrefValue</a>, et incluant des getters et setters
+        spécifiques à une requête et une réponse HTTP.</p>
+        <!--<p class="pull-right">
+          <a class="btn" href="documentation-uml.html#requests">Voir l'UML des requêtes HTTP  &raquo;</a>
+        </p>-->
+      </section>
+      
+
+      <hr>
+      <footer>
+        <p class="pull-right">
+          <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=bref&repo=bref-api&type=watch&size=large"
+            allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+          <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=bref&repo=bref-api&type=fork&size=large"
+            allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+          <a href="http://twitter.com/BrefAPI" /><img src="./assets/img/icon_twitter.png" alt="Suivez-nous sur twitter" /></a>
+          <a href="irc://irc.epitech.net/bref"><img src="./assets/img/icon_irc.png" id="irc" />
+        </p>
+        <p class="pull-left epilogo"><a href="http://www.epitech.eu"><img src="./assets/img/epitech.gif" alt="Epitech" /></a></p>
+        <p>Bref. L'API Zia Epitech Nantes 2014.</p>
+        <p>Par
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=badaud_t">badaud_t</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=chiron_f">chiron_f</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=giersc_v">giersc_v</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=papin_g">papin_g</a> et
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=rannou_p">rannou_p</a>.
+        </p>
+      </footer>
+      
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="./assets/js/bootstrap-scrollspy.js"></script>
+    <script src="./assets/js/prettify/prettify.js"></script>
+    <script>
+      $(document).ready(function() {
+        prettyPrint();
+
+        var $win = $(window)
+          , $nav = $('.subnav')
+          , navTop = $('.subnav').length && $('.subnav').offset().top - 40
+          , isFixed = 0;
+
+        function processScroll() {
+          var i, scrollTop = $win.scrollTop()
+          if (scrollTop >= navTop && !isFixed) {
+            isFixed = 1;
+            $nav.addClass('subnav-fixed');
+          } else if (scrollTop <= navTop && isFixed) {
+            isFixed = 0
+            $nav.removeClass('subnav-fixed')
+          }
+        }
+                        
+        processScroll();
+        $win.on('scroll', processScroll);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In  -->
+
+<svg:svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="800"
+   height="172"
+   viewBox="-17.783 -16.569 800 172"
+   overflow="visible"
+   enable-background="new -17.783 -16.569 800 600"
+   xml:space="preserve"
+   id="svg3199"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="uml-module.svg"
+   style="overflow:visible"
+   inkscape:export-filename="/Users/giersc_v/projets/bref.github.com/assets/img/uml-module.png"
+   inkscape:export-xdpi="179.9633"
+   inkscape:export-ydpi="179.9633"><svg:metadata
+   id="metadata3360"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></svg:metadata><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1575"
+   inkscape:window-height="858"
+   id="namedview3358"
+   showgrid="false"
+   inkscape:zoom="1.44"
+   inkscape:cx="427.77778"
+   inkscape:cy="4.4522427"
+   inkscape:window-x="0"
+   inkscape:window-y="0"
+   inkscape:window-maximized="0"
+   inkscape:current-layer="svg3199" />
+<svg:defs
+   id="defs3201">
+</svg:defs>
+<svg:linearGradient
+   id="SVGID_1_"
+   gradientUnits="userSpaceOnUse"
+   x1="-20.045401"
+   y1="598.87402"
+   x2="-20.045401"
+   y2="599.87402"
+   gradientTransform="matrix(207,0,0,-114.5601,4248.3954,68720.749)">
+	<svg:stop
+   offset="0"
+   style="stop-color:#EEF8FB"
+   id="stop3204" />
+	<svg:stop
+   offset="1"
+   style="stop-color:#EAF5F9"
+   id="stop3206" />
+</svg:linearGradient>
+<svg:path
+   stroke-miterlimit="3"
+   d="M -4.5694444,113.87944 H 98.930556 202.43056 v -114.56 H 98.930556 -4.5694444 v 114.56 z"
+   id="path3208"
+   inkscape:connector-curvature="0"
+   style="fill:url(#SVGID_1_);stroke:#95cee1;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:path
+   d="m 13.810556,105.25444 c 56.116,12 114.135004,12 170.250004,0 v -4.5 c -56.115,12 -114.134004,12 -170.250004,0 v 4.5 z"
+   id="path3210"
+   inkscape:connector-curvature="0"
+   style="fill:#95cee1;fill-opacity:0.5" />
+<svg:path
+   d="M 13.430556,145.37944 H 184.43056 v -40.5 c -56.368,12 -114.632004,12 -171.000004,0 v 40.5 z"
+   id="path3212"
+   inkscape:connector-curvature="0"
+   style="fill:#95cee1" />
+<svg:text
+   font-size="16"
+   id="text3214"
+   style="font-size:16px;font-family:ArialMT"
+   x="37.500877"
+   y="135.02945"><svg:tspan
+     style="font-size:13px"
+     id="tspan3362">Module Abstration</svg:tspan></svg:text>
+
+<svg:rect
+   x="13.430555"
+   y="29.529434"
+   stroke-miterlimit="3"
+   width="180"
+   height="59.604"
+   id="rect3216"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text3218"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="14.430555"
+   y="37.72963">+name() : std::string</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3220"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="14.430555"
+   y="47.329239">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3222"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="18.414955"
+   y="47.329239">description() : std::string</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3224"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="14.430555"
+   y="56.929337">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3226"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="18.414955"
+   y="56.929337">versionModule(in version : Version) : void</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3228"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="14.430555"
+   y="66.529434">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3230"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="18.414955"
+   y="66.529434">minApiVersion(in version : Version) : void</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3232"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="14.430555"
+   y="76.129532">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3234"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="18.414955"
+   y="76.129532">registerOnHook(out pipeline : Pipeline) : void</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3236"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="14.430555"
+   y="85.729141">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3238"
+   style="font-size:8px;font-family:Calibri-Italic"
+   x="18.414955"
+   y="85.729141">dispose() : void</svg:text>
+
+<svg:rect
+   x="13.430555"
+   y="8.3264313"
+   stroke-miterlimit="3"
+   width="180"
+   height="21.202999"
+   id="rect3240"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text3242"
+   style="font-size:8px;font-family:Calibri"
+   x="84.770355"
+   y="16.525955">«interface»</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3244"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="89.430557"
+   y="26.126053">IModule</svg:text>
+
+<svg:linearGradient
+   id="SVGID_2_"
+   gradientUnits="userSpaceOnUse"
+   x1="-16.875999"
+   y1="593.1709"
+   x2="-17.875999"
+   y2="593.1709"
+   gradientTransform="matrix(338.4,0,0,-144,6273.6083,85489.014)">
+	<svg:stop
+   offset="0"
+   style="stop-color:#EEF8FB"
+   id="stop3247" />
+	<svg:stop
+   offset="1"
+   style="stop-color:#EAF5F9"
+   id="stop3249" />
+</svg:linearGradient>
+<svg:path
+   stroke-miterlimit="3"
+   d="m 224.47556,144.35144 h 169.2 169.2 v -144 h -169.2 -169.2 v 144 z"
+   id="path3251"
+   inkscape:connector-curvature="0"
+   style="fill:url(#SVGID_2_);stroke:#95cee1;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:path
+   d="m 260.10056,143.97144 c -12,-46.996 -12,-96.254 0,-143.25 h -4.5 c -12,46.996 -12,96.254 0,143.25 l 4.5,0.011 v -0.011 z"
+   id="path3253"
+   inkscape:connector-curvature="0"
+   style="fill:#95cee1;fill-opacity:0.5" />
+<svg:path
+   d="m 255.97556,144.35144 c -12,-47.25 -12,-96.75 0,-144 h -31.5 v 144 h 31.5 z"
+   id="path3255"
+   inkscape:connector-curvature="0"
+   style="fill:#95cee1" />
+<svg:text
+   transform="matrix(0,-1,1,0,0,0)"
+   enable-background="new    "
+   font-size="10"
+   id="text3257"
+   style="font-size:10px;font-family:Calibri"
+   x="-90.231537"
+   y="238.72546">Pipeline<paragraph
+   horizAlign="1" /><tabList /></svg:text>
+
+<svg:linearGradient
+   id="SVGID_3_"
+   gradientUnits="userSpaceOnUse"
+   x1="-20.5952"
+   y1="597.54303"
+   x2="-20.5952"
+   y2="598.54303"
+   gradientTransform="matrix(183.6,0,0,-116.8999,4451.3935,69970.421)">
+	<svg:stop
+   offset="0"
+   style="stop-color:#EEF8FB"
+   id="stop3260" />
+	<svg:stop
+   offset="1"
+   style="stop-color:#EAF5F9"
+   id="stop3262" />
+</svg:linearGradient>
+<svg:path
+   stroke-miterlimit="3"
+   d="m 578.24356,117.78244 h 91.8 91.801 V 0.88344 h -91.801 -91.8 v 116.899 z"
+   id="path3264"
+   inkscape:connector-curvature="0"
+   style="fill:url(#SVGID_3_);stroke:#95cee1;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:path
+   d="m 578.61356,45.50544 c 60.362,-12.002 122.498,-12.002 182.86,0 v -4.5 c -60.359,-12 -122.491,-12 -182.851,0 l -0.009,4.5 z"
+   id="path3266"
+   inkscape:connector-curvature="0"
+   style="fill:#95cee1;fill-opacity:0.5" />
+<svg:path
+   d="m 578.24356,41.38044 c 60.612,-12 122.988,-12 183.601,0 v -40.5 h -183.601 v 40.5 z"
+   id="path3268"
+   inkscape:connector-curvature="0"
+   style="fill:#95cee1" />
+<svg:text
+   enable-background="new    "
+   font-size="18"
+   id="text3270"
+   style="font-size:18px;font-family:Calibri"
+   x="613.96204"
+   y="22.028946"><svg:tspan
+     style="font-size:14px"
+     id="tspan3364">Pipeline - Processing</svg:tspan></svg:text>
+
+<svg:rect
+   x="587.24353"
+   y="96.182434"
+   stroke-miterlimit="3"
+   width="165.601"
+   height="12.6"
+   id="rect3272"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:rect
+   x="587.24353"
+   y="55.78244"
+   stroke-miterlimit="3"
+   width="165.601"
+   height="40.403999"
+   id="rect3274"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text3276"
+   style="font-size:8px;font-family:Calibri"
+   x="588.24304"
+   y="63.983032">+Upstream : Upstream</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3278"
+   style="font-size:8px;font-family:Calibri"
+   x="588.24304"
+   y="73.582642">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3280"
+   style="font-size:8px;font-family:Calibri"
+   x="592.22742"
+   y="73.582642">DownStream : DownStream</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3282"
+   style="font-size:8px;font-family:Calibri"
+   x="588.24304"
+   y="83.182739">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3284"
+   style="font-size:8px;font-family:Calibri"
+   x="592.22742"
+   y="83.182739">Gate : Gate</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3286"
+   style="font-size:8px;font-family:Calibri"
+   x="588.24304"
+   y="92.782837">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3288"
+   style="font-size:8px;font-family:Calibri"
+   x="592.22742"
+   y="92.782837">Bridge : Bridge</svg:text>
+
+<svg:path
+   stroke-miterlimit="3"
+   d="m 587.24356,55.77844 h 165.601 v -14.398 h -165.601 v 14.398 z"
+   id="path3290"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   enable-background="new    "
+   font-size="8"
+   id="text3292"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="656.64343"
+   y="50.979141">Pipeline<paragraph
+   horizAlign="1" /><tabList /></svg:text>
+
+<svg:rect
+   x="408.44254"
+   y="45.35144"
+   stroke-miterlimit="3"
+   width="136.06599"
+   height="12.601"
+   id="rect3294"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:rect
+   x="408.44254"
+   y="24.152451"
+   stroke-miterlimit="3"
+   width="136.06599"
+   height="21.202999"
+   id="rect3296"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text3298"
+   style="font-size:8px;font-family:Calibri"
+   x="409.44223"
+   y="32.351639">+dynamicHooks : std::list&lt;Hook&gt;</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3300"
+   style="font-size:8px;font-family:Calibri"
+   x="409.44223"
+   y="41.951248">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3302"
+   style="font-size:8px;font-family:Calibri"
+   x="413.42664"
+   y="41.951248">staticHooks : std::list&lt;Hook&gt;</svg:text>
+
+<svg:path
+   stroke-miterlimit="3"
+   d="m 408.44256,24.14844 h 136.07 v -14.4 h -136.07 v 14.4 z"
+   id="path3304"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text3306"
+   style="font-size:8px;font-family:Calibri"
+   x="452.24304"
+   y="19.348251">«struct»</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3308"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="479.21085"
+   y="19.348251">Bridge</svg:text>
+
+<svg:rect
+   x="260.47556"
+   y="45.35144"
+   stroke-miterlimit="3"
+   width="129.60001"
+   height="12.601"
+   id="rect3310"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:rect
+   x="260.47556"
+   y="24.152451"
+   stroke-miterlimit="3"
+   width="129.60001"
+   height="21.202999"
+   id="rect3312"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text3314"
+   style="font-size:8px;font-family:Calibri"
+   x="261.47543"
+   y="32.351639">+readHook : std::list&lt;Hook&gt;</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3316"
+   style="font-size:8px;font-family:Calibri"
+   x="261.47543"
+   y="41.951248">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3318"
+   style="font-size:8px;font-family:Calibri"
+   x="265.45984"
+   y="41.951248">parsingHook : std::list&lt;Hook&gt;</svg:text>
+
+<svg:path
+   stroke-miterlimit="3"
+   d="m 260.47556,24.14844 h 129.6 v -14.4 h -129.6 v 14.4 z"
+   id="path3320"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text3322"
+   style="font-size:8px;font-family:Calibri"
+   x="295.34555"
+   y="19.348251">«struct»</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3324"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="322.31433"
+   y="19.348251">Upstream</svg:text>
+
+<svg:rect
+   x="260.47556"
+   y="108.35144"
+   stroke-miterlimit="3"
+   width="129.60001"
+   height="12.601"
+   id="rect3326"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:rect
+   x="260.47556"
+   y="95.751434"
+   stroke-miterlimit="3"
+   width="129.60001"
+   height="12.6"
+   id="rect3328"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   enable-background="new    "
+   font-size="8"
+   id="text3330"
+   style="font-size:8px;font-family:Calibri"
+   x="261.47543"
+   y="103.95174">+transformsHooks : std::list&lt;Hook&gt;<paragraph /><tabList /></svg:text>
+
+<svg:path
+   stroke-miterlimit="3"
+   d="m 260.47556,95.75144 h 129.6 v -14.4 h -129.6 v 14.4 z"
+   id="path3332"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text3334"
+   style="font-size:8px;font-family:Calibri"
+   x="290.00574"
+   y="90.951736">«struct»</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3336"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="316.97403"
+   y="90.951736">DownStream</svg:text>
+
+<svg:rect
+   x="408.07553"
+   y="117.35144"
+   stroke-miterlimit="3"
+   width="136.80099"
+   height="12.601"
+   id="rect3338"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:rect
+   x="408.07553"
+   y="86.551437"
+   stroke-miterlimit="3"
+   width="136.80099"
+   height="30.804001"
+   id="rect3340"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text3342"
+   style="font-size:8px;font-family:Calibri"
+   x="409.07504"
+   y="94.751541">+connectionHooks : std::list&lt;Hook&gt;</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3344"
+   style="font-size:8px;font-family:Calibri"
+   x="409.07504"
+   y="104.35114">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3346"
+   style="font-size:8px;font-family:Calibri"
+   x="413.05945"
+   y="104.35114">receiveHooks : std::list&lt;Hook&gt;</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3348"
+   style="font-size:8px;font-family:Calibri"
+   x="409.07504"
+   y="113.95123">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3350"
+   style="font-size:8px;font-family:Calibri"
+   x="413.05945"
+   y="113.95123">sendHook : std::list&lt;Hook&gt;</svg:text>
+
+<svg:path
+   stroke-miterlimit="3"
+   d="m 408.07556,86.54844 h 136.8 v -14.4 h -136.8 v 14.4 z"
+   id="path3352"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text3354"
+   style="font-size:8px;font-family:Calibri"
+   x="455.02524"
+   y="81.748138">«struct»</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text3356"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="481.99405"
+   y="81.748138">Gate</svg:text>
+
+</svg:svg>

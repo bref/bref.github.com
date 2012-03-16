@@ -3,14 +3,121 @@
   <head>
     <meta charset="utf-8">
     <title>Bref. Une API Zia</title>
-    <style>
-        body {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;padding:150px 0 0 0;background-color:#f5f5f5;text-align:center;}
-        h1{margin:0 0 5px 0;font-weight:bold;color:#333333;font-size:81px;text-rendering:optimizelegibility;line-height:1;letter-spacing:-1px;}
-        p{font-size:30px;font-weight:200;line-height:27px;}
-    </style>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./assets/css/prettify.css" rel="stylesheet">
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-29009488-1']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
   </head>
+
   <body>
-    <h1>Bref.</h1>
-    <p>On vous proposera bientôt notre API.</p>
+    
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+          </a>
+          <a class="brand" href="#">Bref.</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="index.html">Accueil</a></li>
+              <li><a href="documentation-intro.html">Découvrir l'API</a></li>
+              <li><a href="documentation-api.html">Implémenter l'API</a></li>
+              <li><a href="documentation-module.html">Implémenter un module</a></li>
+              <li><a href="doxygen">Doxygen</a></li>
+              <li><a href="https://github.com/bref/bref-api">Le projet sur Github</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="bref-home">
+        <h1>Bref.</h1>
+        <p class="lead">On vous propose notre API.</p>
+        <p class="starting"><a class="btn btn-large btn-info" href="documentation-intro.html">Commencer à découvrir l'API &raquo;</a></p>
+      </div>
+      
+      <div class="row">
+        <div class="span4">
+          <h2>Découvrir l'API</h2>
+          <p>
+            <a href="documentation-intro.html" class="thumbnail"><img src="./assets/img/home-intro.jpg" alt="Commencer à découvrir l'API"></a>
+            Venez découvrir un rapide tour d'horizon de l'API Bref, notamment le fonctionnement son système de pipeline.
+          </p>
+          <p class="pull-right"><a class="btn" href="documentation-intro.html">Commencer à découvrir l'API &raquo;</a></p>
+        </div>
+        
+        <div class="span4">
+          <h2>Implémenter notre API</h2>
+          <p>
+            <a href="documentation-api.html" class="thumbnail"><img src="./assets/img/home-api.jpg" alt="Implémentez notre API"></a>
+            Vous trouverez ici les différentes classes que vous devrez implémenter pour utiliser les modules compatibles avec l'API Bref.
+          </p>
+          <p class="pull-right"><a class="btn" href="documentation-api.html">Voir la documentation &raquo;</a></p>
+        </div>
+        
+        <div class="span4">
+          <h2>Implémenter un module</h2>
+          <p>
+            <a href="documentation-module.html" class="thumbnail"><img src="./assets/img/home-examples.jpg" alt="Implémentez un module"></a>
+            Vous trouverez ici plusieurs exemples d'implémentation de modules utilisant l'API Bref.
+          </p>
+          <p class="pull-right"><a class="btn" href="documentation-module.html">Voir la documentation &raquo;</a></p>
+        </div>
+        
+       <!-- <div class="span4">
+          <h2>Le projet sur Github</h2>
+          <p>
+            <a href="https://github.com/bref/bref-api" class="thumbnail"><img src="./assets/img/home-github.jpg" alt="bref-api sur GitHub"></a>
+            Notre API Bref sur Github : clonez, forkez la dernière version stable ; postez vos problèmes, proposez vos idées, suggestions
+            et améliorations.  
+          </p>
+          <p class="pull-right"><a class="btn" href="https://github.com/bref/bref-api">Bref-API sur Github &raquo;</a></p>
+        </div>-->
+      </div>
+      
+      <hr>
+      
+      <footer>
+        <p class="pull-right">
+          <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=bref&repo=bref-api&type=watch&size=large"
+            allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+          <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=bref&repo=bref-api&type=fork&size=large"
+            allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+          <a href="http://twitter.com/BrefAPI" /><img src="./assets/img/icon_twitter.png" alt="Suivez-nous sur twitter" /></a>
+          <a href="irc://irc.epitech.net/bref"><img src="./assets/img/icon_irc.png" id="irc" />
+        </p>
+        <p class="pull-left epilogo"><a href="http://www.epitech.eu"><img src="./assets/img/epitech.gif" alt="Epitech" /></a></p>
+        <p>Bref. L'API Zia Epitech Nantes 2014.</p>
+        <p>Par
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=badaud_t">badaud_t</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=chiron_f">chiron_f</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=giersc_v">giersc_v</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=papin_g">papin_g</a> et
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=rannou_p">rannou_p</a>.
+        </p>
+      </footer>
+    </div>
   </body>
 </html>

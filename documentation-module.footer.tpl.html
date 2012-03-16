@@ -1,0 +1,52 @@
+
+      <hr>
+      <footer>
+        <p class="pull-right">
+          <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=bref&repo=bref-api&type=watch&size=large"
+            allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+          <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=bref&repo=bref-api&type=fork&size=large"
+            allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+          <a href="http://twitter.com/BrefAPI" /><img src="./assets/img/icon_twitter.png" alt="Suivez-nous sur twitter" /></a>
+          <a href="irc://irc.epitech.net/bref"><img src="./assets/img/icon_irc.png" id="irc" />
+        </p>
+        <p class="pull-left epilogo"><a href="http://www.epitech.eu"><img src="./assets/img/epitech.gif" alt="Epitech" /></a></p>
+        <p>Bref. L'API Zia Epitech Nantes 2014.</p>
+        <p>Par
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=badaud_t">badaud_t</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=chiron_f">chiron_f</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=giersc_v">giersc_v</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=papin_g">papin_g</a> et
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=rannou_p">rannou_p</a>.
+        </p>
+      </footer>
+      
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="./assets/js/bootstrap-scrollspy.js"></script>
+    <script src="./assets/js/prettify/prettify.js"></script>
+    <script>
+      $(document).ready(function() {
+        prettyPrint();
+
+        var $win = $(window)
+          , $nav = $('.subnav')
+          , navTop = $('.subnav').length && $('.subnav').offset().top - 40
+          , isFixed = 0;
+
+        function processScroll() {
+          var i, scrollTop = $win.scrollTop()
+          if (scrollTop >= navTop && !isFixed) {
+            isFixed = 1;
+            $nav.addClass('subnav-fixed');
+          } else if (scrollTop <= navTop && isFixed) {
+            isFixed = 0
+            $nav.removeClass('subnav-fixed')
+          }
+        }
+                        
+        processScroll();
+        $win.on('scroll', processScroll);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bref. Une API Zia - Documentation - Découvrir notre API</title>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./assets/css/prettify.css" rel="stylesheet">
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-29009488-1']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="index.html">Bref.</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="index.html">Accueil</a></li>
+              <li class="active"><a href="documentation-intro.html">Découvrir l'API</a></li>
+              <li><a href="documentation-api.html">Implémenter l'API</a></li>
+              <li><a href="documentation-module.html">Implémenter un module</a></li>
+              <li><a href="doxygen">Doxygen</a></li>
+              <li><a href="https://github.com/bref/bref-api">Le projet sur Github</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>    
+    
+    <div class="container">
+      <header class="jumbotron subhead" id="overview">
+        <h1>Découvrir l'API Bref</h1>
+        <p class="lead">Un rapide tour d'horizon de l'API Bref.</p>
+      </header>
+      
+      <div class="flow"></div>
+      
+      <h1>Pipeline</h1>
+      <p>Notre API est basée sur un système de pipeline, à la fois simple et complet sur lequel
+      s'enregistre les modules du Zia grâce à un système de points d'encrage (hooks), représentés sur le
+      schéma ci-dessus par des points roses.
+      Vous trouverez le détail de chacun d'entre eux en passant votre pointeur dessus.</p>
+      
+      <h2>Fonctionnement</h2>
+      <p>Les hooks sont enregistrés par le module en précisant <strong>la priorité d'exécution</strong> de celui-ci.
+      Chaque hook est appelé une seule fois par requête et peut retourner un <em>RequestHandler</em> qui
+      sera appelé une ou plusieures fois (callback) en fonction du contexte.</p>
+
+      <h2>Exemple avec un module CGI</h2>
+      <p>Par exemple, on aurait un module CGI qui <em>piperait</em> le corps d'une requête POST sur un processus
+      CGI : <em>php-cgi</em>.</p>
+      <p>La classe du module héritant de <code class="prettyprint inline">IModule</code> enregistrerait un hook
+      <em>ContentHook</em>.</p>
+      <p>Cet hook serait ensuite appelé lors d'une nouvelle requête et vérifierait par exemple que l'extension soit
+      ".php", exécuterait alors un processus <em>php-cgi</em>, définirait le fd correspondant standard du processus
+      et retournerait un <em>ContentRequestHandler</em>.</p>
+      <p style="text-align: center;"><img src="./assets/img/hook.png" alt="Exemple d'un hook" /></p>
+      <p>La premère fonction du <em>ContentRequestHandler</em> fournit par le hook serait appelé
+      avec un morceau du corps de la requête jusqu'à ce que tout le corps ait été fourni.</p>
+      <p>La seconde serait appelé lors de la réception par le serveur de données sur le fd fournit, c'est à dire
+      lorsque le processus PHP écrira du contenu sur sa sortie standard.</p>
+      <p class="pull-right"><a class="btn" href="#">&raquo; Voir nos exemples de modules</a></p>
+      
+      <h2>Liste des hooks disponibles</h2>
+      <h3>Gate</h3>
+      <p>La gate gère les communications avec l'extérieur et la génération des données.
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Nom du hook</th>
+            <th>Description</th>
+            <th>Exemple d'utilisation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ConnectionHook</td>
+            <td id="ConnectionHook-text">Appelé lors de la connexion d'un client.</td>
+            <td id="ConnectionHook-ex">Blacklist</td>
+          </tr>
+          <tr>
+            <td>OnReceiveHook</td>
+            <td id="OnReceiveHook-text">Gestion de la lecture des sockets (derrière un système d'évènements tel que
+              select qui signale la présence de données disponibles sur la socket client).
+              On pourra lire directement sur la socket ou alors utiliser une couche SSL comme avec SSL_read().
+            </td>
+            <td id="OnReceiveHook-ex">SSL</td>
+          </tr>
+          <tr>
+            <td>OnSendHook</td>
+            <td id="OnSendHook-text">Appelé lorsqu'il y a des données à écrire sur les sockets.</td>
+            <td id="OnSendHook-ex">SSL</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3>UpStream</h3>
+      <p>L'UpStream correspond aux actions effectuées avant la génération du contenu de la réponse.</p>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Nom du hook</th>
+            <th>Description</th>
+            <th>Exemple d'utilisation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PostReadHook</td>
+            <td id="PostReadHook-text">Appelé après avoir reçu des données et avant l'exécution du
+              parsing du header.</td>
+            <td id="PostReadHook-ex">?</td>
+          </tr>
+          <tr>
+            <td>ParsingHook</td>
+            <td id="ParsingHook-text">Hook procédant au parsing de la requête HTTP.</td>
+            <td id="ParsingHook-ex">Parsing</td>
+          </tr>
+          <tr>
+            <td>PostParsingHook</td>
+            <td id="PostParsingHook-text">Appelé après le parsing du header HTTP.</td>
+            <td id="PostParsingHook-ex">Réécriture d'URL</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3>Bridge</h3>
+      <p>Le bridge génère le contenu de la réponse, statique ou dynamique.</p>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Nom du hook</th>
+            <th>Description</th>
+            <th>Exemple d'utilisation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ContentHook</td>
+            <td id="ContentHook-text">Appelé pour générer le contenu de la réponse. Le handler doit fournir
+            deux méthodes différentes : une d'entrée qui récupère le corps de la requête et une
+            qui génère le corps de la réponse.</td>
+            <td id="ContentHook-ex">CGI, Contenu statique, Listing des dossiers</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3>DownStream</h3>
+      <p>Le DownStream génère la resultat final (encodage, compression, etc.).</p>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Nom du hook</th>
+            <th>Description</th>
+            <th>Exemple d'utilisation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PostContentHook</td>
+            <td id="PostContentHook-text">Appelé après la génération de contenu de la réponse,
+              avec un buffer contenant des "morceaux" du contenu généré.</td>
+            <td id="PostContentHook-ex">Cache côté serveur, Substitution</td>
+          </tr>
+          <tr>
+            <td>TransformHook</td>
+            <td id="TransformHook-text">Transformation du contenu de la réponse.</td>
+            <td id="TransformHook-ex">Encoding, compression</td>
+          </tr>
+          <tr>
+            <td>PreSendHook</td>
+            <td id="PreSendHook-text">Appelé juste avant l'écriture de la réponse sur la socket</td>
+            <td id="PreSendHook-ex">?</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h1>Environnement</h1>
+      <p>Chaque hook prendra une référence sur une structure en paramètre contenant "l'environnement"
+      de la requête, c'est à dire la configuration du serveur et un logger.</p>
+      
+      <div class="row">
+        <div class="span4">
+          <h2>Configuration</h2>
+          <p>La configuration utilise un container, <code class="prettyprint inline">BrefValue</code>,
+          qui embarque <a href="documentation-api.html#brefvalue">plusieurs types</a> et permet
+          d'importer facilement des configurations YAML, XML ou JSON.</p>
+          <p>Le serveur Zia devrait implémenter des <a href="documentation-api.html#confhelper">
+          méthodes d'aide</a> à la récupération d'éléments de configuration viables en fonction de
+          l'environnement : corps du serveur, VirtualHost, etc.</p>
+          <p class="pull-right">
+            <a href="documentation-api.html#brefvalue" class="btn">Implémentation de la configuration &raquo;</a>
+          </p>
+        </div>
+        <div class="span4">
+          <h2>Logger</h2>
+          <p>Afin de faciliter le log d'erreurs dans les modules, un logger est passé en paramètre aux hooks.
+          Il suffit d'utiliser les macros fournies utilisant notre ScopedLogger pour construire un message à
+          logger :</p>
+          <pre class="prettyprint">LOG_ERROR(env.logger) &lt;&lt; "My Error : " &lt;&lt; 42;</pre>
+          <p class="pull-right">
+            <a href="documentation-api.html#logger" class="btn">Implémentation du logger &raquo;</a>
+          </p>
+        </div>
+        <div class="span4">
+          <h2>Requêtes / Réponses HTTP</h2>
+          <p>Les requêtes et réponses HTTP utilisent aussi le conteneur <code class="prettyprint inline">BrefValue</code>
+          pour stocker les différents headers, permettant d'implémenter des potentielles méthodes d'aide
+          communes entre votre configuration et vos requêtes, par exemple pour parser des dates.
+          <!--<p class="pull-right">
+            <a href="documentation-uml.html#requests" class="btn">Voir l'UML des conteneurs de requêtes HTTP &raquo;</a>
+          </p>-->
+        </div>
+      </div>
+      
+      <hr>
+      <footer>
+        <p class="pull-right">
+          <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=bref&repo=bref-api&type=watch&size=large"
+            allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+          <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=bref&repo=bref-api&type=fork&size=large"
+           allowtransparency="true" frameborder="0" scrolling="0" width="90px" height="30px"></iframe>
+          <a href="http://twitter.com/BrefAPI" /><img src="./assets/img/icon_twitter.png" alt="Suivez-nous sur twitter" /></a>
+          <a href="irc://irc.epitech.net/bref"><img src="./assets/img/icon_irc.png" id="irc" />
+        </p>
+        <p class="pull-left epilogo"><a href="http://www.epitech.eu"><img src="./assets/img/epitech.gif" alt="Epitech" /></a></p>
+        <p>Bref. L'API Zia Epitech Nantes 2014.</p>
+        <p>Par
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=badaud_t">badaud_t</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=chiron_f">chiron_f</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=giersc_v">giersc_v</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=papin_g">papin_g</a> et
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=rannou_p">rannou_p</a>.
+        </p>
+      </footer>
+      
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="./assets/js/bootstrap-tooltip.js"></script>
+    <script src="./assets/js/bootstrap-popover.js"></script>
+    <script src="./assets/js/prettify/prettify.js"></script>
+    <script>
+      $(document).ready(function() {
+        prettyPrint();
+        $.get('http://bref.vincent.sh/assets/img/pipeline.svg', function(data) {
+          $('.flow').html(data.documentElement);
+          var hooks = [ 'ConnectionHook', 'OnReceiveHook', 'OnSendHook',
+                        'PostReadHook', 'ParsingHook', 'PostParsingHook',
+                        'ContentHook',
+                        'PostContentHook', 'TransformHook', 'PreSendHook' ];
+          $.each(hooks, function(index, value) {
+            $('#' + value).popover({ placement: 'top', title: value,
+                                     content: $('#' + value + '-text').text() + "<br /><br /><em>Exemple(s) : " + $('#' + value + '-ex').text() + "</em>"});
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

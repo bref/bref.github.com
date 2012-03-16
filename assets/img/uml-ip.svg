@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In  -->
+
+<svg:svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="461"
+   height="265"
+   viewBox="-184.125 -183 461 265"
+   overflow="visible"
+   enable-background="new -184.125 -183 800 600"
+   xml:space="preserve"
+   id="svg4538"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="uml-ip.svg"
+   style="overflow:visible"><svg:metadata
+   id="metadata4718"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></svg:metadata><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1680"
+   inkscape:window-height="906"
+   id="namedview4716"
+   showgrid="false"
+   inkscape:zoom="1"
+   inkscape:cx="400"
+   inkscape:cy="300"
+   inkscape:window-x="0"
+   inkscape:window-y="0"
+   inkscape:window-maximized="0"
+   inkscape:current-layer="svg4538" />
+<svg:defs
+   id="defs4540">
+</svg:defs>
+<svg:linearGradient
+   id="SVGID_1_"
+   gradientUnits="userSpaceOnUse"
+   x1="-186.0708"
+   y1="416.66019"
+   x2="-186.0708"
+   y2="417.66019"
+   gradientTransform="matrix(324,0,0,-221.8501,60277.375,92505.062)">
+	<svg:stop
+   offset="0"
+   style="stop-color:#EEF8FB"
+   id="stop4543" />
+	<svg:stop
+   offset="1"
+   style="stop-color:#EAF5F9"
+   id="stop4545" />
+</svg:linearGradient>
+<svg:path
+   stroke-miterlimit="3"
+   d="m -171.625,69.1 h 162 162 v -221.85 h -162 -162 V 69.1 z"
+   id="path4547"
+   inkscape:connector-curvature="0"
+   style="fill:url(#SVGID_1_);stroke:#95cee1;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:path
+   d="m 49.245,-128.375 c 36.283,-12 75.466,-12 111.75,0 v -4.5 c -36.284,-12 -75.467,-12 -111.75,0 v 4.5 z"
+   id="path4549"
+   inkscape:connector-curvature="0"
+   style="fill:#95cee1;fill-opacity:0.5" />
+<svg:path
+   d="m 48.875,-132.5 c 36.54,-12 75.96,-12 112.5,0 V -164 h -112.5 v 31.5 z"
+   id="path4551"
+   inkscape:connector-curvature="0"
+   style="fill:#95cee1" />
+<svg:text
+   enable-background="new    "
+   font-size="10"
+   id="text4553"
+   style="font-size:10px;font-family:Calibri"
+   x="60.125"
+   y="-149.75">Ip Adress Abstraction<paragraph
+   horizAlign="2" /><tabList /></svg:text>
+
+<svg:path
+   stroke-miterlimit="3"
+   d="m 179.959,67.254 h 30.75 30.75 c 4.971,0 9,-4.029 9,-9 l 0,0 v -75.861 c 0,-4.969 -4.029,-9 -9,-9 l 0,0 h -30.75 -30.75 c -4.971,0 -9,4.031 -9,9 l 0,0 v 75.861 c 0,4.971 4.029,9 9,9 l 0,0 z"
+   id="path4555"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#3497b8;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:linearGradient
+   id="SVGID_2_"
+   gradientUnits="userSpaceOnUse"
+   x1="-190.92329"
+   y1="464.0459"
+   x2="-190.92329"
+   y2="465.0459"
+   gradientTransform="matrix(54,0,0,-22.5,10542.313,10425.688)">
+	<svg:stop
+   offset="0"
+   style="stop-color:#95CEE1"
+   id="stop4558" />
+	<svg:stop
+   offset="1"
+   style="stop-color:#D3ECF3"
+   id="stop4560" />
+</svg:linearGradient>
+<svg:path
+   stroke-miterlimit="3"
+   d="m 214.459,-15.354 h 36 c 4.971,0 9,-4.029 9,-9 v -4.5 c 0,-4.971 -4.029,-9 -9,-9 h -36 c -4.971,0 -9,4.029 -9,9 v 4.5 c 0,4.971 4.029,9 9,9 z"
+   id="path4562"
+   inkscape:connector-curvature="0"
+   style="fill:url(#SVGID_2_);stroke:#3497b8;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   enable-background="new    "
+   font-size="10"
+   id="text4564"
+   style="font-size:10px;font-family:Calibri"
+   x="214.85941"
+   y="-23.6035">IpAdress<paragraph
+   horizAlign="2" /><tabList /></svg:text>
+
+<svg:rect
+   x="-153.075"
+   y="-105.5"
+   stroke-miterlimit="3"
+   width="139.849"
+   height="12.6"
+   id="rect4566"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:rect
+   x="-153.075"
+   y="-118.10001"
+   stroke-miterlimit="3"
+   width="139.849"
+   height="12.6"
+   id="rect4568"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:path
+   stroke-miterlimit="3"
+   d="m -153.075,-118.1 h 139.851 v -14.4 h -139.851 v 14.4 z"
+   id="path4570"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text4572"
+   style="font-size:8px;font-family:Calibri"
+   x="-114.895"
+   y="-122.90039">«union»</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4574"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="-88.035599"
+   y="-122.90039">IPv</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4576"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="-77.859901"
+   y="-122.90039">6</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4578"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="-73.805199"
+   y="-122.90039">Adress</svg:text>
+
+<svg:path
+   stroke-miterlimit="3"
+   d="m -13.225,-107.3 -9,-10.8 v 10.8 h 9 z m -140.31,122 h 140.311 v -122 h -9 v -10.8 H -153.535 V 14.7 z"
+   id="path4580"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.23999999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3">
+<paragraph />
+	<tabList />
+	<newlineChar />
+</svg:path>
+<svg:text
+   font-size="8"
+   id="text4582"
+   style="font-size:8px;font-family:Calibri"
+   x="-149.5352"
+   y="-106.90039">{</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4584"
+   style="font-size:8px;font-family:Calibri"
+   x="-149.5352"
+   y="-97.300797">struct </svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4586"
+   style="font-size:8px;font-family:Calibri"
+   x="-128.95309"
+   y="-97.300797">{</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4588"
+   style="font-size:8px;font-family:Calibri"
+   x="-149.5352"
+   y="-87.700203">    </svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4590"
+   style="font-size:8px;font-family:Calibri"
+   x="-142.3008"
+   y="-87.700203">union {</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4592"
+   style="font-size:8px;font-family:Calibri"
+   x="-149.5352"
+   y="-78.100601">      </svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4594"
+   style="font-size:8px;font-family:Calibri"
+   x="-138.68359"
+   y="-78.100601">unsigned char networkBytes[8];</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4596"
+   style="font-size:8px;font-family:Calibri"
+   x="-149.5352"
+   y="-68.5">      </svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4598"
+   style="font-size:8px;font-family:Calibri"
+   x="-138.68359"
+   y="-68.5">uint64_t      network;</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4600"
+   style="font-size:8px;font-family:Calibri"
+   x="-149.5352"
+   y="-58.900391">    </svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4602"
+   style="font-size:8px;font-family:Calibri"
+   x="-142.3008"
+   y="-58.900391">};</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4604"
+   style="font-size:8px;font-family:Calibri"
+   x="-149.5352"
+   y="-49.300797">    </svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4606"
+   style="font-size:8px;font-family:Calibri"
+   x="-142.3008"
+   y="-49.300797">union {</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4608"
+   style="font-size:8px;font-family:Calibri"
+   x="-149.5352"
+   y="-39.700195">      </svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4610"
+   style="font-size:8px;font-family:Calibri"
+   x="-138.68359"
+   y="-39.700195">unsigned char hostBytes[8];</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4612"
+   style="font-size:8px;font-family:Calibri"
+   x="-149.5352"
+   y="-30.100601">      </svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4614"
+   style="font-size:8px;font-family:Calibri"
+   x="-138.68359"
+   y="-30.100601">uint64_t      host;</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4616"
+   style="font-size:8px;font-family:Calibri"
+   x="-149.5352"
+   y="-20.5">    </svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4618"
+   style="font-size:8px;font-family:Calibri"
+   x="-142.3008"
+   y="-20.5">};</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4620"
+   style="font-size:8px;font-family:Calibri"
+   x="-149.5352"
+   y="-10.900406">  </svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4622"
+   style="font-size:8px;font-family:Calibri"
+   x="-145.918"
+   y="-10.900406">};</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4624"
+   style="font-size:8px;font-family:Calibri"
+   x="-149.5352"
+   y="-1.3007975">  </svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4626"
+   style="font-size:8px;font-family:Calibri"
+   x="-145.918"
+   y="-1.3007975">unsigned char     bytes[16];</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4628"
+   style="font-size:8px;font-family:Calibri"
+   x="-149.5352"
+   y="8.2987976">  </svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4630"
+   style="font-size:8px;font-family:Calibri"
+   x="-145.918"
+   y="8.2987976">}</svg:text>
+
+<svg:rect
+   x="29.975006"
+   y="-94.699997"
+   stroke-miterlimit="3"
+   width="100.801"
+   height="12.6"
+   id="rect4632"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:rect
+   x="29.975006"
+   y="-107.3"
+   stroke-miterlimit="3"
+   width="100.801"
+   height="12.6"
+   id="rect4634"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:path
+   stroke-miterlimit="3"
+   d="m 29.975,-107.3 h 100.801 v -14.4 H 29.975 v 14.4 z"
+   id="path4636"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text4638"
+   style="font-size:8px;font-family:Calibri"
+   x="48.634796"
+   y="-112.09961">«union»</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4640"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="75.494095"
+   y="-112.09961">IPv</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4642"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="85.669891"
+   y="-112.09961">4</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4644"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="89.724609"
+   y="-112.09961">Adress</svg:text>
+
+<svg:path
+   stroke-miterlimit="3"
+   d="m 130.775,-96.1 -9,-10.8 v 10.8 h 9 z m -102.08,35.6 h 102.08 v -35.6 h -9 v -10.8 h -93.08 v 46.4 z"
+   id="path4646"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.23999999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3">
+<paragraph />
+	<tabList />
+	<newlineChar />
+</svg:path>
+<svg:text
+   font-size="8"
+   id="text4648"
+   style="font-size:8px;font-family:Calibri"
+   x="32.694794"
+   y="-95.700203">{</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4650"
+   style="font-size:8px;font-family:Calibri"
+   x="32.694794"
+   y="-86.099609">unsigned char bytes</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4652"
+   style="font-size:8px;font-family:Calibri"
+   x="97.570312"
+   y="-86.099609">[4];</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4654"
+   style="font-size:8px;font-family:Calibri"
+   x="32.694794"
+   y="-76.5">  </svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4656"
+   style="font-size:8px;font-family:Calibri"
+   x="36.311996"
+   y="-76.5">uint32_t      host;</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4658"
+   style="font-size:8px;font-family:Calibri"
+   x="32.694794"
+   y="-66.900391">  </svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4660"
+   style="font-size:8px;font-family:Calibri"
+   x="36.311996"
+   y="-66.900391">}</svg:text>
+
+<svg:rect
+   x="15.574997"
+   y="4.6999969"
+   stroke-miterlimit="3"
+   width="116.4"
+   height="50.002998"
+   id="rect4662"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text4664"
+   style="font-size:8px;font-family:Calibri"
+   x="16.575195"
+   y="12.900414">+isV4() : bool</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4666"
+   style="font-size:8px;font-family:Calibri"
+   x="16.575195"
+   y="22.5">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4668"
+   style="font-size:8px;font-family:Calibri"
+   x="20.559601"
+   y="22.5">isV6() : bool</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4670"
+   style="font-size:8px;font-family:Calibri"
+   x="16.575195"
+   y="32.099586">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4672"
+   style="font-size:8px;font-family:Calibri"
+   x="20.559601"
+   y="32.099586">isV4Compatible() : bool</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4674"
+   style="font-size:8px;font-family:Calibri"
+   x="16.575195"
+   y="41.699203">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4676"
+   style="font-size:8px;font-family:Calibri"
+   x="20.559601"
+   y="41.699203">getV4() : IPv4Adress</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4678"
+   style="font-size:8px;font-family:Calibri"
+   x="16.575195"
+   y="51.299805">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4680"
+   style="font-size:8px;font-family:Calibri"
+   x="20.559601"
+   y="51.299805">getV6() : IPv6Adress</svg:text>
+
+<svg:rect
+   x="15.574997"
+   y="-16.503998"
+   stroke-miterlimit="3"
+   width="116.4"
+   height="21.204"
+   id="rect4682"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text4684"
+   style="font-size:8px;font-family:Calibri"
+   x="16.575195"
+   y="-8.3036957">-ipAdress_</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4686"
+   style="font-size:8px;font-family:Calibri"
+   x="16.575195"
+   y="1.2969065">-</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4688"
+   style="font-size:8px;font-family:Calibri"
+   x="19.024399"
+   y="1.2969065">ipAdressStatus : ipAddressStatus_</svg:text>
+
+<svg:path
+   stroke-miterlimit="3"
+   d="M 15.575,-16.507 H 131.974 V -30.906 H 15.575 v 14.399 z"
+   id="path4690"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   enable-background="new    "
+   font-size="8"
+   id="text4692"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="59.365204"
+   y="-21.306595">IpAdress<paragraph
+   horizAlign="1" /><tabList /></svg:text>
+
+<svg:rect
+   x="179.95901"
+   y="45.654007"
+   stroke-miterlimit="3"
+   width="61.504002"
+   height="12.6"
+   id="rect4694"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:rect
+   x="179.95901"
+   y="14.853996"
+   stroke-miterlimit="3"
+   width="61.504002"
+   height="30.802999"
+   id="rect4696"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text4698"
+   style="font-size:8px;font-family:Calibri"
+   x="180.95901"
+   y="23.053703">+IPv4</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4700"
+   style="font-size:8px;font-family:Calibri"
+   x="180.95901"
+   y="32.653313">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4702"
+   style="font-size:8px;font-family:Calibri"
+   x="184.94339"
+   y="32.653313">IPv6</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4704"
+   style="font-size:8px;font-family:Calibri"
+   x="180.95901"
+   y="42.253906">+</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4706"
+   style="font-size:8px;font-family:Calibri"
+   x="184.94339"
+   y="42.253906">IIPerror</svg:text>
+
+<svg:rect
+   x="179.95901"
+   y="-6.3500061"
+   stroke-miterlimit="3"
+   width="61.504002"
+   height="21.202999"
+   id="rect4708"
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3" />
+<svg:text
+   font-size="8"
+   id="text4710"
+   style="font-size:8px;font-family:Calibri"
+   x="185.45901"
+   y="1.8495941">«enumeration»</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4712"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="181.86911"
+   y="11.450203">ipAddressStatus</svg:text>
+
+<svg:text
+   font-size="8"
+   id="text4714"
+   style="font-size:8px;font-family:Calibri-Bold"
+   x="235.33401"
+   y="11.450203">_</svg:text>
+
+</svg:svg>
