@@ -53,16 +53,22 @@
 
       <div class="flow"></div>
 
-      <h1>Pipeline</h1>
-      <p>Notre API est basée sur un système de pipeline, à la fois simple et complet sur lequel
-      s'enregistre les modules du Zia grâce à un système de points d'encrage (hooks), représentés sur le
-      schéma ci-dessus par des points roses.
-      Vous trouverez le détail de chacun d'entre eux en passant votre pointeur dessus.</p>
-
-      <h2>Fonctionnement</h2>
-      <p>Les hooks sont enregistrés par le module en précisant <strong>la priorité d'exécution</strong> de celui-ci.
-      Chaque hook est appelé une seule fois par requête et peut retourner un <em>RequestHandler</em> qui
-      sera appelé une ou plusieurs fois (callback) en fonction du contexte.</p>
+      <div class="row">
+        <div class="span6">
+	  <h1>Pipeline</h1>
+	  <p>Notre API est basée sur un système de pipeline, à la fois simple et complet sur lequel
+	    s'enregistre les modules du Zia grâce à un système de points d'encrage (hooks), représentés sur le
+	    schéma ci-dessus par des points roses.
+	    Vous trouverez le détail de chacun d'entre eux en passant votre pointeur dessus.</p>
+	  <h2>Fonctionnement</h2>
+	  <p>Les hooks sont enregistrés par le module en précisant <strong>la priorité d'exécution</strong> de celui-ci.
+	    Chaque hook est appelé une seule fois par requête et peut retourner un <em>RequestHandler</em> qui
+	    sera appelé une ou plusieurs fois (callback) en fonction du contexte.</p>
+        </div>
+        <div class="span6">
+	  <iframe width="560" height="315" src="http://www.youtube.com/embed/sxFifF__h74" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
 
       <h2>Exemple avec un module CGI</h2>
       <p>Par exemple, on aurait un module CGI qui <em>piperait</em> le corps d'une requête POST sur un processus
