@@ -78,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ingroups"><a class="el" href="group___pipeline.html">Pipeline</a></div></div>
 <div class="contents">
 
-<p>Connections, received and send events handling.  
+<p>Connections, data reception and sending events handling.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="typedef-members"></a>
@@ -118,8 +118,8 @@ Variables</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">List of hooks to run when data needs to be sent.  <a href="#gaf26552c749ebac86b85a10d99eb38c29"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<p>Connections, received and send events handling. </p>
-<p>The gate handle the communication with the outside world. Network events like:</p>
+<p>Connections, data reception and sending events handling. </p>
+<p>The gate handles the communication with the outside world. Network events like:</p>
 <ul>
 <li>a connection</li>
 <li>a notification (by select() for example) saying a socket got data to read</li>
@@ -140,11 +140,11 @@ Variables</h2></td></tr>
 <p>Generate a <a class="el" href="group___gate.html#gadbb39dc7b9243db92971de9c901d92b3" title="A hook for the connection of a client.">Pipeline::ConnectionRequestHandler</a>. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">environment</td><td>The environment of the request.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">environment</td><td>The environment of the request.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>An empty <a class="el" href="group___gate.html#gadbb39dc7b9243db92971de9c901d92b3" title="A hook for the connection of a client.">Pipeline::ConnectionRequestHandler</a> when the module has nothing to do for the request, otherwise a valid handler that will be called to handle the connection of a client.</dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>An empty <a class="el" href="group___gate.html#gadbb39dc7b9243db92971de9c901d92b3" title="A hook for the connection of a client.">Pipeline::ConnectionRequestHandler</a> when the module can not process the request, otherwise a valid handler that will be called upon connection of a client.</dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___gate.html#gab4a87714f6d5927cdbb4b74d2174711c" title="List of connection hooks.">connectionHooks</a>, <a class="el" href="group___gate.html#gadbb39dc7b9243db92971de9c901d92b3" title="A hook for the connection of a client.">ConnectionRequestHandler</a> </dd></dl>
 
 </div>
@@ -163,8 +163,8 @@ Variables</h2></td></tr>
 <p>A hook for the connection of a client. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Can be filled with the content of the response and a status code. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">environment</td><td>The environment of the request.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Can be filled with the header of the response and a status code. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">environment</td><td>The environment of the request.</td></tr>
   </table>
   </dd>
 </dl>
@@ -193,11 +193,11 @@ Variables</h2></td></tr>
 <p>Generate a <a class="el" href="group___gate.html#ga3e600a7888ca0a742399d6fd07eacd04" title="The handler to call when there is pending data on a socket.">Pipeline::OnReceiveRequestHandler</a>. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">environment</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">environment</td><td>The environment of the request.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>An empty handler when the module has nothing to do for the request, otherwise a valid handler that will be called to handle the reception of data.</dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>An empty handler when the module can not process the request, otherwise a valid handler that will be called upon reception of data.</dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___gate.html#ga51d877e54aadec12db7ecd293e3eba66" title="List of received hooks.">onReceiveHooks</a>, <a class="el" href="group___gate.html#ga3e600a7888ca0a742399d6fd07eacd04" title="The handler to call when there is pending data on a socket.">OnReceiveRequestHandler</a> </dd></dl>
 
 </div>
@@ -217,15 +217,15 @@ Variables</h2></td></tr>
 <p>The server should call this handler when the socket received some "read event" on the fd, with a function like <code>select()</code>.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">socket</td><td>The socket where data need to be read. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">socket</td><td>The socket with data available. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">buffer</td><td>The buffer where data will be stored.</td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Return values:</b></dt><dd>
   <table class="retval">
-    <tr><td class="paramname">true</td><td>If everything went fine the server can pursue the request. </td></tr>
-    <tr><td class="paramname">false</td><td>When an unrecoverable error happen, the server will take care to remove the socket.</td></tr>
+    <tr><td class="paramname">true</td><td>If everything went fine, the server can pursue the request. </td></tr>
+    <tr><td class="paramname">false</td><td>When an unrecoverable error happens, the server will take care to remove the socket.</td></tr>
   </table>
   </dd>
 </dl>
@@ -247,11 +247,11 @@ Variables</h2></td></tr>
 <p>Generate a <a class="el" href="group___gate.html#ga8b56a9b11cb2082693276336766dc732" title="A hook when data need to be sent.">Pipeline::OnSendRequestHandler</a>. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">environment</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">environment</td><td>The environment of the request.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>An empty <a class="el" href="group___gate.html#ga8b56a9b11cb2082693276336766dc732" title="A hook when data need to be sent.">Pipeline::OnSendRequestHandler</a> when the module has nothing to do for the request, otherwise a valid handler that will be called to handle the connection of a client.</dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>An empty <a class="el" href="group___gate.html#ga8b56a9b11cb2082693276336766dc732" title="A hook when data need to be sent.">Pipeline::OnSendRequestHandler</a> when the module can not process the request, otherwise a valid handler that will be called when sending data.</dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___gate.html#gaf26552c749ebac86b85a10d99eb38c29" title="List of hooks to run when data needs to be sent.">onSendHooks</a>, <a class="el" href="group___gate.html#ga8b56a9b11cb2082693276336766dc732" title="A hook when data need to be sent.">OnSendRequestHandler</a> </dd></dl>
 
 </div>
@@ -299,7 +299,7 @@ Variables</h2></td></tr>
 <div class="memdoc">
 
 <p>List of connection hooks. </p>
-<p>Connection hooks should be called by the ZIA server when it received the connection of a client.</p>
+<p>Connection hooks should be called by the ZIA server upon the connection of a client.</p>
 <p>This hook point can be used for a black listing module for example.</p>
 <dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___gate.html#ga038f2e44ce2198916a55c69fc18a2e8e" title="Generate a Pipeline::ConnectionRequestHandler.">ConnectionHook</a>, <a class="el" href="group___gate.html#gadbb39dc7b9243db92971de9c901d92b3" title="A hook for the connection of a client.">ConnectionRequestHandler</a> </dd></dl>
 
@@ -335,7 +335,7 @@ Variables</h2></td></tr>
 <div class="memdoc">
 
 <p>List of hooks to run when data needs to be sent. </p>
-<p>The server should call this hook at the en of the <a class="el" href="structbref_1_1_pipeline.html" title="Where the IModule classes register their hooks.">Pipeline</a>, when a response should be written to the client.</p>
+<p>The server should call these hooks at the end of the <a class="el" href="structbref_1_1_pipeline.html" title="Where the IModule classes register their hooks.">Pipeline</a>, when a response should be sent to the client.</p>
 <dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___gate.html#ga8b56a9b11cb2082693276336766dc732" title="A hook when data need to be sent.">OnSendRequestHandler</a>, onSendHook </dd></dl>
 
 </div>
@@ -358,7 +358,7 @@ Variables</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 16 2012 13:49:09 for bref by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 19 2012 11:23:05 for bref by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

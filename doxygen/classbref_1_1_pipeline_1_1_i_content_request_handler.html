@@ -107,11 +107,33 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a456e3fdd0e71681692fe788749dd6ef2"></a><!-- doxytag: member="bref::Pipeline::IContentRequestHandler::~IContentRequestHandler" ref="a456e3fdd0e71681692fe788749dd6ef2" args="()" -->
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_pipeline_1_1_i_content_request_handler.html#a456e3fdd0e71681692fe788749dd6ef2">~IContentRequestHandler</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_pipeline_1_1_i_content_request_handler.html#a46def32b94e54ffff181d83f9af9546a">dispose</a> ()=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispose of the resources allocated by the request handler.  <a href="#a46def32b94e54ffff181d83f9af9546a"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Handler called to execute a request. </p>
-<p>This handler take an optional input from the body of the request and generate a response body. </p>
+<p>This handlers take an optional input from the body of the request and generates a response body. </p>
 </div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a46def32b94e54ffff181d83f9af9546a"></a><!-- doxytag: member="bref::Pipeline::IContentRequestHandler::dispose" ref="a46def32b94e54ffff181d83f9af9546a" args="()=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void bref::Pipeline::IContentRequestHandler::dispose </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Dispose of the resources allocated by the request handler. </p>
+<dl class="note"><dt><b>Note:</b></dt><dd>This is often represented by a simple: <div class="fragment"><pre class="fragment"> <span class="keyword">delete</span> <span class="keyword">this</span>; 
+</pre></div> </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a82adf94d8e0fe8fd504c2af181339b40"></a><!-- doxytag: member="bref::Pipeline::IContentRequestHandler::inContent" ref="a82adf94d8e0fe8fd504c2af181339b40" args="(HttpResponse &amp;response, const Buffer &amp;inBuffer)=0" -->
 <div class="memitem">
 <div class="memproto">
@@ -140,15 +162,15 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <p>Callback for request body content. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Where the status code are filled. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">inBuffer</td><td>A chunk of the body of the request.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Where the status code is filled. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">inBuffer</td><td>A chunk of the request body.</td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Return values:</b></dt><dd>
   <table class="retval">
-    <tr><td class="paramname">true</td><td>When the processing is finished. </td></tr>
-    <tr><td class="paramname">false</td><td>When the processing is not finished.</td></tr>
+    <tr><td class="paramname">true</td><td>If the processing is finished. </td></tr>
+    <tr><td class="paramname">false</td><td>If the processing is not finished.</td></tr>
   </table>
   </dd>
 </dl>
@@ -184,15 +206,15 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <p>Callback for response body content. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Where the status code are filled. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">inBuffer</td><td>A chunk of the body of the request.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Where the status code is filled. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">inBuffer</td><td>A buffer containing the generated content.</td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Return values:</b></dt><dd>
   <table class="retval">
-    <tr><td class="paramname">true</td><td>When the processing is finished. </td></tr>
-    <tr><td class="paramname">false</td><td>When the processing is not finished.</td></tr>
+    <tr><td class="paramname">true</td><td>If the processing is finished. </td></tr>
+    <tr><td class="paramname">false</td><td>If the processing is not finished.</td></tr>
   </table>
   </dd>
 </dl>
@@ -221,7 +243,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 16 2012 13:49:09 for bref by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 19 2012 11:23:05 for bref by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

@@ -79,25 +79,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 
-<p>The pipeline contain all the hooks points available for the bref API.  
+<p>The pipeline contains all the hooks points available for the bref API.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbref_1_1_environment.html">bref::Environment</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This structure define the environment of a request.  <a href="structbref_1_1_environment.html#details">More...</a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This structure defines the environment of a request.  <a href="structbref_1_1_environment.html#details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbref_1_1_pipeline.html">bref::Pipeline</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Where the <a class="el" href="classbref_1_1_i_module.html" title="Class used to operate with dynamically loaded modules.">IModule</a> classes register their hooks.  <a href="structbref_1_1_pipeline.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="groups"></a>
 Modules</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___gate.html">Gate</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Connections, received and send events handling. </p>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Connections, data reception and sending events handling. </p>
 <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___upstream.html">Upstream</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Represent the pre-processing of a request. </p>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Represents the pre-processing of a request. </p>
 <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bridge.html">Bridge</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Contain hooks to run for the content generation. </p>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Contains hooks to run for content generation. </p>
 <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___downstream.html">Downstream</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Handle all stages between the content generation and sending data back to the client. </p>
@@ -110,35 +110,34 @@ Typedefs</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Define fd type (system dependant : fd on UNIX systems, HANDLE for Windows systems) for ContentHook.  <a href="#ga977c07056bf73e57be0393266de75f5a"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<p>The pipeline contain all the hooks points available for the bref API. </p>
-<p>When a module is initialized by the method <code><a class="el" href="classbref_1_1_i_module.html#a4c8ec62827ae64c9f13bf760e6a6c85f" title="Register the module hooks on the convenient hookpoints of the pipeline.">IModule::registerHooks(Pipeline &amp;)</a></code> it initialize it's hook points in the <a class="el" href="structbref_1_1_pipeline.html" title="Where the IModule classes register their hooks.">Pipeline</a>.</p>
-<p>This page describe how the <a class="el" href="structbref_1_1_pipeline.html" title="Where the IModule classes register their hooks.">Pipeline</a> class and how it interact with the different hook points.</p>
+<p>The pipeline contains all the hooks points available for the bref API. </p>
+<p>When a module is initialized by the method <code><a class="el" href="classbref_1_1_i_module.html#a4c8ec62827ae64c9f13bf760e6a6c85f" title="Register the module hooks on the convenient hookpoints of the pipeline.">IModule::registerHooks(Pipeline &amp;)</a></code> it initializes its hook points in the <a class="el" href="structbref_1_1_pipeline.html" title="Where the IModule classes register their hooks.">Pipeline</a>.</p>
+<p>This page describes how the <a class="el" href="structbref_1_1_pipeline.html" title="Where the IModule classes register their hooks.">Pipeline</a> class works and how it interacts with the different hook points.</p>
 <p>Vocabulary:</p>
 <ul>
 <li><em>Hook:</em> </li>
 </ul>
-<p>Hooks are RequestHandlers (see below) generators for a given set of arguments. If -- given the argument it received -- a hook decide to not handle a request a null handler is generated.</p>
+<p>Hooks are RequestHandlers (see below) generators for a given set of arguments. If -- given the argument(s) it received -- a hook decides not to handle a request, a null handler is generated.</p>
 <p>Examples of hooks are: <a class="el" href="group___upstream.html#ga5af7ca7c7f953a8f0f7292b0a71443f0" title="Generate a Pipeline::PostParsingRequestHandler.">Pipeline::PostParsingHook</a>, <a class="el" href="group___gate.html#ga1f2f6bb4cfebbdd10566d3aa85fce82d" title="Generate a Pipeline::OnReceiveRequestHandler.">Pipeline::OnReceiveHook</a>, ...</p>
-<p>In term of codes, a hook is a <a class="el" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a> object that return another <a class="el" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a> object. It's often constructed by an <a class="el" href="structbref_1_1_environment.html" title="This structure define the environment of a request.">Environment</a> and an <a class="el" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a>.</p>
+<p>In term of code, a hook is a <a class="el" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a> object that returns another <a class="el" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a> object. It's often constructed with an <a class="el" href="structbref_1_1_environment.html" title="This structure defines the environment of a request.">Environment</a> and an <a class="el" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a>.</p>
 <ul>
 <li><em>RequestHandler:</em> </li>
 </ul>
-<p>A request handler (i.e: <a class="el" href="group___gate.html#gadbb39dc7b9243db92971de9c901d92b3" title="A hook for the connection of a client.">Pipeline::ConnectionRequestHandler</a>, <a class="el" href="group___gate.html#ga3e600a7888ca0a742399d6fd07eacd04" title="The handler to call when there is pending data on a socket.">Pipeline::OnReceiveRequestHandler</a>) is the handler that handle.</p>
-<p>It's the function object returned by the hook that will handle a request. It should be called with the arguments provided by this hook point (i.e: the <a class="el" href="group___gate.html#gadbb39dc7b9243db92971de9c901d92b3" title="A hook for the connection of a client.">Pipeline::ConnectionRequestHandler</a> take a <a class="el" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> to fill and an <a class="el" href="classbref_1_1_ip_address.html" title="Provides IPv4 &amp; Ipv6 encapsulation.">IpAddress</a>).</p>
-<p>The majority of the request handler take an <a class="el" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> as reference, they can fill it's header and body. When a response is finished the upstream or bridge elements of the pipeline will directly go to the downstream part.</p>
+<p>A request handler (e.g: <a class="el" href="group___gate.html#gadbb39dc7b9243db92971de9c901d92b3" title="A hook for the connection of a client.">Pipeline::ConnectionRequestHandler</a>, <a class="el" href="group___gate.html#ga3e600a7888ca0a742399d6fd07eacd04" title="The handler to call when there is pending data on a socket.">Pipeline::OnReceiveRequestHandler</a>) is the function object, returned by the hook, that will handle a request. It should be called with the arguments provided by its corresponding hook point (e.g.: the <a class="el" href="group___gate.html#gadbb39dc7b9243db92971de9c901d92b3" title="A hook for the connection of a client.">Pipeline::ConnectionRequestHandler</a> takes an <a class="el" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> and an <a class="el" href="classbref_1_1_ip_address.html" title="Provides IPv4 &amp; Ipv6 encapsulation.">IpAddress</a>).</p>
+<p>The majority of the request handlers takes an <a class="el" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> as reference, they can fill its header. When a response is finished, the upstream or bridge elements of the pipeline will directly go to the downstream part.</p>
 <ul>
 <li><em>Priority</em> </li>
 </ul>
-<p>Use to represent the priority of one request handler on another, when placed on the same hook point. A request handler with higher priority will be used over one with a lower's priority.</p>
-<p>The priority is a floating number. Modules should try to follow the following convention (but value can be adapted):</p>
+<p>Used to represent the precedence of one request handler over another, when placed on the same hook point. Depending on the hook point, either all the request handlers will be called, starting with the highest priority, or only the most important one will be called.</p>
+<p>The priority is a floating number between 0.0 and 1.0. Modules should try to follow the following convention (but the value can be adapted):</p>
 <ul>
 <li>Low Priority: 0.0</li>
 <li>Normal Priority: 0.5</li>
 <li>High Priority: 1.0</li>
 </ul>
 <p>Example for a CGI module:</p>
-<p>1. Register a <a class="el" href="group___bridge.html#ga8710f9fefa13c279f53ff7ba4938cd82" title="Generate Pipeline::ContentRequestHandler.">Pipeline::ContentHook</a> with a high priority (1.0) that return a valid Pipeline::ContentRequestHandler when it detect a request asking a PHP file (by checking the .php extension for example and some configuration variables), otherwise it should return an empty handler.</p>
-<p>2. Create the Pipeline::ContentRequestHandler that create a process when it's constructed, and have a function operator() that take each chunk of the request body and send them to the CGI process, and fill a buffer in return. </p>
+<p>1. Register a <a class="el" href="group___bridge.html#ga8710f9fefa13c279f53ff7ba4938cd82" title="Generate Pipeline::ContentRequestHandler.">Pipeline::ContentHook</a> with a high priority (1.0) that returns a valid Pipeline::ContentRequestHandler if it detects a request asking a PHP file (by checking the .php extension for example and some configuration variables), otherwise it should return an empty handler.</p>
+<p>2. Create the Pipeline::ContentRequestHandler that creates a process when it's constructed, and has a function operator() that takes each chunk of the request body and send them to the CGI process, and fill a buffer in return. </p>
 <hr/><h2>Typedef Documentation</h2>
 <a class="anchor" id="ga977c07056bf73e57be0393266de75f5a"></a><!-- doxytag: member="bref::FdType" ref="ga977c07056bf73e57be0393266de75f5a" args="" -->
 <div class="memitem">
@@ -190,7 +189,7 @@ Typedefs</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 16 2012 13:49:09 for bref by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 19 2012 11:23:05 for bref by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

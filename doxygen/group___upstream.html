@@ -78,19 +78,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ingroups"><a class="el" href="group___pipeline.html">Pipeline</a></div></div>
 <div class="contents">
 
-<p>Represent the pre-processing of a request.  
+<p>Represents the pre-processing of a request.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef Function&lt; void(HttpResponse <br class="typebreak"/>
 &amp;response, const Buffer <br class="typebreak"/>
-&amp;inBuffer, Buffer &amp;outBuffer)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___upstream.html#ga764b945f514ec7768304e2703f1f8447">bref::Pipeline::PostReadRequestHandler</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A hook called after something was read on the socket.  <a href="#ga764b945f514ec7768304e2703f1f8447"></a><br/></td></tr>
+&amp;inBuffer, Buffer &amp;outBuffer)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___upstream.html#gac460cd365903fafdf9125d1654e1dc23">bref::Pipeline::PostReceiveRequestHandler</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A hook called upon reading data on the socket.  <a href="#gac460cd365903fafdf9125d1654e1dc23"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef Function<br class="typebreak"/>
-&lt; PostReadRequestHandler(const <br class="typebreak"/>
-Environment &amp;environment)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___upstream.html#ga8e7a71f34942b57770d900dac9868f7c">bref::Pipeline::PostReadHook</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a Pipeline::PostRequestHandler.  <a href="#ga8e7a71f34942b57770d900dac9868f7c"></a><br/></td></tr>
+&lt; PostReceiveRequestHandler(const <br class="typebreak"/>
+Environment &amp;environment)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___upstream.html#gaf25a851b5c51ce7a46bbb63ba3f3692c">bref::Pipeline::PostReceiveHook</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a Pipeline::PostRequestHandler.  <a href="#gaf25a851b5c51ce7a46bbb63ba3f3692c"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef Function<br class="typebreak"/>
 &lt; Buffer::const_iterator(HttpResponse <br class="typebreak"/>
 &amp;response, const Buffer &amp;buff, <br class="typebreak"/>
@@ -101,17 +101,17 @@ HttpRequest &amp;request)&gt;&#160;</td><td class="memItemRight" valign="bottom"
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a <a class="el" href="group___upstream.html#gac34c7432b4dc1f7b91527af977955900" title="The handler called to generate an HttpRequest.">Pipeline::ParsingRequestHandler</a>.  <a href="#gacae7e999f48ba5a0b801e66ce76f4b09"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef Function&lt; void(HttpResponse <br class="typebreak"/>
 &amp;response)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b">bref::Pipeline::PostParsingRequestHandler</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler called after the parsing of a request.  <a href="#ga44345246c86a6d5db7d880e81677337b"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler called once the request is parsed.  <a href="#ga44345246c86a6d5db7d880e81677337b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef Function<br class="typebreak"/>
 &lt; PostParsingRequestHandler(const <br class="typebreak"/>
 Environment &amp;environment, <br class="typebreak"/>
 HttpRequest &amp;httpRequest)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___upstream.html#ga5af7ca7c7f953a8f0f7292b0a71443f0">bref::Pipeline::PostParsingHook</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a <a class="el" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called after the parsing of a request.">Pipeline::PostParsingRequestHandler</a>.  <a href="#ga5af7ca7c7f953a8f0f7292b0a71443f0"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a <a class="el" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called once the request is parsed.">Pipeline::PostParsingRequestHandler</a>.  <a href="#ga5af7ca7c7f953a8f0f7292b0a71443f0"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::list&lt; std::pair<br class="typebreak"/>
-&lt; PostReadHook, float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___upstream.html#gaf03781a6a3e1b1817a1f0b83a6d80d98">bref::Pipeline::postReadHooks</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">List of post-read hooks.  <a href="#gaf03781a6a3e1b1817a1f0b83a6d80d98"></a><br/></td></tr>
+&lt; PostReceiveHook, float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___upstream.html#ga113902e400a318c91fea9567e772cb11">bref::Pipeline::postReceiveHooks</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">List of post-read hooks.  <a href="#ga113902e400a318c91fea9567e772cb11"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::list&lt; std::pair<br class="typebreak"/>
 &lt; ParsingHook, float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___upstream.html#ga4cf2cf6a71e70bf501c0f2fd73fc8e2b">bref::Pipeline::parsingHooks</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">List of parsing hooks.  <a href="#ga4cf2cf6a71e70bf501c0f2fd73fc8e2b"></a><br/></td></tr>
@@ -120,8 +120,8 @@ Variables</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">List of post-parsing hooks.  <a href="#ga5cee48bf7f91aa1ce63d308c63612629"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<p>Represent the pre-processing of a request. </p>
-<p>The upstream handle each stage of a request before the <a class="el" href="group___bridge.html">Bridge</a>. This section handle the parsing of the request and a few hooks before and after the parsing step. </p>
+<p>Represents the pre-processing of a request. </p>
+<p>The upstream handles each stage of a request before the <a class="el" href="group___bridge.html">Bridge</a>. It performs the parsing of the request and provides a few hooks before and after this step. </p>
 <hr/><h2>Typedef Documentation</h2>
 <a class="anchor" id="gacae7e999f48ba5a0b801e66ce76f4b09"></a><!-- doxytag: member="bref::Pipeline::ParsingHook" ref="gacae7e999f48ba5a0b801e66ce76f4b09" args="" -->
 <div class="memitem">
@@ -135,7 +135,7 @@ Variables</h2></td></tr>
 <div class="memdoc">
 
 <p>Generate a <a class="el" href="group___upstream.html#gac34c7432b4dc1f7b91527af977955900" title="The handler called to generate an HttpRequest.">Pipeline::ParsingRequestHandler</a>. </p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>An empty <a class="el" href="group___upstream.html#gac34c7432b4dc1f7b91527af977955900" title="The handler called to generate an HttpRequest.">Pipeline::ParsingRequestHandler</a> when the hook has nothing to do for the request, otherwise a valid handler.</dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>An empty <a class="el" href="group___upstream.html#gac34c7432b4dc1f7b91527af977955900" title="The handler called to generate an HttpRequest.">Pipeline::ParsingRequestHandler</a> when the hook can not process the request, a valid handler otherwise.</dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#ga4cf2cf6a71e70bf501c0f2fd73fc8e2b" title="List of parsing hooks.">parsingHooks</a>, <a class="el" href="group___upstream.html#gac34c7432b4dc1f7b91527af977955900" title="The handler called to generate an HttpRequest.">ParsingRequestHandler</a> </dd></dl>
 
 </div>
@@ -152,17 +152,17 @@ Variables</h2></td></tr>
 <div class="memdoc">
 
 <p>The handler called to generate an <a class="el" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a>. </p>
-<p>It parse raw datas from the socket and convert them into a structured <a class="el" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a>.</p>
+<p>It parses raw data received on the socket and converts it into a structured <a class="el" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a>.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Can be filled with the content of the response and a status code. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">buff</td><td>A chunk of raw datas. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Can be filled with the header of the response and a status code. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">buff</td><td>A chunk of raw data. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">request</td><td>The <a class="el" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a> to fill with the content of the request.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>A pointer to the consumed part of the buffer. If the parser find the "\r\n\r\n" sequence in the middle of the buffer it will return an iterator to the character after the last '<br/>
-', otherwise an iterator to the begin of buffer should be returned.</dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A pointer to the consumed part of the buffer. If the parser finds the "\r\n\r\n" sequence in the middle of the buffer it will return an iterator to the character after the last '<br/>
+', otherwise an iterator to the beginning of buffer should be returned.</dd></dl>
 <dl><dt><b>Return values:</b></dt><dd>
   <table class="retval">
     <tr><td class="paramname">buff.begin()</td><td>If the parser has not finished the parsing yet.</td></tr>
@@ -184,9 +184,16 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Generate a <a class="el" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called after the parsing of a request.">Pipeline::PostParsingRequestHandler</a>. </p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>An empty <a class="el" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called after the parsing of a request.">Pipeline::PostParsingRequestHandler</a> when the hook has nothing to do for the request, otherwise a valid handler.</dd></dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#ga5cee48bf7f91aa1ce63d308c63612629" title="List of post-parsing hooks.">postParsingHooks</a>, <a class="el" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called after the parsing of a request.">PostParsingRequestHandler</a> </dd></dl>
+<p>Generate a <a class="el" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called once the request is parsed.">Pipeline::PostParsingRequestHandler</a>. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">environment</td><td>The environment of the request. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">httpRequest</td><td>The <a class="el" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a> to fill with the request header.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>An empty <a class="el" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called once the request is parsed.">Pipeline::PostParsingRequestHandler</a> if the hook can not process the request, otherwise a valid handler.</dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#ga5cee48bf7f91aa1ce63d308c63612629" title="List of post-parsing hooks.">postParsingHooks</a>, <a class="el" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called once the request is parsed.">PostParsingRequestHandler</a> </dd></dl>
 
 </div>
 </div>
@@ -201,11 +208,11 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Handler called after the parsing of a request. </p>
+<p>Handler called once the request is parsed. </p>
 <p>This hook point can be used for an URL rewrite module for example.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Can be filled with the content of the response and a status code.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Can be filled with the response header and a status code.</td></tr>
   </table>
   </dd>
 </dl>
@@ -213,45 +220,51 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga8e7a71f34942b57770d900dac9868f7c"></a><!-- doxytag: member="bref::Pipeline::PostReadHook" ref="ga8e7a71f34942b57770d900dac9868f7c" args="" -->
+<a class="anchor" id="gaf25a851b5c51ce7a46bbb63ba3f3692c"></a><!-- doxytag: member="bref::Pipeline::PostReceiveHook" ref="gaf25a851b5c51ce7a46bbb63ba3f3692c" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef Function&lt;PostReadRequestHandler (const Environment &amp; environment)&gt; <a class="el" href="group___upstream.html#ga8e7a71f34942b57770d900dac9868f7c">bref::Pipeline::PostReadHook</a></td>
+          <td class="memname">typedef Function&lt;PostReceiveRequestHandler (const Environment &amp; environment)&gt; <a class="el" href="group___upstream.html#gaf25a851b5c51ce7a46bbb63ba3f3692c">bref::Pipeline::PostReceiveHook</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>Generate a Pipeline::PostRequestHandler. </p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>An empty Pipeline::PostRequestHandler when the hook has nothing to do for the request, otherwise a valid handler.</dd></dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#gaf03781a6a3e1b1817a1f0b83a6d80d98" title="List of post-read hooks.">postReadHooks</a>, <a class="el" href="group___upstream.html#ga764b945f514ec7768304e2703f1f8447" title="A hook called after something was read on the socket.">PostReadRequestHandler</a> </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">environment</td><td>The environment of the request.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>An empty Pipeline::PostRequestHandler if the hook can not process the request, a valid handler otherwise.</dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#ga113902e400a318c91fea9567e772cb11" title="List of post-read hooks.">postReceiveHooks</a>, <a class="el" href="group___upstream.html#gac460cd365903fafdf9125d1654e1dc23" title="A hook called upon reading data on the socket.">PostReceiveRequestHandler</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga764b945f514ec7768304e2703f1f8447"></a><!-- doxytag: member="bref::Pipeline::PostReadRequestHandler" ref="ga764b945f514ec7768304e2703f1f8447" args="" -->
+<a class="anchor" id="gac460cd365903fafdf9125d1654e1dc23"></a><!-- doxytag: member="bref::Pipeline::PostReceiveRequestHandler" ref="gac460cd365903fafdf9125d1654e1dc23" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef Function&lt;void (HttpResponse &amp; response, const Buffer &amp; inBuffer, Buffer &amp; outBuffer)&gt; <a class="el" href="group___upstream.html#ga764b945f514ec7768304e2703f1f8447">bref::Pipeline::PostReadRequestHandler</a></td>
+          <td class="memname">typedef Function&lt;void (HttpResponse &amp; response, const Buffer &amp; inBuffer, Buffer &amp; outBuffer)&gt; <a class="el" href="group___upstream.html#gac460cd365903fafdf9125d1654e1dc23">bref::Pipeline::PostReceiveRequestHandler</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>A hook called after something was read on the socket. </p>
-<p>This hook is able to transform the data received by the socket and transform before they are sent to the parser.</p>
+<p>A hook called upon reading data on the socket. </p>
+<p>This hook is able to transform data received by the socket before it is sent to the parser.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">response</td><td>Can be filled with the content of the response and a status code. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">inBuffer</td><td>The buffer of raw datas, received on the socket. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">outBuffer</td><td>The content of the buffer to send to the parser.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Can be filled with the header of the response and a status code. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">inBuffer</td><td>The buffer containing the data received on the socket. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">outBuffer</td><td>The buffer containing the data to send to the parser.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#gaf03781a6a3e1b1817a1f0b83a6d80d98" title="List of post-read hooks.">postReadHooks</a>, <a class="el" href="group___upstream.html#ga8e7a71f34942b57770d900dac9868f7c" title="Generate a Pipeline::PostRequestHandler.">PostReadHook</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#ga113902e400a318c91fea9567e772cb11" title="List of post-read hooks.">postReceiveHooks</a>, <a class="el" href="group___upstream.html#gaf25a851b5c51ce7a46bbb63ba3f3692c" title="Generate a Pipeline::PostRequestHandler.">PostReceiveHook</a> </dd></dl>
 
 </div>
 </div>
@@ -268,7 +281,7 @@ Variables</h2></td></tr>
 <div class="memdoc">
 
 <p>List of parsing hooks. </p>
-<p>Only one parser should return a valid request handler for a given request, otherwise the parser with the highest priority will be choosed.</p>
+<p>Only one parser module should return a valid request handler for a given request. If multiple handlers are provided, the one with the highest priority will be used.</p>
 <dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#gacae7e999f48ba5a0b801e66ce76f4b09" title="Generate a Pipeline::ParsingRequestHandler.">ParsingHook</a>, <a class="el" href="group___upstream.html#gac34c7432b4dc1f7b91527af977955900" title="The handler called to generate an HttpRequest.">ParsingRequestHandler</a> </dd></dl>
 
 </div>
@@ -285,17 +298,17 @@ Variables</h2></td></tr>
 <div class="memdoc">
 
 <p>List of post-parsing hooks. </p>
-<p>The server should called this hooks after the parsing of a request.</p>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called after the parsing of a request.">PostParsingRequestHandler</a>, <a class="el" href="group___upstream.html#ga5af7ca7c7f953a8f0f7292b0a71443f0" title="Generate a Pipeline::PostParsingRequestHandler.">PostParsingHook</a> </dd></dl>
+<p>The server should call these hooks after the parsing step.</p>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called once the request is parsed.">PostParsingRequestHandler</a>, <a class="el" href="group___upstream.html#ga5af7ca7c7f953a8f0f7292b0a71443f0" title="Generate a Pipeline::PostParsingRequestHandler.">PostParsingHook</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gaf03781a6a3e1b1817a1f0b83a6d80d98"></a><!-- doxytag: member="bref::Pipeline::postReadHooks" ref="gaf03781a6a3e1b1817a1f0b83a6d80d98" args="" -->
+<a class="anchor" id="ga113902e400a318c91fea9567e772cb11"></a><!-- doxytag: member="bref::Pipeline::postReceiveHooks" ref="ga113902e400a318c91fea9567e772cb11" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt;std::pair&lt;PostReadHook, float&gt; &gt; <a class="el" href="group___upstream.html#gaf03781a6a3e1b1817a1f0b83a6d80d98">bref::Pipeline::postReadHooks</a></td>
+          <td class="memname">std::list&lt;std::pair&lt;PostReceiveHook, float&gt; &gt; <a class="el" href="group___upstream.html#ga113902e400a318c91fea9567e772cb11">bref::Pipeline::postReceiveHooks</a></td>
         </tr>
       </table>
 </div>
@@ -303,7 +316,7 @@ Variables</h2></td></tr>
 
 <p>List of post-read hooks. </p>
 <p>Post-read hooks should be called by the ZIA server after the <a class="el" href="group___gate.html#ga3e600a7888ca0a742399d6fd07eacd04" title="The handler to call when there is pending data on a socket.">Pipeline::OnReceiveRequestHandler</a> handlers have generated some data, and before <code>parsingHooks</code> are called.</p>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#ga8e7a71f34942b57770d900dac9868f7c" title="Generate a Pipeline::PostRequestHandler.">PostReadHook</a>, <a class="el" href="group___upstream.html#ga764b945f514ec7768304e2703f1f8447" title="A hook called after something was read on the socket.">PostReadRequestHandler</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#gaf25a851b5c51ce7a46bbb63ba3f3692c" title="Generate a Pipeline::PostRequestHandler.">PostReceiveHook</a>, <a class="el" href="group___upstream.html#gac460cd365903fafdf9125d1654e1dc23" title="A hook called upon reading data on the socket.">PostReceiveRequestHandler</a> </dd></dl>
 
 </div>
 </div>
@@ -325,7 +338,7 @@ Variables</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 16 2012 13:49:09 for bref by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 19 2012 11:23:05 for bref by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

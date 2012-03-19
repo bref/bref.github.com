@@ -99,94 +99,96 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00026"></a>00026 <span class="preprocessor">#endif</span>
 <a name="l00027"></a>00027 <span class="preprocessor"></span>
 <a name="l00028"></a>00028 <span class="keyword">namespace </span>bref {
-<a name="l00105"></a><a class="code" href="group___pipeline.html#ga9af254d2f49ba7e77095265d6dd5566b">00105</a> <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_bref_value.html" title="Contains a generic value.">BrefValue</a> <a class="code" href="group___pipeline.html#ga9af254d2f49ba7e77095265d6dd5566b" title="The value used for the configuration settings of the server.">ServerConfig</a>;
-<a name="l00106"></a>00106 
-<a name="l00112"></a>00112 <span class="preprocessor">#if defined(_WIN32) || defined(__WIN32__) || defined(WIN32)</span>
-<a name="l00113"></a>00113 <span class="preprocessor"></span>  <span class="keyword">typedef</span> HANDLE <a class="code" href="group___pipeline.html#ga977c07056bf73e57be0393266de75f5a" title="Define fd type (system dependant : fd on UNIX systems, HANDLE for Windows systems) for ContentHook...">FdType</a>;
-<a name="l00114"></a>00114 <span class="preprocessor">#else</span>
-<a name="l00115"></a><a class="code" href="group___pipeline.html#ga977c07056bf73e57be0393266de75f5a">00115</a> <span class="preprocessor"></span>  <span class="keyword">typedef</span> <span class="keywordtype">int</span> <a class="code" href="group___pipeline.html#ga977c07056bf73e57be0393266de75f5a" title="Define fd type (system dependant : fd on UNIX systems, HANDLE for Windows systems) for ContentHook...">FdType</a>;
-<a name="l00116"></a>00116 <span class="preprocessor">#endif</span>
-<a name="l00117"></a>00117 <span class="preprocessor"></span>
-<a name="l00128"></a><a class="code" href="structbref_1_1_environment.html">00128</a> <span class="keyword">struct </span><a class="code" href="structbref_1_1_environment.html" title="This structure define the environment of a request.">Environment</a>
-<a name="l00129"></a>00129 {
-<a name="l00130"></a><a class="code" href="structbref_1_1_environment.html#a5b1b25bc216565a3613d39aa5155ccd4">00130</a>   <span class="keyword">const</span> <a class="code" href="classbref_1_1_bref_value.html" title="Contains a generic value.">ServerConfig</a> &amp;  <a class="code" href="structbref_1_1_environment.html#a5b1b25bc216565a3613d39aa5155ccd4">serverConfig</a>; 
-<a name="l00131"></a><a class="code" href="structbref_1_1_environment.html#a1b445623d4bfd29af9f5ed105664088c">00131</a>   <a class="code" href="classbref_1_1_i_logger.html" title="Bref API logger interface.">ILogger</a>              *<a class="code" href="structbref_1_1_environment.html#a1b445623d4bfd29af9f5ed105664088c">logger</a>;       
-<a name="l00136"></a><a class="code" href="structbref_1_1_environment_1_1_client.html">00136</a>   <span class="keyword">struct </span><a class="code" href="structbref_1_1_environment_1_1_client.html" title="This structure contains client informations.">Client</a>
-<a name="l00137"></a>00137   {
-<a name="l00138"></a>00138     <a class="code" href="classbref_1_1_ip_address.html" title="Provides IPv4 &amp; Ipv6 encapsulation.">IpAddress</a>  Ip;
-<a name="l00139"></a>00139     <span class="keywordtype">short</span>      Port;
-<a name="l00140"></a>00140     SocketType Socket;
-<a name="l00141"></a>00141   };
-<a name="l00142"></a>00142 };
-<a name="l00143"></a>00143 
-<a name="l00149"></a><a class="code" href="structbref_1_1_pipeline.html">00149</a> <span class="keyword">struct </span><a class="code" href="structbref_1_1_pipeline.html" title="Where the IModule classes register their hooks.">Pipeline</a>
-<a name="l00150"></a>00150 {
-<a name="l00185"></a>00185   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;bool (<a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> &amp; response,
-<a name="l00186"></a><a class="code" href="group___gate.html#gadbb39dc7b9243db92971de9c901d92b3">00186</a>                          <span class="keyword">const</span> <a class="code" href="structbref_1_1_environment.html" title="This structure define the environment of a request.">Environment</a> &amp; environment)&gt; <a class="code" href="group___gate.html#gadbb39dc7b9243db92971de9c901d92b3" title="A hook for the connection of a client.">ConnectionRequestHandler</a>;
-<a name="l00187"></a>00187 
-<a name="l00201"></a><a class="code" href="group___gate.html#ga038f2e44ce2198916a55c69fc18a2e8e">00201</a>   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function&lt;ConnectionRequestHandler (const Environment &amp; environment)&gt;</a> <a class="code" href="group___gate.html#ga038f2e44ce2198916a55c69fc18a2e8e" title="Generate a Pipeline::ConnectionRequestHandler.">ConnectionHook</a>;
-<a name="l00202"></a>00202 
-<a name="l00214"></a><a class="code" href="group___gate.html#gab4a87714f6d5927cdbb4b74d2174711c">00214</a>   std::list&lt;std::pair&lt;ConnectionHook, float&gt; &gt; <a class="code" href="group___gate.html#gab4a87714f6d5927cdbb4b74d2174711c" title="List of connection hooks.">connectionHooks</a>;
-<a name="l00215"></a>00215 
-<a name="l00236"></a>00236   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;bool (SocketType socket,
-<a name="l00237"></a><a class="code" href="group___gate.html#ga3e600a7888ca0a742399d6fd07eacd04">00237</a>                          Buffer &amp;   buffer)&gt; <a class="code" href="group___gate.html#ga3e600a7888ca0a742399d6fd07eacd04" title="The handler to call when there is pending data on a socket.">OnReceiveRequestHandler</a>;
-<a name="l00238"></a>00238 
-<a name="l00250"></a><a class="code" href="group___gate.html#ga1f2f6bb4cfebbdd10566d3aa85fce82d">00250</a>   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function&lt;OnReceiveRequestHandler (const Environment &amp; environment)&gt;</a> <a class="code" href="group___gate.html#ga1f2f6bb4cfebbdd10566d3aa85fce82d" title="Generate a Pipeline::OnReceiveRequestHandler.">OnReceiveHook</a>;
-<a name="l00251"></a>00251 
-<a name="l00264"></a><a class="code" href="group___gate.html#ga51d877e54aadec12db7ecd293e3eba66">00264</a>   std::list&lt;std::pair&lt;OnReceiveHook, float&gt; &gt; <a class="code" href="group___gate.html#ga51d877e54aadec12db7ecd293e3eba66" title="List of received hooks.">onReceiveHooks</a>;
-<a name="l00265"></a>00265 
-<a name="l00281"></a>00281   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;bool (SocketType     socket,
-<a name="l00282"></a><a class="code" href="group___gate.html#ga8b56a9b11cb2082693276336766dc732">00282</a>                          <span class="keyword">const</span> Buffer &amp; buffer)&gt; <a class="code" href="group___gate.html#ga8b56a9b11cb2082693276336766dc732" title="A hook when data need to be sent.">OnSendRequestHandler</a>;
-<a name="l00283"></a>00283 
-<a name="l00296"></a><a class="code" href="group___gate.html#ga187d7dfba63a05b3e8e1dad15da7e358">00296</a>   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function&lt;OnSendRequestHandler (const Environment &amp; environment)&gt;</a> <a class="code" href="group___gate.html#ga187d7dfba63a05b3e8e1dad15da7e358" title="Generate a Pipeline::OnSendRequestHandler.">OnSendHook</a>;
-<a name="l00297"></a>00297 
-<a name="l00306"></a><a class="code" href="group___gate.html#gaf26552c749ebac86b85a10d99eb38c29">00306</a>   std::list&lt;std::pair&lt;OnSendHook, float&gt; &gt; <a class="code" href="group___gate.html#gaf26552c749ebac86b85a10d99eb38c29" title="List of hooks to run when data needs to be sent.">onSendHooks</a>;
-<a name="l00307"></a>00307 
-<a name="l00339"></a>00339   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;void (<a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> &amp; response,
-<a name="l00340"></a>00340                          <span class="keyword">const</span> Buffer &amp; inBuffer,
-<a name="l00341"></a><a class="code" href="group___upstream.html#ga764b945f514ec7768304e2703f1f8447">00341</a>                          Buffer &amp;       outBuffer)&gt; <a class="code" href="group___upstream.html#ga764b945f514ec7768304e2703f1f8447" title="A hook called after something was read on the socket.">PostReadRequestHandler</a>;
-<a name="l00342"></a>00342 
-<a name="l00352"></a><a class="code" href="group___upstream.html#ga8e7a71f34942b57770d900dac9868f7c">00352</a>   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function&lt;PostReadRequestHandler (const Environment &amp; environment)&gt;</a> <a class="code" href="group___upstream.html#ga8e7a71f34942b57770d900dac9868f7c" title="Generate a Pipeline::PostRequestHandler.">PostReadHook</a>;
-<a name="l00353"></a>00353 
-<a name="l00363"></a><a class="code" href="group___upstream.html#gaf03781a6a3e1b1817a1f0b83a6d80d98">00363</a>   std::list&lt;std::pair&lt;PostReadHook, float&gt; &gt; <a class="code" href="group___upstream.html#gaf03781a6a3e1b1817a1f0b83a6d80d98" title="List of post-read hooks.">postReadHooks</a>;
-<a name="l00364"></a>00364 
-<a name="l00390"></a>00390   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;Buffer::const_iterator (<a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> &amp; response,
-<a name="l00391"></a>00391                                            <span class="keyword">const</span> Buffer &amp; buff,
-<a name="l00392"></a><a class="code" href="group___upstream.html#gac34c7432b4dc1f7b91527af977955900">00392</a>                                            <a class="code" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a> &amp;  request)&gt; <a class="code" href="group___upstream.html#gac34c7432b4dc1f7b91527af977955900" title="The handler called to generate an HttpRequest.">ParsingRequestHandler</a>;
-<a name="l00393"></a>00393 
-<a name="l00403"></a><a class="code" href="group___upstream.html#gacae7e999f48ba5a0b801e66ce76f4b09">00403</a>   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function&lt;ParsingRequestHandler (Environment &amp;)&gt;</a> <a class="code" href="group___upstream.html#gacae7e999f48ba5a0b801e66ce76f4b09" title="Generate a Pipeline::ParsingRequestHandler.">ParsingHook</a>;
-<a name="l00404"></a>00404 
-<a name="l00414"></a><a class="code" href="group___upstream.html#ga4cf2cf6a71e70bf501c0f2fd73fc8e2b">00414</a>   std::list&lt;std::pair&lt;ParsingHook, float&gt; &gt; <a class="code" href="group___upstream.html#ga4cf2cf6a71e70bf501c0f2fd73fc8e2b" title="List of parsing hooks.">parsingHooks</a>;
-<a name="l00415"></a>00415 
-<a name="l00428"></a><a class="code" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b">00428</a>   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function&lt;void (HttpResponse &amp; response)&gt;</a> <a class="code" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called after the parsing of a request.">PostParsingRequestHandler</a>;
-<a name="l00429"></a>00429 
-<a name="l00439"></a>00439   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;<a class="code" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called after the parsing of a request.">PostParsingRequestHandler</a> (<span class="keyword">const</span> <a class="code" href="structbref_1_1_environment.html" title="This structure define the environment of a request.">Environment</a> &amp; environment,
-<a name="l00440"></a><a class="code" href="group___upstream.html#ga5af7ca7c7f953a8f0f7292b0a71443f0">00440</a>                                               <a class="code" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a> &amp;       httpRequest)&gt; <a class="code" href="group___upstream.html#ga5af7ca7c7f953a8f0f7292b0a71443f0" title="Generate a Pipeline::PostParsingRequestHandler.">PostParsingHook</a>;
-<a name="l00441"></a>00441 
-<a name="l00450"></a><a class="code" href="group___upstream.html#ga5cee48bf7f91aa1ce63d308c63612629">00450</a>   std::list&lt;std::pair&lt;PostParsingHook, float&gt; &gt; <a class="code" href="group___upstream.html#ga5cee48bf7f91aa1ce63d308c63612629" title="List of post-parsing hooks.">postParsingHooks</a>;
-<a name="l00451"></a>00451 
-<a name="l00473"></a><a class="code" href="classbref_1_1_pipeline_1_1_i_content_request_handler.html">00473</a>   <span class="keyword">class </span><a class="code" href="classbref_1_1_pipeline_1_1_i_content_request_handler.html" title="Handler called to execute a request.">IContentRequestHandler</a>
-<a name="l00474"></a>00474   {
-<a name="l00475"></a>00475   <span class="keyword">public</span>:
-<a name="l00491"></a>00491     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classbref_1_1_pipeline_1_1_i_content_request_handler.html#a82adf94d8e0fe8fd504c2af181339b40" title="Callback for request body content.">inContent</a>(<a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> &amp; response, <span class="keyword">const</span> Buffer &amp; inBuffer) = 0;
-<a name="l00492"></a>00492 
-<a name="l00508"></a>00508     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classbref_1_1_pipeline_1_1_i_content_request_handler.html#ab8e4a5026d2bfb0c713311a90a2d42e0" title="Callback for response body content.">outContent</a>(<a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> &amp; response, Buffer &amp; outBuffer) = 0;
-<a name="l00509"></a>00509 
-<a name="l00513"></a><a class="code" href="classbref_1_1_pipeline_1_1_i_content_request_handler.html#a456e3fdd0e71681692fe788749dd6ef2">00513</a>     <span class="keyword">virtual</span> <a class="code" href="classbref_1_1_pipeline_1_1_i_content_request_handler.html#a456e3fdd0e71681692fe788749dd6ef2" title="Virtual destructor.">~IContentRequestHandler</a>() {};
-<a name="l00514"></a>00514   };
+<a name="l00107"></a><a class="code" href="group___pipeline.html#ga9af254d2f49ba7e77095265d6dd5566b">00107</a> <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_bref_value.html" title="Contains a generic value.">BrefValue</a> <a class="code" href="group___pipeline.html#ga9af254d2f49ba7e77095265d6dd5566b" title="The value used for the configuration settings of the server.">ServerConfig</a>;
+<a name="l00108"></a>00108 
+<a name="l00114"></a>00114 <span class="preprocessor">#if defined(_WIN32) || defined(__WIN32__) || defined(WIN32)</span>
+<a name="l00115"></a>00115 <span class="preprocessor"></span>  <span class="keyword">typedef</span> HANDLE <a class="code" href="group___pipeline.html#ga977c07056bf73e57be0393266de75f5a" title="Define fd type (system dependant : fd on UNIX systems, HANDLE for Windows systems) for ContentHook...">FdType</a>;
+<a name="l00116"></a>00116 <span class="preprocessor">#else</span>
+<a name="l00117"></a><a class="code" href="group___pipeline.html#ga977c07056bf73e57be0393266de75f5a">00117</a> <span class="preprocessor"></span>  <span class="keyword">typedef</span> <span class="keywordtype">int</span> <a class="code" href="group___pipeline.html#ga977c07056bf73e57be0393266de75f5a" title="Define fd type (system dependant : fd on UNIX systems, HANDLE for Windows systems) for ContentHook...">FdType</a>;
+<a name="l00118"></a>00118 <span class="preprocessor">#endif</span>
+<a name="l00119"></a>00119 <span class="preprocessor"></span>
+<a name="l00130"></a><a class="code" href="structbref_1_1_environment.html">00130</a> <span class="keyword">struct </span><a class="code" href="structbref_1_1_environment.html" title="This structure defines the environment of a request.">Environment</a>
+<a name="l00131"></a>00131 {
+<a name="l00132"></a><a class="code" href="structbref_1_1_environment.html#a5b1b25bc216565a3613d39aa5155ccd4">00132</a>   <span class="keyword">const</span> <a class="code" href="classbref_1_1_bref_value.html" title="Contains a generic value.">ServerConfig</a> &amp;  <a class="code" href="structbref_1_1_environment.html#a5b1b25bc216565a3613d39aa5155ccd4">serverConfig</a>; 
+<a name="l00133"></a><a class="code" href="structbref_1_1_environment.html#a1b445623d4bfd29af9f5ed105664088c">00133</a>   <a class="code" href="classbref_1_1_i_logger.html" title="Bref API logger interface.">ILogger</a>              *<a class="code" href="structbref_1_1_environment.html#a1b445623d4bfd29af9f5ed105664088c">logger</a>;       
+<a name="l00138"></a><a class="code" href="structbref_1_1_environment_1_1_client.html">00138</a>   <span class="keyword">struct </span><a class="code" href="structbref_1_1_environment_1_1_client.html" title="This structure contains client informations.">Client</a>
+<a name="l00139"></a>00139   {
+<a name="l00140"></a>00140     <a class="code" href="classbref_1_1_ip_address.html" title="Provides IPv4 &amp; Ipv6 encapsulation.">IpAddress</a>  Ip;
+<a name="l00141"></a>00141     <span class="keywordtype">short</span>      Port;
+<a name="l00142"></a>00142     SocketType Socket;
+<a name="l00143"></a>00143   };
+<a name="l00144"></a>00144 };
+<a name="l00145"></a>00145 
+<a name="l00151"></a><a class="code" href="structbref_1_1_pipeline.html">00151</a> <span class="keyword">struct </span><a class="code" href="structbref_1_1_pipeline.html" title="Where the IModule classes register their hooks.">Pipeline</a>
+<a name="l00152"></a>00152 {
+<a name="l00187"></a>00187   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;bool (<a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> &amp; response,
+<a name="l00188"></a><a class="code" href="group___gate.html#gadbb39dc7b9243db92971de9c901d92b3">00188</a>                          <span class="keyword">const</span> <a class="code" href="structbref_1_1_environment.html" title="This structure defines the environment of a request.">Environment</a> &amp; environment)&gt; <a class="code" href="group___gate.html#gadbb39dc7b9243db92971de9c901d92b3" title="A hook for the connection of a client.">ConnectionRequestHandler</a>;
+<a name="l00189"></a>00189 
+<a name="l00203"></a><a class="code" href="group___gate.html#ga038f2e44ce2198916a55c69fc18a2e8e">00203</a>   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function&lt;ConnectionRequestHandler (const Environment &amp; environment)&gt;</a> <a class="code" href="group___gate.html#ga038f2e44ce2198916a55c69fc18a2e8e" title="Generate a Pipeline::ConnectionRequestHandler.">ConnectionHook</a>;
+<a name="l00204"></a>00204 
+<a name="l00216"></a><a class="code" href="group___gate.html#gab4a87714f6d5927cdbb4b74d2174711c">00216</a>   std::list&lt;std::pair&lt;ConnectionHook, float&gt; &gt; <a class="code" href="group___gate.html#gab4a87714f6d5927cdbb4b74d2174711c" title="List of connection hooks.">connectionHooks</a>;
+<a name="l00217"></a>00217 
+<a name="l00238"></a>00238   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;bool (SocketType socket,
+<a name="l00239"></a><a class="code" href="group___gate.html#ga3e600a7888ca0a742399d6fd07eacd04">00239</a>                          Buffer &amp;   buffer)&gt; <a class="code" href="group___gate.html#ga3e600a7888ca0a742399d6fd07eacd04" title="The handler to call when there is pending data on a socket.">OnReceiveRequestHandler</a>;
+<a name="l00240"></a>00240 
+<a name="l00253"></a><a class="code" href="group___gate.html#ga1f2f6bb4cfebbdd10566d3aa85fce82d">00253</a>   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function&lt;OnReceiveRequestHandler (const Environment &amp; environment)&gt;</a> <a class="code" href="group___gate.html#ga1f2f6bb4cfebbdd10566d3aa85fce82d" title="Generate a Pipeline::OnReceiveRequestHandler.">OnReceiveHook</a>;
+<a name="l00254"></a>00254 
+<a name="l00267"></a><a class="code" href="group___gate.html#ga51d877e54aadec12db7ecd293e3eba66">00267</a>   std::list&lt;std::pair&lt;OnReceiveHook, float&gt; &gt; <a class="code" href="group___gate.html#ga51d877e54aadec12db7ecd293e3eba66" title="List of received hooks.">onReceiveHooks</a>;
+<a name="l00268"></a>00268 
+<a name="l00284"></a>00284   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;bool (SocketType     socket,
+<a name="l00285"></a><a class="code" href="group___gate.html#ga8b56a9b11cb2082693276336766dc732">00285</a>                          <span class="keyword">const</span> Buffer &amp; buffer)&gt; <a class="code" href="group___gate.html#ga8b56a9b11cb2082693276336766dc732" title="A hook when data need to be sent.">OnSendRequestHandler</a>;
+<a name="l00286"></a>00286 
+<a name="l00299"></a><a class="code" href="group___gate.html#ga187d7dfba63a05b3e8e1dad15da7e358">00299</a>   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function&lt;OnSendRequestHandler (const Environment &amp; environment)&gt;</a> <a class="code" href="group___gate.html#ga187d7dfba63a05b3e8e1dad15da7e358" title="Generate a Pipeline::OnSendRequestHandler.">OnSendHook</a>;
+<a name="l00300"></a>00300 
+<a name="l00309"></a><a class="code" href="group___gate.html#gaf26552c749ebac86b85a10d99eb38c29">00309</a>   std::list&lt;std::pair&lt;OnSendHook, float&gt; &gt; <a class="code" href="group___gate.html#gaf26552c749ebac86b85a10d99eb38c29" title="List of hooks to run when data needs to be sent.">onSendHooks</a>;
+<a name="l00310"></a>00310 
+<a name="l00342"></a>00342   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;void (<a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> &amp; response,
+<a name="l00343"></a>00343                          <span class="keyword">const</span> Buffer &amp; inBuffer,
+<a name="l00344"></a><a class="code" href="group___upstream.html#gac460cd365903fafdf9125d1654e1dc23">00344</a>                          Buffer &amp;       outBuffer)&gt; <a class="code" href="group___upstream.html#gac460cd365903fafdf9125d1654e1dc23" title="A hook called upon reading data on the socket.">PostReceiveRequestHandler</a>;
+<a name="l00345"></a>00345 
+<a name="l00357"></a><a class="code" href="group___upstream.html#gaf25a851b5c51ce7a46bbb63ba3f3692c">00357</a>   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function&lt;PostReceiveRequestHandler (const Environment &amp; environment)&gt;</a> <a class="code" href="group___upstream.html#gaf25a851b5c51ce7a46bbb63ba3f3692c" title="Generate a Pipeline::PostRequestHandler.">PostReceiveHook</a>;
+<a name="l00358"></a>00358 
+<a name="l00368"></a><a class="code" href="group___upstream.html#ga113902e400a318c91fea9567e772cb11">00368</a>   std::list&lt;std::pair&lt;PostReceiveHook, float&gt; &gt; <a class="code" href="group___upstream.html#ga113902e400a318c91fea9567e772cb11" title="List of post-read hooks.">postReceiveHooks</a>;
+<a name="l00369"></a>00369 
+<a name="l00395"></a>00395   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;Buffer::const_iterator (<a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> &amp; response,
+<a name="l00396"></a>00396                                            <span class="keyword">const</span> Buffer &amp; buff,
+<a name="l00397"></a><a class="code" href="group___upstream.html#gac34c7432b4dc1f7b91527af977955900">00397</a>                                            <a class="code" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a> &amp;  request)&gt; <a class="code" href="group___upstream.html#gac34c7432b4dc1f7b91527af977955900" title="The handler called to generate an HttpRequest.">ParsingRequestHandler</a>;
+<a name="l00398"></a>00398 
+<a name="l00407"></a><a class="code" href="group___upstream.html#gacae7e999f48ba5a0b801e66ce76f4b09">00407</a>   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function&lt;ParsingRequestHandler (Environment &amp;)&gt;</a> <a class="code" href="group___upstream.html#gacae7e999f48ba5a0b801e66ce76f4b09" title="Generate a Pipeline::ParsingRequestHandler.">ParsingHook</a>;
+<a name="l00408"></a>00408 
+<a name="l00418"></a><a class="code" href="group___upstream.html#ga4cf2cf6a71e70bf501c0f2fd73fc8e2b">00418</a>   std::list&lt;std::pair&lt;ParsingHook, float&gt; &gt; <a class="code" href="group___upstream.html#ga4cf2cf6a71e70bf501c0f2fd73fc8e2b" title="List of parsing hooks.">parsingHooks</a>;
+<a name="l00419"></a>00419 
+<a name="l00430"></a><a class="code" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b">00430</a>   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function&lt;void (HttpResponse &amp; response)&gt;</a> <a class="code" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called once the request is parsed.">PostParsingRequestHandler</a>;
+<a name="l00431"></a>00431 
+<a name="l00446"></a>00446   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;<a class="code" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called once the request is parsed.">PostParsingRequestHandler</a> (<span class="keyword">const</span> <a class="code" href="structbref_1_1_environment.html" title="This structure defines the environment of a request.">Environment</a> &amp; environment,
+<a name="l00447"></a><a class="code" href="group___upstream.html#ga5af7ca7c7f953a8f0f7292b0a71443f0">00447</a>                                               <a class="code" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a> &amp;       httpRequest)&gt; <a class="code" href="group___upstream.html#ga5af7ca7c7f953a8f0f7292b0a71443f0" title="Generate a Pipeline::PostParsingRequestHandler.">PostParsingHook</a>;
+<a name="l00448"></a>00448 
+<a name="l00456"></a><a class="code" href="group___upstream.html#ga5cee48bf7f91aa1ce63d308c63612629">00456</a>   std::list&lt;std::pair&lt;PostParsingHook, float&gt; &gt; <a class="code" href="group___upstream.html#ga5cee48bf7f91aa1ce63d308c63612629" title="List of post-parsing hooks.">postParsingHooks</a>;
+<a name="l00457"></a>00457 
+<a name="l00479"></a><a class="code" href="classbref_1_1_pipeline_1_1_i_content_request_handler.html">00479</a>   <span class="keyword">class </span><a class="code" href="classbref_1_1_pipeline_1_1_i_content_request_handler.html" title="Handler called to execute a request.">IContentRequestHandler</a>
+<a name="l00480"></a>00480   {
+<a name="l00481"></a>00481   <span class="keyword">public</span>:
+<a name="l00497"></a>00497     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classbref_1_1_pipeline_1_1_i_content_request_handler.html#a82adf94d8e0fe8fd504c2af181339b40" title="Callback for request body content.">inContent</a>(<a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> &amp; response, <span class="keyword">const</span> Buffer &amp; inBuffer) = 0;
+<a name="l00498"></a>00498 
+<a name="l00514"></a>00514     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classbref_1_1_pipeline_1_1_i_content_request_handler.html#ab8e4a5026d2bfb0c713311a90a2d42e0" title="Callback for response body content.">outContent</a>(<a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> &amp; response, Buffer &amp; outBuffer) = 0;
 <a name="l00515"></a>00515 
-<a name="l00533"></a>00533   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;IContentRequestHandler *(<span class="keyword">const</span> <a class="code" href="structbref_1_1_environment.html" title="This structure define the environment of a request.">Environment</a> &amp; environment,
-<a name="l00534"></a>00534                                             <span class="keyword">const</span> <a class="code" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a> &amp; request,
-<a name="l00535"></a><a class="code" href="group___bridge.html#ga8710f9fefa13c279f53ff7ba4938cd82">00535</a>                                             <a class="code" href="group___pipeline.html#ga977c07056bf73e57be0393266de75f5a" title="Define fd type (system dependant : fd on UNIX systems, HANDLE for Windows systems) for ContentHook...">FdType</a> &amp; fd)&gt; <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">ContentHook</a>;
-<a name="l00536"></a>00536 
-<a name="l00537"></a>00537 
-<a name="l00547"></a><a class="code" href="group___bridge.html#gafd330e961086e304cf6f7b67ceb1ac8a">00547</a>   std::list&lt;std::pair&lt;ContentHook, float&gt; &gt; <a class="code" href="group___bridge.html#gafd330e961086e304cf6f7b67ceb1ac8a" title="List of content hooks.">contentHooks</a>;
-<a name="l00548"></a>00548 
-<a name="l00589"></a>00589   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;void (<a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> &amp; reponse,
-<a name="l00590"></a>00590                          <span class="keyword">const</span> Buffer &amp; inBuffer,
-<a name="l00591"></a><a class="code" href="group___downstream.html#gaff7a1f469b447269755d1b4205e4f606">00591</a>                          Buffer &amp;       outBuffer)&gt; <a class="code" href="group___downstream.html#gaff7a1f469b447269755d1b4205e4f606" title="Hook to run after the content was generated by contentHooks.">PostContentRequestHandler</a>;
-<a name="l00592"></a>00592 
-<a name="l00602"></a>00602   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;<a class="code" href="group___downstream.html#gaff7a1f469b447269755d1b4205e4f606" title="Hook to run after the content was generated by contentHooks.">PostContentRequestHandler</a> (<span class="keyword">const</span> <a class="code" href="structbref_1_1_environment.html" title="This structure define the environment of a request.">Environment</a> &amp; environment,
+<a name="l00519"></a><a class="code" href="classbref_1_1_pipeline_1_1_i_content_request_handler.html#a456e3fdd0e71681692fe788749dd6ef2">00519</a>     <span class="keyword">virtual</span> <a class="code" href="classbref_1_1_pipeline_1_1_i_content_request_handler.html#a456e3fdd0e71681692fe788749dd6ef2" title="Virtual destructor.">~IContentRequestHandler</a>() {}
+<a name="l00520"></a>00520 
+<a name="l00527"></a>00527     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbref_1_1_pipeline_1_1_i_content_request_handler.html#a46def32b94e54ffff181d83f9af9546a" title="Dispose of the resources allocated by the request handler.">dispose</a>() = 0;
+<a name="l00528"></a>00528   };
+<a name="l00529"></a>00529 
+<a name="l00546"></a>00546   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;IContentRequestHandler *(<span class="keyword">const</span> <a class="code" href="structbref_1_1_environment.html" title="This structure defines the environment of a request.">Environment</a> &amp; environment,
+<a name="l00547"></a>00547                                             <span class="keyword">const</span> <a class="code" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a> &amp; request,
+<a name="l00548"></a><a class="code" href="group___bridge.html#ga8710f9fefa13c279f53ff7ba4938cd82">00548</a>                                             <a class="code" href="group___pipeline.html#ga977c07056bf73e57be0393266de75f5a" title="Define fd type (system dependant : fd on UNIX systems, HANDLE for Windows systems) for ContentHook...">FdType</a> &amp; fd)&gt; <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">ContentHook</a>;
+<a name="l00549"></a>00549 
+<a name="l00550"></a>00550 
+<a name="l00560"></a><a class="code" href="group___bridge.html#gafd330e961086e304cf6f7b67ceb1ac8a">00560</a>   std::list&lt;std::pair&lt;ContentHook, float&gt; &gt; <a class="code" href="group___bridge.html#gafd330e961086e304cf6f7b67ceb1ac8a" title="List of content hooks.">contentHooks</a>;
+<a name="l00561"></a>00561 
+<a name="l00590"></a>00590   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;void (<a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> &amp; reponse,
+<a name="l00591"></a>00591                          <span class="keyword">const</span> Buffer &amp; inBuffer,
+<a name="l00592"></a><a class="code" href="group___downstream.html#gaff7a1f469b447269755d1b4205e4f606">00592</a>                          Buffer &amp;       outBuffer)&gt; <a class="code" href="group___downstream.html#gaff7a1f469b447269755d1b4205e4f606" title="Hook to run after the content was generated by contentHooks.">PostContentRequestHandler</a>;
+<a name="l00593"></a>00593 
+<a name="l00602"></a>00602   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;<a class="code" href="group___downstream.html#gaff7a1f469b447269755d1b4205e4f606" title="Hook to run after the content was generated by contentHooks.">PostContentRequestHandler</a> (<span class="keyword">const</span> <a class="code" href="structbref_1_1_environment.html" title="This structure defines the environment of a request.">Environment</a> &amp; environment,
 <a name="l00603"></a><a class="code" href="group___downstream.html#ga4d98c28ba3ba87a5a2e77e2dba2aa8d1">00603</a>                                               <span class="keyword">const</span> <a class="code" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a> &amp; request)&gt; <a class="code" href="group___downstream.html#ga4d98c28ba3ba87a5a2e77e2dba2aa8d1" title="Generate Pipeline::PostContentRequestHandler.">PostContentHook</a>;
 <a name="l00604"></a>00604 
 <a name="l00613"></a><a class="code" href="group___downstream.html#ga16a6038bd7885a2d18f49918eae2d30b">00613</a>   std::list&lt;std::pair&lt;PostContentHook, float&gt; &gt; <a class="code" href="group___downstream.html#ga16a6038bd7885a2d18f49918eae2d30b" title="A list of post-content hooks.">postContentHooks</a>;
@@ -194,9 +196,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00615"></a>00615 
 <a name="l00630"></a>00630   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;void (<a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> &amp; response,
 <a name="l00631"></a>00631                          <span class="keyword">const</span> Buffer &amp; inBuffer,
-<a name="l00632"></a><a class="code" href="group___downstream.html#gacf8935ae4dcfdaf086eac49928bbacda">00632</a>                          Buffer &amp;       outBuffer)&gt; <a class="code" href="group___downstream.html#gacf8935ae4dcfdaf086eac49928bbacda" title="Handler to call after the postContentHooks were run.">TransformRequestHandler</a>;
+<a name="l00632"></a><a class="code" href="group___downstream.html#gacf8935ae4dcfdaf086eac49928bbacda">00632</a>                          Buffer &amp;       outBuffer)&gt; <a class="code" href="group___downstream.html#gacf8935ae4dcfdaf086eac49928bbacda" title="Handler to call after the postContentHooks are executed.">TransformRequestHandler</a>;
 <a name="l00633"></a>00633 
-<a name="l00643"></a>00643   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;<a class="code" href="group___downstream.html#gacf8935ae4dcfdaf086eac49928bbacda" title="Handler to call after the postContentHooks were run.">TransformRequestHandler</a> (<span class="keyword">const</span> <a class="code" href="structbref_1_1_environment.html" title="This structure define the environment of a request.">Environment</a> &amp; environment,
+<a name="l00643"></a>00643   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a>&lt;<a class="code" href="group___downstream.html#gacf8935ae4dcfdaf086eac49928bbacda" title="Handler to call after the postContentHooks are executed.">TransformRequestHandler</a> (<span class="keyword">const</span> <a class="code" href="structbref_1_1_environment.html" title="This structure defines the environment of a request.">Environment</a> &amp; environment,
 <a name="l00644"></a><a class="code" href="group___downstream.html#ga003b5baf7fb5aa820e4fdb76af897e28">00644</a>                                             <span class="keyword">const</span> <a class="code" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a> &amp; request)&gt; <a class="code" href="group___downstream.html#ga003b5baf7fb5aa820e4fdb76af897e28" title="Generate Pipeline::TransformRequestHandler.">TransformHook</a>;
 <a name="l00645"></a>00645 
 <a name="l00653"></a><a class="code" href="group___downstream.html#gadba01a55e5917e8fab69c6cbec323186">00653</a>   std::list&lt;std::pair&lt;TransformHook, float&gt; &gt; <a class="code" href="group___downstream.html#gadba01a55e5917e8fab69c6cbec323186" title="List of transformation hooks.">transformHooks</a>;
@@ -205,15 +207,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00668"></a>00668                          <span class="keyword">const</span> Buffer &amp;,
 <a name="l00669"></a><a class="code" href="group___downstream.html#ga8f682c169f0ec6210982af866167f305">00669</a>                          Buffer &amp;)&gt; <a class="code" href="group___downstream.html#ga8f682c169f0ec6210982af866167f305" title="Handler called before sending data back to the client.">PreSendRequestHandler</a>;
 <a name="l00670"></a>00670 
-<a name="l00680"></a><a class="code" href="group___downstream.html#ga0931cf752a816f0d30826a9e71a3c184">00680</a>   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function&lt;PreSendRequestHandler (const Environment &amp;, const HttpRequest &amp;)&gt;</a> <a class="code" href="group___downstream.html#ga0931cf752a816f0d30826a9e71a3c184" title="Generate Pipeline::PreSendRequestHandler.">PreSendHook</a>;
-<a name="l00681"></a>00681 
-<a name="l00690"></a><a class="code" href="group___downstream.html#ga2f6e11da7b80b08b64c41983bd3aa4e8">00690</a> std::list&lt;std::pair&lt;PreSendHook, float&gt; &gt; <a class="code" href="group___downstream.html#ga2f6e11da7b80b08b64c41983bd3aa4e8" title="A list of pre-send hooks.">preSendHooks</a>;
-<a name="l00691"></a>00691 
-<a name="l00694"></a>00694 };
-<a name="l00695"></a>00695 
-<a name="l00698"></a>00698 } <span class="comment">// ! bref</span>
-<a name="l00699"></a>00699 
-<a name="l00700"></a>00700 <span class="preprocessor">#endif </span><span class="comment">/* !BREF_API_PIPELINE_H */</span>
+<a name="l00679"></a><a class="code" href="group___downstream.html#ga0931cf752a816f0d30826a9e71a3c184">00679</a>   <span class="keyword">typedef</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function&lt;PreSendRequestHandler (const Environment &amp;, const HttpRequest &amp;)&gt;</a> <a class="code" href="group___downstream.html#ga0931cf752a816f0d30826a9e71a3c184" title="Generate Pipeline::PreSendRequestHandler.">PreSendHook</a>;
+<a name="l00680"></a>00680 
+<a name="l00689"></a><a class="code" href="group___downstream.html#ga2f6e11da7b80b08b64c41983bd3aa4e8">00689</a>   std::list&lt;std::pair&lt;PreSendHook, float&gt; &gt; <a class="code" href="group___downstream.html#ga2f6e11da7b80b08b64c41983bd3aa4e8" title="A list of pre-send hooks.">preSendHooks</a>;
+<a name="l00690"></a>00690 
+<a name="l00693"></a>00693 };
+<a name="l00694"></a>00694 
+<a name="l00697"></a>00697 } <span class="comment">// ! bref</span>
+<a name="l00698"></a>00698 
+<a name="l00699"></a>00699 <span class="preprocessor">#endif </span><span class="comment">/* !BREF_API_PIPELINE_H */</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -233,7 +235,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 16 2012 13:49:09 for bref by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 19 2012 11:23:05 for bref by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>
