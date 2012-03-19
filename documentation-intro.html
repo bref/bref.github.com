@@ -16,7 +16,7 @@
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-29009488-1']);
       _gaq.push(['_trackPageview']);
-      
+
       (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -43,26 +43,32 @@
           </div>
         </div>
       </div>
-    </div>    
-    
+    </div>
+
     <div class="container">
       <header class="jumbotron subhead" id="overview">
         <h1>Découvrir l'API Bref</h1>
         <p class="lead">Un rapide tour d'horizon de l'API Bref.</p>
       </header>
-      
+
       <div class="flow"></div>
-      
-      <h1>Pipeline</h1>
-      <p>Notre API est basée sur un système de pipeline, à la fois simple et complet sur lequel
-      s'enregistre les modules du Zia grâce à un système de points d'encrage (hooks), représentés sur le
-      schéma ci-dessus par des points roses.
-      Vous trouverez le détail de chacun d'entre eux en passant votre pointeur dessus.</p>
-      
-      <h2>Fonctionnement</h2>
-      <p>Les hooks sont enregistrés par le module en précisant <strong>la priorité d'exécution</strong> de celui-ci.
-      Chaque hook est appelé une seule fois par requête et peut retourner un <em>RequestHandler</em> qui
-      sera appelé une ou plusieures fois (callback) en fonction du contexte.</p>
+
+      <div class="row">
+        <div class="span6">
+	  <h1>Pipeline</h1>
+	  <p>Notre API est basée sur un système de pipeline, à la fois simple et complet sur lequel
+	    s'enregistre les modules du Zia grâce à un système de points d'encrage (hooks), représentés sur le
+	    schéma ci-dessus par des points roses.
+	    Vous trouverez le détail de chacun d'entre eux en passant votre pointeur dessus.</p>
+	  <h2>Fonctionnement</h2>
+	  <p>Les hooks sont enregistrés par le module en précisant <strong>la priorité d'exécution</strong> de celui-ci.
+	    Chaque hook est appelé une seule fois par requête et peut retourner un <em>RequestHandler</em> qui
+	    sera appelé une ou plusieurs fois (callback) en fonction du contexte.</p>
+        </div>
+        <div class="span6">
+	  <iframe width="560" height="315" src="http://www.youtube.com/embed/sxFifF__h74" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
 
       <h2>Exemple avec un module CGI</h2>
       <p>Par exemple, on aurait un module CGI qui <em>piperait</em> le corps d'une requête POST sur un processus
@@ -78,7 +84,7 @@
       <p>La seconde serait appelé lors de la réception par le serveur de données sur le fd fournit, c'est à dire
       lorsque le processus PHP écrira du contenu sur sa sortie standard.</p>
       <p class="pull-right"><a class="btn" href="#">&raquo; Voir nos exemples de modules</a></p>
-      
+
       <h2>Liste des hooks disponibles</h2>
       <h3>Gate</h3>
       <p>La gate gère les communications avec l'extérieur et la génération des données.
@@ -111,7 +117,7 @@
           </tr>
         </tbody>
       </table>
-      
+
       <h3>UpStream</h3>
       <p>L'UpStream correspond aux actions effectuées avant la génération du contenu de la réponse.</p>
       <table class="table table-bordered table-striped">
@@ -141,7 +147,7 @@
           </tr>
         </tbody>
       </table>
-      
+
       <h3>Bridge</h3>
       <p>Le bridge génère le contenu de la réponse, statique ou dynamique.</p>
       <table class="table table-bordered table-striped">
@@ -162,7 +168,7 @@
           </tr>
         </tbody>
       </table>
-      
+
       <h3>DownStream</h3>
       <p>Le DownStream génère la resultat final (encodage, compression, etc.).</p>
       <table class="table table-bordered table-striped">
@@ -192,11 +198,11 @@
           </tr>
         </tbody>
       </table>
-      
+
       <h1>Environnement</h1>
       <p>Chaque hook prendra une référence sur une structure en paramètre contenant "l'environnement"
       de la requête, c'est à dire la configuration du serveur et un logger.</p>
-      
+
       <div class="row">
         <div class="span4">
           <h2>Configuration</h2>
@@ -230,7 +236,7 @@
           </p>-->
         </div>
       </div>
-      
+
       <hr>
       <footer>
         <p class="pull-right">
@@ -251,7 +257,7 @@
           <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=rannou_p">rannou_p</a>.
         </p>
       </footer>
-      
+
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="./assets/js/bootstrap-tooltip.js"></script>

@@ -16,7 +16,7 @@
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-29009488-1']);
       _gaq.push(['_trackPageview']);
-      
+
       (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -49,8 +49,8 @@
           </div>
         </div>
       </div>
-    </div>    
-    
+    </div>
+
     <div class="container">
       <header class="jumbotron subhead" id="overview">
         <h1>Implémenter notre API</h1>
@@ -65,7 +65,7 @@
           </ul>
         </div>
       </header>
-      
+
       <!-- Intro
        ================================================== -->
       <section id="intro">
@@ -94,34 +94,72 @@ $ git commit -m "Add bref API"</pre>
           </div>
       </section>
 
-      
+
       <!-- Logger
        ================================================== -->
       <section id="logger">
         <div class="page-header">
-          <h1>Logger</h1>
+          <h1>Logger <small>Un moyen pour les modules de générer des traces de manière uniforme</small></h1>
         </div>
-        <h3>Implémentation</h3>
-        <p>Les macros de log sont construites sur le modèle de : </p>
-        <pre class="prettyprint">#define LOG(logger, sev) bref::ScopedLogger(logger, sev).log()
-#define LOG_DEBUG(logger) LOG(logger, bref::ILogger::DEBUG)</pre>
-        <p>En réalité, afin de réduire l'utilisation de ressources en log ignoré, la macro LOG teste le niveau de log avant de construire un ScopedLogger et de l'utilisation de streams.</p>
-        <p>La classe <a href="#">ScopedLogger</a> est déjà implémentée : 
-        Il vous reste donc qu'à implémenter votre classe de log héritant de l'interface <a href="#">ILogger</a> suivante :</p>
-        <pre class="prettyprint linenums">
-class ILogger
-{
-public:
-  virtual ~ILogger() {};
-  virtual Severity severity() const = 0;
-  virtual void setSeverity(Severity newSeverity) = 0;
+        <p>
+          Le <em>logger</em> est représenté sous 2 formes :
+          <ul>
+            <li>Une interface <code class="prettyprint inline">ILogger</code> à implémenter pour chaque server ;</li>
+            <li>Une classe <code class="prettyprint inline">ScopedLogger</code> et des macros, fournit par l'API.</li>
+          </ul>
+        </p>
 
-  virtual void log(Severity severity, const std::string & message) = 0;
-};</pre>
-        <p>La méthode log de votre future classe de log sera appelée à la destruction du <a href="#">ScopedLogger</a>, avec en paramètre le niveau de log fourni ainsi que
-        le message à logger.</p>
+        <div class="row">
+          <div class="span6">
+            <p>
+            <h3>L'interface ILogger</h3>
+            <p>C'est une interface classique pour un logger.</p>
+            <p>On peut mettre un niveau de log général au logger et
+               logger des messages d'une certaine sévérité grâce à la
+               méthode <code class="prettyprint inline">log(severity, msg)</code>.</p>
+            <p>Seul les messages d'une sévérité supérieur ou égale à
+              celle du logger seront réellement logger.</p>
+            <pre class="prettyprint linenums">
+void example(ILogger *logger)
+{
+// On dit au logger de ne logger qu'à partir d'une sévérité
+// de type ILogger::Error ou supérieur
+logger->setSeverity(ILogger::Error);
+
+// Debug étant un niveau inférieur à Error, le logger va l'ignorer
+logger->log(ILogger::Debug, "un message de debug");
+
+// C'est une erreur, le logger log le message
+logger->log(ILogger::Error, "un message d'erreur");
+}</pre>
+        <p>Il vous reste donc qu'à implémenter votre classe de log héritant de
+          l'interface <a href="doxygen/classbref_1_1_i_logger.html">ILogger</a>.
+        </p>
+          </p>
+          </div>
+<div class="span6">
+  <p>
+            <h3>ScopedLogger et macros</h3>
+            <p>Les macros de log sont construites sur le modèle de : </p>
+            <pre class="prettyprint">#define LOG(logger, sev) bref::ScopedLogger(logger, sev).log()
+#define LOG_DEBUG(logger) LOG(logger, bref::ILogger::Debug)</pre>
+            <p>En réalité, afin de réduire l'utilisation de ressources en log ignoré, la macro LOG teste le niveau de log avant de construire un ScopedLogger et de l'utilisation de streams.</p>
+            <p>La classe <a href="doxygen/_scoped_logger_8h.html">ScopedLogger</a> est déjà implémentée, sont utlisation couplée au macros est très simple, même transparente.</p>
+            <pre class="prettyprint linenums">
+void myHandler(ILogger *logger)
+{
+  logger->setSeverity(ILogger::Warning);
+  // Grâce à la macro aucune stringstream n'est crée ici
+  LOG_DEBUG(logger) << "Un message de debug";
+  // Ici la stringstream est crée et le message loggé
+  LOG_WARN(logger) << "Un message de warning";
+}</pre>
+            <p>La méthode log de votre future classe de log sera appelée à la destruction du <a href="doxygen/_scoped_logger_8h.html">ScopedLogger</a>,
+              avec en paramètre le niveau de log fourni ainsi que le message à logger.</p>
+            </p>
+        </div>
       </section>
-      
+
       <!-- BrefValue
        ================================================== -->
       <section id="brefvalue">
@@ -159,7 +197,7 @@ public:
           </div>
         </div>
       </section>
-            
+
       <!-- IConfHelper
        ================================================== -->
       <section id="confhelper">
@@ -168,7 +206,7 @@ public:
         </div>
         <p>Avoir un conteneur générique, c'est bien, mais implémenter des méthodes pour le parcourir à chaque fois qu'on en a besoin, ça l'est moins.
         C'est pourquoi nous avons pensé inclure des méthodes d'aide au parcours de nos <code class="prettyprint inline">BrefValue</code> pour le corps du serveur, mais aussi les modules.</p>
-        
+
         <div class="row">
           <div class="span6">
             <h3>Exemple</h3>
@@ -190,7 +228,7 @@ VirtualHosts:
             notre interface IConfHelper :</p>
             <pre class="prettyprint">virtual const BrefValue & findValue(std::string const & key) = 0;
 virtual const BrefValue & findValue(std::string const & key,
-                                    HttpRequestHeader const & request) = 0;</pre>
+                                    HttpRequest const & request) = 0;</pre>
             <p>Nous pouvons par exemple récupérer les deux <em>DocumentRoot</em> de l'exemple ci-contre : notre fonction <code>findValue</code> utilisera le header HTTP <em>Host</em> de la
             requête et la variable de configuration <em>ServerName</em> afin de déterminer quel <em>DocumentRoot</em> retourner.</p>
             </div>
@@ -210,7 +248,7 @@ virtual const BrefValue & findValue(std::string const & key,
           <a class="btn" href="documentation-uml.html#requests">Voir l'UML des requêtes HTTP  &raquo;</a>
         </p>-->
       </section>
-      
+
 
       <hr>
       <footer>
@@ -232,7 +270,7 @@ virtual const BrefValue & findValue(std::string const & key,
           <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=rannou_p">rannou_p</a>.
         </p>
       </footer>
-      
+
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="./assets/js/bootstrap-scrollspy.js"></script>
@@ -256,7 +294,7 @@ virtual const BrefValue & findValue(std::string const & key,
             $nav.removeClass('subnav-fixed')
           }
         }
-                        
+
         processScroll();
         $win.on('scroll', processScroll);
       });
