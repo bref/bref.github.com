@@ -73,17 +73,17 @@
       <h2>Exemple avec un module CGI</h2>
       <p>Par exemple, on aurait un module CGI qui <em>piperait</em> le corps d'une requête POST sur un processus
       CGI : <em>php-cgi</em>.</p>
-      <p>La classe du module héritant de <code class="prettyprint inline">IModule</code> enregistrerait un hook
+      <p>La classe du module héritant de <a href="/doxygen/classbref_1_1_i_module.html">IModule</a> enregistrerait un hook
       <em>ContentHook</em>.</p>
       <p>Cet hook serait ensuite appelé lors d'une nouvelle requête et vérifierait par exemple que l'extension soit
       ".php", exécuterait alors un processus <em>php-cgi</em>, définirait le fd correspondant standard du processus
-      et retournerait un <em>ContentRequestHandler</em>.</p>
+      et retournerait un <a href="/doxygen/classbref_1_1_pipeline_1_1_i_content_request_handler.html">IContentRequestHandler</a>.</p>
       <p style="text-align: center;"><img src="./assets/img/hook.png" alt="Exemple d'un hook" /></p>
-      <p>La premère fonction du <em>ContentRequestHandler</em> fournit par le hook serait appelé
+      <p>La premère fonction fournie par le hook serait appelée
       avec un morceau du corps de la requête jusqu'à ce que tout le corps ait été fourni.</p>
-      <p>La seconde serait appelé lors de la réception par le serveur de données sur le fd fournit, c'est à dire
+      <p>La seconde serait appelée lors de la réception par le serveur de données sur le fd fournit, c'est à dire
       lorsque le processus PHP écrira du contenu sur sa sortie standard.</p>
-      <p class="pull-right"><a class="btn" href="#">&raquo; Voir nos exemples de modules</a></p>
+      <p class="pull-right"><a class="btn" href="documentation-module.html">&raquo; Voir nos exemples de modules</a></p>
 
       <h2>Liste des hooks disponibles</h2>
       <h3>Gate</h3>
@@ -206,7 +206,7 @@
       <div class="row">
         <div class="span4">
           <h2>Configuration</h2>
-          <p>La configuration utilise un container, <code class="prettyprint inline">BrefValue</code>,
+          <p>La configuration utilise un container, <a href="/doxygen/classbref_1_1_bref_value.html">BrefValue</a>,
           qui embarque <a href="documentation-api.html#brefvalue">plusieurs types</a> et permet
           d'importer facilement des configurations YAML, XML ou JSON.</p>
           <p>Le serveur Zia devrait implémenter des <a href="documentation-api.html#confhelper">
@@ -228,12 +228,13 @@
         </div>
         <div class="span4">
           <h2>Requêtes / Réponses HTTP</h2>
-          <p>Les requêtes et réponses HTTP utilisent aussi le conteneur <code class="prettyprint inline">BrefValue</code>
-          pour stocker les différents headers, permettant d'implémenter des potentielles méthodes d'aide
-          communes entre votre configuration et vos requêtes, par exemple pour parser des dates.
-          <!--<p class="pull-right">
-            <a href="documentation-uml.html#requests" class="btn">Voir l'UML des conteneurs de requêtes HTTP &raquo;</a>
-          </p>-->
+          <p>Les requêtes et réponses HTTP utilisent aussi le conteneur
+          <a href="/doxygen/classbref_1_1_bref_value.html">BrefValue</a> pour stocker les différents headers, permettant 
+          d'implémenter des potentielles méthodes d'aide communes entre votre configuration et vos requêtes,
+          par exemple pour parser des dates.
+          <p class="pull-right">
+            <a href="documentation-api.html#httprequest" class="btn">Implémentation du conteneur &raquo;</a>
+          </p>
         </div>
       </div>
 

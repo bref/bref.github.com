@@ -104,8 +104,8 @@ $ git commit -m "Add bref API"</pre>
         <p>
           Le <em>logger</em> est représenté sous 2 formes :
           <ul>
-            <li>Une interface <code class="prettyprint inline">ILogger</code> à implémenter pour chaque server ;</li>
-            <li>Une classe <code class="prettyprint inline">ScopedLogger</code> et des macros, fournit par l'API.</li>
+            <li>Une interface <a href="/doxygen/classbref_1_1_i_logger.html">ILogger</a> à implémenter pour chaque server ;</li>
+            <li>Une classe <a href="/doxygen/classbref_1_1_scoped_logger.html">ScopedLogger</a> et des macros, fournit par l'API.</li>
           </ul>
         </p>
 
@@ -122,15 +122,15 @@ $ git commit -m "Add bref API"</pre>
             <pre class="prettyprint linenums">
 void example(ILogger *logger)
 {
-// On dit au logger de ne logger qu'à partir d'une sévérité
-// de type ILogger::Error ou supérieur
-logger->setSeverity(ILogger::Error);
+  // On dit au logger de ne logger qu'à partir d'une sévérité
+  // de type ILogger::Error ou supérieur
+  logger->setSeverity(ILogger::Error);
 
-// Debug étant un niveau inférieur à Error, le logger va l'ignorer
-logger->log(ILogger::Debug, "un message de debug");
+  // Debug étant un niveau inférieur à Error, le logger va l'ignorer
+  logger->log(ILogger::Debug, "un message de debug");
 
-// C'est une erreur, le logger log le message
-logger->log(ILogger::Error, "un message d'erreur");
+  // C'est une erreur, le logger log le message
+  logger->log(ILogger::Error, "un message d'erreur");
 }</pre>
         <p>Il vous reste donc qu'à implémenter votre classe de log héritant de
           l'interface <a href="doxygen/classbref_1_1_i_logger.html">ILogger</a>.
@@ -167,7 +167,7 @@ void myHandler(ILogger *logger)
           <h1>BrefValue <small>Un conteneur simple pour la configuration de votre serveur et ses requêtes</small></h1>
         </div>
         <p>Nous somme partis du fait qu'il nous fallait un conteneur pour notre configuration YAML, nous avons donc créé celui-ci en pensant à l'<strong>arborescence</strong> de celle-ci,
-        c'est pourquoi celui-ci intègre à la fois deux types : <code class="prettyprint inline">BrefValueList</code> et <code class="prettyprint inline">BrefValueArray</code>, respectivement une <code class="prettyprint inline">std::list</code> et une <code class="prettyprint inline">std::map</code> de BrefValue. Au final ce conteneur est </p>
+        c'est pourquoi celui-ci intègre à la fois deux types : <a href="/doxygen/classbref_1_1_bref_value.html">BrefValueList</a> et <a href="/doxygen/classbref_1_1_bref_value.html">BrefValueArray</a>, respectivement une <code class="prettyprint inline">std::list</code> et une <code class="prettyprint inline">std::map</code> de BrefValue. Au final ce conteneur est </p>
         <div class="row">
           <div class="span6">
             <h3>Types</h3>
@@ -241,14 +241,10 @@ virtual const BrefValue & findValue(std::string const & key,
         <div class="page-header">
           <h1>HttpRequest / HttpResponse <small>Un conteneur pour les requêtes et réponses HTTP</small></h1>
         </div>
-        <p>Ayant un <a href="#brefvalue">BrefValue</a> dans notre API, nous avons tout simplement créer deux classes, <code class="prettyprint inline">HttpRequest</code> et
-        <code class="prettyprint inline">HttpResponse</code>, héritant toutes les deux d'une map de <a href="#brefvalue">BrefValue</a>, et incluant des getters et setters
+        <p>Ayant un <a href="#brefvalue">BrefValue</a> dans notre API, nous avons tout simplement créer deux classes, <a href="/doxygen/classbref_1_1_http_request.html">HttpRequest</a> et
+            <a href="/doxygen/classbref_1_1_http_response.html">HttpResponse</a>, héritant toutes les deux d'une map de <a href="#brefvalue">BrefValue</a>, et incluant des getters et setters
         spécifiques à une requête et une réponse HTTP.</p>
-        <!--<p class="pull-right">
-          <a class="btn" href="documentation-uml.html#requests">Voir l'UML des requêtes HTTP  &raquo;</a>
-        </p>-->
       </section>
-
 
       <hr>
       <footer>
