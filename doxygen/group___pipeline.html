@@ -118,7 +118,7 @@ Typedefs</h2></td></tr>
 <li><em>Hook:</em> </li>
 </ul>
 <p>Hooks are RequestHandlers (see below) generators for a given set of arguments. If -- given the argument(s) it received -- a hook decides not to handle a request, a null handler is generated.</p>
-<p>Examples of hooks are: <a class="el" href="group___upstream.html#ga5af7ca7c7f953a8f0f7292b0a71443f0" title="Generate a Pipeline::PostParsingRequestHandler.">Pipeline::PostParsingHook</a>, <a class="el" href="group___gate.html#ga1f2f6bb4cfebbdd10566d3aa85fce82d" title="Generate a Pipeline::OnReceiveRequestHandler.">Pipeline::OnReceiveHook</a>, ...</p>
+<p>Examples of hooks are: <a class="el" href="group___upstream.html#gaf6436193fb29c8d894fdab7246050e97" title="Generate a Pipeline::PostParsingRequestHandler.">Pipeline::PostParsingHook</a>, <a class="el" href="group___gate.html#ga1f2f6bb4cfebbdd10566d3aa85fce82d" title="Generate a Pipeline::OnReceiveRequestHandler.">Pipeline::OnReceiveHook</a>, ...</p>
 <p>In term of code, a hook is a <a class="el" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a> object that returns another <a class="el" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Function</a> object. It's often constructed with an <a class="el" href="structbref_1_1_environment.html" title="This structure defines the environment of a request.">Environment</a> and an <a class="el" href="classbref_1_1_http_request.html" title="HTTP request container.">HttpRequest</a>.</p>
 <ul>
 <li><em>RequestHandler:</em> </li>
@@ -136,7 +136,7 @@ Typedefs</h2></td></tr>
 <li>High Priority: 1.0</li>
 </ul>
 <p>Example for a CGI module:</p>
-<p>1. Register a <a class="el" href="group___bridge.html#ga8710f9fefa13c279f53ff7ba4938cd82" title="Generate Pipeline::ContentRequestHandler.">Pipeline::ContentHook</a> with a high priority (1.0) that returns a valid Pipeline::ContentRequestHandler if it detects a request asking a PHP file (by checking the .php extension for example and some configuration variables), otherwise it should return an empty handler.</p>
+<p>1. Register a <a class="el" href="group___bridge.html#ga1aa84a42ed90b588f4abd2e2456ed766" title="Generate Pipeline::ContentRequestHandler.">Pipeline::ContentHook</a> with a high priority (1.0) that returns a valid Pipeline::ContentRequestHandler if it detects a request asking a PHP file (by checking the .php extension for example and some configuration variables), otherwise it should return an empty handler.</p>
 <p>2. Create the Pipeline::ContentRequestHandler that creates a process when it's constructed, and has a function operator() that takes each chunk of the request body and send them to the CGI process, and fill a buffer in return. </p>
 <hr/><h2>Typedef Documentation</h2>
 <a class="anchor" id="ga977c07056bf73e57be0393266de75f5a"></a><!-- doxytag: member="bref::FdType" ref="ga977c07056bf73e57be0393266de75f5a" args="" -->
@@ -189,7 +189,7 @@ Typedefs</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 19 2012 11:23:05 for bref by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 20 2012 19:26:43 for bref by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

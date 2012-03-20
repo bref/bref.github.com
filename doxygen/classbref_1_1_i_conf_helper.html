@@ -99,16 +99,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classbref_1_1_bref_value.html">BrefValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_i_conf_helper.html#a0fb9674afd361dc72708698c69ea0b92">findValue</a> (std::string const &amp;key)=0</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an acceptable value for "key" param.  <a href="#a0fb9674afd361dc72708698c69ea0b92"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classbref_1_1_bref_value.html">BrefValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_i_conf_helper.html#a2f98b040cb1382c952246c0940dc65e3">findValue</a> (std::string const &amp;key, <a class="el" href="classbref_1_1_http_request.html">HttpRequest</a> const &amp;request)=0</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an acceptable value for "key" param, using request.  <a href="#a2f98b040cb1382c952246c0940dc65e3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classbref_1_1_bref_value.html">BrefValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_i_conf_helper.html#ad0b295901aa60e8b8cd033acc7f59152">findValue</a> (std::string const &amp;key) const =0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an acceptable value for "key" param.  <a href="#ad0b295901aa60e8b8cd033acc7f59152"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classbref_1_1_bref_value.html">BrefValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_i_conf_helper.html#addd06b658c23b92bf013b9b51e10f624">findValue</a> (std::string const &amp;key, <a class="el" href="classbref_1_1_http_request.html">HttpRequest</a> const &amp;request) const =0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an acceptable value for "key" param, using request.  <a href="#addd06b658c23b92bf013b9b51e10f624"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Helper class for <a class="el" href="classbref_1_1_bref_value.html" title="Contains a generic value.">BrefValue</a> and the server configuration. </p>
 <p>This class aimed to give an easier access to the server configuration. </p>
 </div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a0fb9674afd361dc72708698c69ea0b92"></a><!-- doxytag: member="bref::IConfHelper::findValue" ref="a0fb9674afd361dc72708698c69ea0b92" args="(std::string const &amp;key)=0" -->
+<a class="anchor" id="ad0b295901aa60e8b8cd033acc7f59152"></a><!-- doxytag: member="bref::IConfHelper::findValue" ref="ad0b295901aa60e8b8cd033acc7f59152" args="(std::string const &amp;key) const =0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -117,7 +117,7 @@ Public Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">std::string const &amp;&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
-          <td><code> [pure virtual]</code></td>
+          <td> const<code> [pure virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -128,7 +128,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2f98b040cb1382c952246c0940dc65e3"></a><!-- doxytag: member="bref::IConfHelper::findValue" ref="a2f98b040cb1382c952246c0940dc65e3" args="(std::string const &amp;key, HttpRequest const &amp;request)=0" -->
+<a class="anchor" id="addd06b658c23b92bf013b9b51e10f624"></a><!-- doxytag: member="bref::IConfHelper::findValue" ref="addd06b658c23b92bf013b9b51e10f624" args="(std::string const &amp;key, HttpRequest const &amp;request) const =0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -147,7 +147,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td><code> [pure virtual]</code></td>
+          <td></td><td> const<code> [pure virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -180,7 +180,7 @@ Public Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 19 2012 11:23:05 for bref by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 20 2012 19:26:44 for bref by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

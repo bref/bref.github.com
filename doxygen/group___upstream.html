@@ -105,8 +105,9 @@ HttpRequest &amp;request)&gt;&#160;</td><td class="memItemRight" valign="bottom"
 <tr><td class="memItemLeft" align="right" valign="top">typedef Function<br class="typebreak"/>
 &lt; PostParsingRequestHandler(const <br class="typebreak"/>
 Environment &amp;environment, <br class="typebreak"/>
-HttpRequest &amp;httpRequest)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___upstream.html#ga5af7ca7c7f953a8f0f7292b0a71443f0">bref::Pipeline::PostParsingHook</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a <a class="el" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called once the request is parsed.">Pipeline::PostParsingRequestHandler</a>.  <a href="#ga5af7ca7c7f953a8f0f7292b0a71443f0"></a><br/></td></tr>
+HttpRequest &amp;httpRequest, <br class="typebreak"/>
+HttpResponse &amp;response)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___upstream.html#gaf6436193fb29c8d894fdab7246050e97">bref::Pipeline::PostParsingHook</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a <a class="el" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called once the request is parsed.">Pipeline::PostParsingRequestHandler</a>.  <a href="#gaf6436193fb29c8d894fdab7246050e97"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::list&lt; std::pair<br class="typebreak"/>
@@ -173,12 +174,12 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga5af7ca7c7f953a8f0f7292b0a71443f0"></a><!-- doxytag: member="bref::Pipeline::PostParsingHook" ref="ga5af7ca7c7f953a8f0f7292b0a71443f0" args="" -->
+<a class="anchor" id="gaf6436193fb29c8d894fdab7246050e97"></a><!-- doxytag: member="bref::Pipeline::PostParsingHook" ref="gaf6436193fb29c8d894fdab7246050e97" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef Function&lt;PostParsingRequestHandler (const Environment &amp; environment, HttpRequest &amp; httpRequest)&gt; <a class="el" href="group___upstream.html#ga5af7ca7c7f953a8f0f7292b0a71443f0">bref::Pipeline::PostParsingHook</a></td>
+          <td class="memname">typedef Function&lt;PostParsingRequestHandler (const Environment &amp; environment, HttpRequest &amp; httpRequest, HttpResponse &amp; response)&gt; <a class="el" href="group___upstream.html#gaf6436193fb29c8d894fdab7246050e97">bref::Pipeline::PostParsingHook</a></td>
         </tr>
       </table>
 </div>
@@ -216,7 +217,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#ga5cee48bf7f91aa1ce63d308c63612629" title="List of post-parsing hooks.">postParsingHooks</a>, <a class="el" href="group___upstream.html#ga5af7ca7c7f953a8f0f7292b0a71443f0" title="Generate a Pipeline::PostParsingRequestHandler.">PostParsingHook</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#ga5cee48bf7f91aa1ce63d308c63612629" title="List of post-parsing hooks.">postParsingHooks</a>, <a class="el" href="group___upstream.html#gaf6436193fb29c8d894fdab7246050e97" title="Generate a Pipeline::PostParsingRequestHandler.">PostParsingHook</a> </dd></dl>
 
 </div>
 </div>
@@ -299,7 +300,7 @@ Variables</h2></td></tr>
 
 <p>List of post-parsing hooks. </p>
 <p>The server should call these hooks after the parsing step.</p>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called once the request is parsed.">PostParsingRequestHandler</a>, <a class="el" href="group___upstream.html#ga5af7ca7c7f953a8f0f7292b0a71443f0" title="Generate a Pipeline::PostParsingRequestHandler.">PostParsingHook</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="group___upstream.html#ga44345246c86a6d5db7d880e81677337b" title="Handler called once the request is parsed.">PostParsingRequestHandler</a>, <a class="el" href="group___upstream.html#gaf6436193fb29c8d894fdab7246050e97" title="Generate a Pipeline::PostParsingRequestHandler.">PostParsingHook</a> </dd></dl>
 
 </div>
 </div>
@@ -338,7 +339,7 @@ Variables</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 19 2012 11:23:05 for bref by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 20 2012 19:26:44 for bref by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

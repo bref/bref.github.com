@@ -87,43 +87,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="_http_header_8h.html" title="HttpHeader declaration.">HttpHeader.h</a>&quot;</span>
 <a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="_version_8h.html" title="Version struct definition.">Version.h</a>&quot;</span>
 <a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="_buffer_8h.html" title="Buffer definition.">Buffer.h</a>&quot;</span>
-<a name="l00017"></a>00017 
-<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;deque&gt;</span>
-<a name="l00019"></a>00019 
-<a name="l00020"></a>00020 <span class="keyword">namespace </span>bref {
-<a name="l00021"></a>00021 
-<a name="l00028"></a><a class="code" href="classbref_1_1_http_response.html">00028</a> <span class="keyword">class </span><a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> : <span class="keyword">public</span> HttpHeader
-<a name="l00029"></a>00029 {
-<a name="l00030"></a>00030 <span class="keyword">private</span>:
-<a name="l00034"></a><a class="code" href="classbref_1_1_http_response.html#afd9d4d4003fb82e804157069e2892e6d">00034</a>   <a class="code" href="structbref_1_1_version.html" title="Describe a version with a minor and a major number.">Version</a>            <a class="code" href="classbref_1_1_http_response.html#afd9d4d4003fb82e804157069e2892e6d" title="Contains used HTTP version.">version_</a>;
-<a name="l00035"></a>00035 
-<a name="l00040"></a><a class="code" href="classbref_1_1_http_response.html#a8b78d5ce51f566f22ed5aee94e0cf724">00040</a>   <a class="code" href="namespacebref_1_1status__codes.html#acc319a192be09bdd540d2c6569a95e92" title="Enumeration containing the various HTTP status codes.">status_codes::Type</a> <a class="code" href="classbref_1_1_http_response.html#a8b78d5ce51f566f22ed5aee94e0cf724" title="Contains HTTP result code For example : bref::status_codes::OK.">statusCode_</a>;
-<a name="l00041"></a>00041 
-<a name="l00046"></a><a class="code" href="classbref_1_1_http_response.html#a813a06b0a0f98893190c2db813f2a6fd">00046</a>   std::string        <a class="code" href="classbref_1_1_http_response.html#a813a06b0a0f98893190c2db813f2a6fd" title="Contains HTTP result reason For example : &quot;I&#39;m a Teapot&quot;.">reason_</a>;
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048 <span class="keyword">public</span>:
-<a name="l00052"></a>00052   <a class="code" href="classbref_1_1_http_response.html#ae72129120cbe6225401558d5c53396c0" title="Construct an empty HTTP response.">HttpResponse</a>();
-<a name="l00053"></a>00053 
-<a name="l00057"></a>00057   <a class="code" href="classbref_1_1_http_response.html#a740c0af622b750b16a251ca0c93f3d00" title="Destructor.">~HttpResponse</a>();
-<a name="l00058"></a>00058 
-<a name="l00066"></a>00066   <span class="keyword">const</span> <a class="code" href="structbref_1_1_version.html" title="Describe a version with a minor and a major number.">Version</a> &amp; <a class="code" href="classbref_1_1_http_response.html#a478e301f61e4791091e64fa3d15ad565" title="Get the current HTTP version.">getVersion</a>() <span class="keyword">const</span>;
-<a name="l00067"></a>00067 
-<a name="l00075"></a>00075   <a class="code" href="namespacebref_1_1status__codes.html#acc319a192be09bdd540d2c6569a95e92" title="Enumeration containing the various HTTP status codes.">status_codes::Type</a> <a class="code" href="classbref_1_1_http_response.html#aaf0ff28f3b17425c906a86510ff8bf17" title="Get the HTTP result code.">getStatus</a>() <span class="keyword">const</span>;
-<a name="l00076"></a>00076 
-<a name="l00084"></a>00084   <span class="keyword">const</span> std::string &amp; <a class="code" href="classbref_1_1_http_response.html#a51436758c5f428d935a66dafe5a33904" title="Get the HTTP result reason.">getReason</a>() <span class="keyword">const</span>;
-<a name="l00085"></a>00085 
-<a name="l00094"></a>00094   Buffer <a class="code" href="classbref_1_1_http_response.html#ad69bd4c777a760816240e62888c64069" title="Get a buffer containing the response header as raw data. Example :">getRawData</a>() <span class="keyword">const</span>;
-<a name="l00095"></a>00095 
-<a name="l00103"></a>00103   <span class="keywordtype">void</span> <a class="code" href="classbref_1_1_http_response.html#a575792b0bbe5f7df81d5affd444737d5" title="Set HTTP version.">setVersion</a>(<span class="keyword">const</span> <a class="code" href="structbref_1_1_version.html" title="Describe a version with a minor and a major number.">Version</a> &amp; version);
-<a name="l00104"></a>00104 
-<a name="l00112"></a>00112   <span class="keywordtype">void</span> <a class="code" href="classbref_1_1_http_response.html#a46bde18ffb932f1ab55a06b4a3a2727f" title="Set HTTP result code.">setStatus</a>(<a class="code" href="namespacebref_1_1status__codes.html#acc319a192be09bdd540d2c6569a95e92" title="Enumeration containing the various HTTP status codes.">status_codes::Type</a> type);
-<a name="l00113"></a>00113 
-<a name="l00121"></a>00121   <span class="keywordtype">void</span> <a class="code" href="classbref_1_1_http_response.html#a0434c525c4a2c74a4663f390cd75ee70" title="Set HTTP result reason.">setReason</a>(<span class="keyword">const</span> std::string &amp; reason);
-<a name="l00122"></a>00122 };
-<a name="l00123"></a>00123 
-<a name="l00124"></a>00124 } <span class="comment">// ! bref</span>
-<a name="l00125"></a>00125 
-<a name="l00126"></a>00126 <span class="preprocessor">#endif </span><span class="comment">/* !BREF_API_HTTPRESPONSE_H_ */</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;detail/BrefDLL.h&quot;</span>
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;deque&gt;</span>
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 <span class="keyword">namespace </span>bref {
+<a name="l00022"></a>00022 
+<a name="l00029"></a><a class="code" href="classbref_1_1_http_response.html">00029</a> <span class="keyword">class </span>BREF_DLL <a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a> : <span class="keyword">public</span> HttpHeader
+<a name="l00030"></a>00030 {
+<a name="l00031"></a>00031 <span class="keyword">private</span>:
+<a name="l00035"></a><a class="code" href="classbref_1_1_http_response.html#afd9d4d4003fb82e804157069e2892e6d">00035</a>   <a class="code" href="structbref_1_1_version.html" title="Describe a version with a minor and a major number.">Version</a>            <a class="code" href="classbref_1_1_http_response.html#afd9d4d4003fb82e804157069e2892e6d" title="Contains used HTTP version.">version_</a>;
+<a name="l00036"></a>00036 
+<a name="l00041"></a><a class="code" href="classbref_1_1_http_response.html#a8b78d5ce51f566f22ed5aee94e0cf724">00041</a>   <a class="code" href="namespacebref_1_1status__codes.html#acc319a192be09bdd540d2c6569a95e92" title="Enumeration containing the various HTTP status codes.">status_codes::Type</a> <a class="code" href="classbref_1_1_http_response.html#a8b78d5ce51f566f22ed5aee94e0cf724" title="Contains HTTP result code For example : bref::status_codes::OK.">statusCode_</a>;
+<a name="l00042"></a>00042 
+<a name="l00047"></a><a class="code" href="classbref_1_1_http_response.html#a813a06b0a0f98893190c2db813f2a6fd">00047</a>   std::string        <a class="code" href="classbref_1_1_http_response.html#a813a06b0a0f98893190c2db813f2a6fd" title="Contains HTTP result reason For example : &quot;I&#39;m a Teapot&quot;.">reason_</a>;
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 <span class="keyword">public</span>:
+<a name="l00053"></a>00053   <a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a>();
+<a name="l00054"></a>00054 
+<a name="l00058"></a>00058   ~<a class="code" href="classbref_1_1_http_response.html" title="HTTP response container.">HttpResponse</a>();
+<a name="l00059"></a>00059 
+<a name="l00067"></a>00067   <span class="keyword">const</span> <a class="code" href="structbref_1_1_version.html" title="Describe a version with a minor and a major number.">Version</a> &amp; getVersion() <span class="keyword">const</span>;
+<a name="l00068"></a>00068 
+<a name="l00076"></a>00076   <a class="code" href="namespacebref_1_1status__codes.html#acc319a192be09bdd540d2c6569a95e92" title="Enumeration containing the various HTTP status codes.">status_codes::Type</a> getStatus() <span class="keyword">const</span>;
+<a name="l00077"></a>00077 
+<a name="l00085"></a>00085   <span class="keyword">const</span> std::string &amp; getReason() <span class="keyword">const</span>;
+<a name="l00086"></a>00086 
+<a name="l00095"></a>00095   Buffer getRawData() <span class="keyword">const</span>;
+<a name="l00096"></a>00096 
+<a name="l00104"></a>00104   <span class="keywordtype">void</span> setVersion(<span class="keyword">const</span> <a class="code" href="structbref_1_1_version.html" title="Describe a version with a minor and a major number.">Version</a> &amp; version);
+<a name="l00105"></a>00105 
+<a name="l00113"></a>00113   <span class="keywordtype">void</span> setStatus(<a class="code" href="namespacebref_1_1status__codes.html#acc319a192be09bdd540d2c6569a95e92" title="Enumeration containing the various HTTP status codes.">status_codes::Type</a> type);
+<a name="l00114"></a>00114 
+<a name="l00122"></a>00122   <span class="keywordtype">void</span> setReason(<span class="keyword">const</span> std::string &amp; reason);
+<a name="l00123"></a>00123 };
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125 } <span class="comment">// ! bref</span>
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127 <span class="preprocessor">#endif </span><span class="comment">/* !BREF_API_HTTPRESPONSE_H_ */</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -143,7 +144,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 19 2012 11:23:05 for bref by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 20 2012 19:26:43 for bref by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

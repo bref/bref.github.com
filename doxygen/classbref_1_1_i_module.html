@@ -84,7 +84,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">bref::IModule Class Reference</div>  </div>
 </div>
@@ -99,9 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d45a774c27470ce29bd16723c85c3ad"></a><!-- doxytag: member="bref::IModule::~IModule" ref="a8d45a774c27470ce29bd16723c85c3ad" args="()" -->
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_i_module.html#a8d45a774c27470ce29bd16723c85c3ad">~IModule</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for the module. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_i_module.html#af3537251f878708ff6d3b637bc7149ef">name</a> () const =0</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the module's name.  <a href="#af3537251f878708ff6d3b637bc7149ef"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_i_module.html#a195b499afcca54d22c66a4e50d588797">description</a> () const =0</td></tr>
@@ -114,13 +112,45 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the module hooks on the convenient hookpoints of the pipeline.  <a href="#a4c8ec62827ae64c9f13bf760e6a6c85f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_i_module.html#a166da1505b7c0d111e99322a223ef0d1">dispose</a> ()=0</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispose of the resources allocated by the module.  <a href="#a166da1505b7c0d111e99322a223ef0d1"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_i_module.html#a8d45a774c27470ce29bd16723c85c3ad">~IModule</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for the module.  <a href="#a8d45a774c27470ce29bd16723c85c3ad"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Class used to operate with dynamically loaded modules. </p>
-<p>Each module must provide a function to allow its loading at runtime, matching the following prototype :</p>
+<p>Each module must provide a function to allow its loading at runtime, matching the following prototype:</p>
 <div class="fragment"><pre class="fragment"> <span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a class="code" href="classbref_1_1_i_module.html" title="Class used to operate with dynamically loaded modules.">bref::IModule</a> *loadModule(<a class="code" href="classbref_1_1_i_logger.html" title="Bref API logger interface.">bref::ILogger</a> *); 
-</pre></div><p>once the module is loaded, a version check should be performed as follows : If the major number of the API doesn't match with the major number of the minimum Api version supported by the module. The module is not used. If the major numbers match, but the minor numbers do not, the module is used but a warning is emitted. </p>
-</div><hr/><h2>Member Function Documentation</h2>
+</pre></div><p>Once the module is loaded, a version check should be performed as follows:</p>
+<ul>
+<li>If the major number of the API doesn't match with the major number of the minimum Api version supported by the module. The module is not used and a warning is emitted.</li>
+</ul>
+<ul>
+<li>If the major numbers match, but the minor numbers do not, the module is used but a warning is emitted. </li>
+</ul>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a8d45a774c27470ce29bd16723c85c3ad"></a><!-- doxytag: member="bref::IModule::~IModule" ref="a8d45a774c27470ce29bd16723c85c3ad" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bref::IModule::~IModule </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Virtual destructor for the module. </p>
+<p>The <code>delete()</code> operator should not be called on the <a class="el" href="classbref_1_1_i_module.html" title="Class used to operate with dynamically loaded modules.">IModule</a> instance. Please refer to the <code><a class="el" href="classbref_1_1_i_module.html#a166da1505b7c0d111e99322a223ef0d1" title="Dispose of the resources allocated by the module.">dispose()</a></code> method.</p>
+<dl class="note"><dt><b>Note:</b></dt><dd>The destructor is protected in order to disable the call to the <code>delete()</code> operator from the server code.</dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="classbref_1_1_i_module.html#a166da1505b7c0d111e99322a223ef0d1" title="Dispose of the resources allocated by the module.">dispose()</a> </dd></dl>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a195b499afcca54d22c66a4e50d588797"></a><!-- doxytag: member="bref::IModule::description" ref="a195b499afcca54d22c66a4e50d588797" args="() const =0" -->
 <div class="memitem">
 <div class="memproto">
@@ -214,7 +244,15 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <div class="memdoc">
 
 <p>Register the module hooks on the convenient hookpoints of the pipeline. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
+<p>Example:</p>
+<div class="fragment"><pre class="fragment"><span class="keywordtype">void</span> <a class="code" href="classbref_1_1_i_module.html#a4c8ec62827ae64c9f13bf760e6a6c85f" title="Register the module hooks on the convenient hookpoints of the pipeline.">registerHooks</a>(Pipeline &amp; pipeline)
+{
+  <span class="keyword">const</span> <span class="keywordtype">float</span> lowPriority = 0.5f;
+
+  pipeline.connectionHooks.push_back(std::make_pair(&amp;hook_function,
+                                                    lowPriority));
+}
+</pre></div><dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">pipeline</td><td>The pipeline. </td></tr>
   </table>
@@ -263,7 +301,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 19 2012 11:23:05 for bref by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 20 2012 19:26:44 for bref by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

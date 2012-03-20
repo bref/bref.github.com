@@ -92,9 +92,10 @@ Typedefs</h2></td></tr>
 &lt; IContentRequestHandler <br class="typebreak"/>
 *(const Environment <br class="typebreak"/>
 &amp;environment, const <br class="typebreak"/>
-HttpRequest &amp;request, FdType <br class="typebreak"/>
-&amp;fd)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bridge.html#ga8710f9fefa13c279f53ff7ba4938cd82">bref::Pipeline::ContentHook</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate Pipeline::ContentRequestHandler.  <a href="#ga8710f9fefa13c279f53ff7ba4938cd82"></a><br/></td></tr>
+HttpRequest &amp;request, <br class="typebreak"/>
+HttpResponse &amp;response, FdType <br class="typebreak"/>
+&amp;fd)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bridge.html#ga1aa84a42ed90b588f4abd2e2456ed766">bref::Pipeline::ContentHook</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate Pipeline::ContentRequestHandler.  <a href="#ga1aa84a42ed90b588f4abd2e2456ed766"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::list&lt; std::pair<br class="typebreak"/>
@@ -105,12 +106,12 @@ Variables</h2></td></tr>
 <p>Contains hooks to run for content generation. </p>
 <p>This is where modules like CGI, static pages, directory listing, ... should be plugged. </p>
 <hr/><h2>Typedef Documentation</h2>
-<a class="anchor" id="ga8710f9fefa13c279f53ff7ba4938cd82"></a><!-- doxytag: member="bref::Pipeline::ContentHook" ref="ga8710f9fefa13c279f53ff7ba4938cd82" args="" -->
+<a class="anchor" id="ga1aa84a42ed90b588f4abd2e2456ed766"></a><!-- doxytag: member="bref::Pipeline::ContentHook" ref="ga1aa84a42ed90b588f4abd2e2456ed766" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef Function&lt;IContentRequestHandler *(const Environment &amp; environment, const HttpRequest &amp; request, FdType &amp; fd)&gt; <a class="el" href="group___bridge.html#ga8710f9fefa13c279f53ff7ba4938cd82">bref::Pipeline::ContentHook</a></td>
+          <td class="memname">typedef Function&lt;IContentRequestHandler *(const Environment &amp; environment, const HttpRequest &amp; request, HttpResponse &amp; response, FdType &amp; fd)&gt; <a class="el" href="group___bridge.html#ga1aa84a42ed90b588f4abd2e2456ed766">bref::Pipeline::ContentHook</a></td>
         </tr>
       </table>
 </div>
@@ -143,7 +144,7 @@ Variables</h2></td></tr>
 
 <p>List of content hooks. </p>
 <p>Only one content hook can be used for a given request, the content hook with the highest priority should be choosed by the server.</p>
-<dl class="see"><dt><b>See also:</b></dt><dd>ContentRequestHandler, <a class="el" href="group___bridge.html#ga8710f9fefa13c279f53ff7ba4938cd82" title="Generate Pipeline::ContentRequestHandler.">ContentHook</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd>ContentRequestHandler, <a class="el" href="group___bridge.html#ga1aa84a42ed90b588f4abd2e2456ed766" title="Generate Pipeline::ContentRequestHandler.">ContentHook</a> </dd></dl>
 
 </div>
 </div>
@@ -165,7 +166,7 @@ Variables</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 19 2012 11:23:05 for bref by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 20 2012 19:26:44 for bref by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>
