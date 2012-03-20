@@ -1,0 +1,331 @@
+<div class="container doc-exemple">
+  
+  <header class="jumbotron subhead" id="overview">
+    <h1>Exemple : ModRewrite.cpp</h1>
+  </header>
+  <div class='clearall example-wrapper'>
+  <div class="background"></div>
+  <div class='row' id='section-0'>
+    <div class='span6 example-doc-text'>
+      <h2><span id="introduction" href="introduction"> Introduction </span></h2>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-1'>
+    <div class='span6 example-doc-text'>
+      <p>Ce module est écrit dans un seul fichier, pas de séparations entre
+déclarations et définitions pour simplifier la démonstration. Il
+montre un usage basique de l'API Bref. Le module écrit est très
+simple dans son fonctionnement et vise surtout à expliquer les
+notions basiques de l'écriture d'un module.</p>
+<p>Cet exemple est présenté sous forme de <em>literate programming</em>,
+avec en parallèle le code et son explication. Il présente
+l'écriture d'un module simple d'<a href="http://en.wikipedia.org/wiki/Rewrite_engine">URL
+rewriting</a>.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-2'>
+    <div class='span6 example-doc-text'>
+      <h3><span id="note-préliminaire" href="note-préliminaire"> Note préliminaire </span></h3>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-3'>
+    <div class='span6 example-doc-text'>
+      <p>Vous pourrez constater que <strong>nous n'avons pas choisi de faire un
+module qui s'écrit en 2 lignes</strong>, mais plutôt d'essayer de faire
+quelque chose d'un peu plus <strong>réaliste</strong> en forçant la définition
+d'une version, d'une description, etc. Cela coûte 2 minutes de plus
+à écrire, mais permettra aux serveurs qui le désirent de fournir
+certaines fonctionnalitées un peu plus avancées dans la gestion des
+modules.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-4'>
+    <div class='span6 example-doc-text'>
+      <h2><span id="code" href="code"> Code </span></h2>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-5'>
+    <div class='span6 example-doc-text'>
+      <p>Chaque module doit hériter de l'interface
+<a href="http://bref.github.com/doxygen/classbref_1_1_i_module.html">IModule</a>.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre><span class="cp">#include &quot;bref/IModule.h&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-6'>
+    <div class='span6 example-doc-text'>
+      <p>Prototype du handler pour la ré-écriture d'URL (voir: <a href="ModRewrite.html#code-de-rewriting">ModRewrite</a>).</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre><span class="n">bref</span><span class="o">::</span><span class="n">Pipeline</span><span class="o">::</span><span class="n">PostParsingRequestHandler</span>
+<span class="n">rewriteURLHook</span><span class="p">(</span><span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Environment</span> <span class="o">&amp;</span><span class="p">,</span> <span class="n">bref</span><span class="o">::</span><span class="n">HttpRequest</span> <span class="o">&amp;</span><span class="p">,</span> <span class="n">bref</span><span class="o">::</span><span class="n">HttpResponse</span> <span class="o">&amp;</span><span class="p">);</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-7'>
+    <div class='span6 example-doc-text'>
+      <p>Nous déclarons ici une classe héritant de l'interface IModule,
+cette classe sera instanciée un peu plus bas dans la fonction
+<a href="ModRewrite.cpp#enregistrement-du-module">loadModule()</a>.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">ModRewrite</span> <span class="o">:</span> <span class="k">public</span> <span class="n">bref</span><span class="o">::</span><span class="n">IModule</span>
+<span class="p">{</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-8'>
+    <div class='span6 example-doc-text'>
+      <p>Déclaration des variables internes au module</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre><span class="k">private</span><span class="o">:</span>
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span>   <span class="n">name_</span><span class="p">;</span>
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span>   <span class="n">description_</span><span class="p">;</span>
+  <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span> <span class="n">version_</span><span class="p">;</span>
+  <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span> <span class="n">apiVersion_</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">float</span>         <span class="n">priority_</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-9'>
+    <div class='span6 example-doc-text'>
+      <p>Définition des variables.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>  <span class="n">ModRewrite</span><span class="p">()</span>
+    <span class="o">:</span> <span class="n">name_</span><span class="p">(</span><span class="s">&quot;mod_rewrite&quot;</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">description_</span><span class="p">(</span><span class="s">&quot;A simple URL-rewrite module&quot;</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">version_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-10'>
+    <div class='span6 example-doc-text'>
+      <p>Vous pouvez retrouver la dernière version de l'API
+<a href="https://github.com/bref/bref-api/tags">ici</a>.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>    <span class="p">,</span> <span class="n">apiVersion_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-11'>
+    <div class='span6 example-doc-text'>
+      <p>Si on regarde dans le doxygen <a href="http://bref.github.com/doxygen/group___pipeline.html">la partie sur la
+priorité</a>
+on mets ici une priorité normale. La ré-écriture d'URL ne
+semble pas avoir besoin d'être fait en priorité par rapport à
+un autre module.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>    <span class="p">,</span> <span class="n">priority_</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+  <span class="p">{</span> <span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-12'>
+    <div class='span6 example-doc-text'>
+      <p>Définition des méthodes basiques donnant des informations sur le
+module.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>  <span class="k">virtual</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span>   <span class="n">name</span><span class="p">()</span>              <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">name_</span><span class="p">;}</span>
+  <span class="k">virtual</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span>   <span class="n">description</span><span class="p">()</span>       <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">description_</span><span class="p">;}</span>
+  <span class="k">virtual</span> <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span> <span class="o">&amp;</span> <span class="n">version</span><span class="p">()</span>           <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">version_</span><span class="p">;}</span>
+  <span class="k">virtual</span> <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span> <span class="o">&amp;</span> <span class="n">minimumApiVersion</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">apiVersion_</span><span class="p">;}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-13'>
+    <div class='span6 example-doc-text'>
+      &nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-14'>
+    <div class='span6 example-doc-text'>
+      <p>Cette méthode permet de libérer un module alloué dans une
+librarie dynamique. Lorsque l'allocation (<code>new</code>) a été effectuée
+dans une librarie dynamique, il est nécessaire que la libération
+de la mémoire (<code>delete</code>) y soit aussi effectuée. Comme expliqué
+dans <a href="http://bref.github.com/doxygen/classbref_1_1_i_module.html">le doxygen d'IModule</a>
+cette méthode est souvent représentée par un body contenant
+<code>delete this;</code></p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">dispose</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">delete</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">virtual</span> <span class="o">~</span><span class="n">ModRewrite</span><span class="p">()</span>
+  <span class="p">{</span> <span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-15'>
+    <div class='span6 example-doc-text'>
+      <h3><span id="enregistrement-du-hook" href="enregistrement-du-hook"> Enregistrement du hook </span></h3>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-16'>
+    <div class='span6 example-doc-text'>
+      <p>On souhaite faire un module d'URL rewrite, l'endroit parfait pour
+faire ça, si on regarde <a href="./documentation-intro.html">le schéma de la
+Pipeline</a> est le
+<a href="./doxygen/group___upstream.html#ga5af7ca7c7f953a8f0f7292b0a71443f0">PostParsingHook</a></p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">registerHooks</span><span class="p">(</span><span class="n">bref</span><span class="o">::</span><span class="n">Pipeline</span> <span class="o">&amp;</span> <span class="n">pipeline</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">pipeline</span><span class="p">.</span><span class="n">postParsingHooks</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_pair</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rewriteURLHook</span><span class="p">,</span>
+                                                       <span class="n">priority_</span><span class="p">));</span>
+  <span class="p">}</span>
+
+<span class="p">};</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-17'>
+    <div class='span6 example-doc-text'>
+      <h2><span id="code-de-rewriting" href="code-de-rewriting"> Code de rewriting </span></h2>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-18'>
+    <div class='span6 example-doc-text'>
+      <p>Ce module d'URL change l'extension d'un fichier dans l'url, à l'origine en
+<code>.html</code> en un fichier <code>.php</code>. Si l'on souhaite faire un vrai module
+d'URL rewrite il faudrait probablement se baser sur la
+configuration présente dans l'<code>Environment</code>. Et il faudrait aussi
+faire attention à ne pas prendre les paramètres d'un GET ou autre,
+ce n'est pas l'objectif de cet exemple.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre><span class="n">bref</span><span class="o">::</span><span class="n">Pipeline</span><span class="o">::</span><span class="n">PostParsingRequestHandler</span>
+<span class="n">rewriteURLHook</span><span class="p">(</span><span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Environment</span> <span class="o">&amp;</span> <span class="cm">/* environment */</span><span class="p">,</span>
+               <span class="n">bref</span><span class="o">::</span><span class="n">HttpRequest</span> <span class="o">&amp;</span>          <span class="n">httpRequest</span><span class="p">,</span>
+               <span class="n">bref</span><span class="o">::</span><span class="n">HttpResponse</span> <span class="o">&amp;</span>      <span class="cm">/* response */</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">uri</span>     <span class="o">=</span> <span class="n">httpRequest</span><span class="p">.</span><span class="n">getUri</span><span class="p">();</span>
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">size_t</span>   <span class="n">extSize</span> <span class="o">=</span> <span class="k">sizeof</span> <span class="s">&quot;.html&quot;</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-19'>
+    <div class='span6 example-doc-text'>
+      <p>Vérification de l'extension <code>.html</code>.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>  <span class="k">if</span> <span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="n">extSize</span> <span class="o">&amp;&amp;</span>
+      <span class="o">!</span> <span class="n">uri</span><span class="p">.</span><span class="n">compare</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">-</span> <span class="n">extSize</span><span class="p">,</span> <span class="n">extSize</span><span class="p">,</span> <span class="s">&quot;.html&quot;</span><span class="p">))</span> <span class="p">{</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-20'>
+    <div class='span6 example-doc-text'>
+      <p>Suppression de l'extension <code>.html</code>.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">newUri</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">uri</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="o">-</span> <span class="n">extSize</span><span class="p">);</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-21'>
+    <div class='span6 example-doc-text'>
+      <p>Ajout de l'extension <code>.php</code>.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>    <span class="n">newUri</span> <span class="o">+=</span> <span class="s">&quot;.php&quot;</span><span class="p">;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-22'>
+    <div class='span6 example-doc-text'>
+      <p>On modifie le header avec la nouvelle adresse.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>    <span class="n">httpRequest</span><span class="p">.</span><span class="n">setUri</span><span class="p">(</span><span class="n">newUri</span><span class="p">);</span>
+  <span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-23'>
+    <div class='span6 example-doc-text'>
+      <p>On a fait tout ce qu'on avait à faire, le body de la requête ne
+nous intéresse pas, on retourne donc un handler vide.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>  <span class="k">return</span> <span class="n">bref</span><span class="o">::</span><span class="n">Pipeline</span><span class="o">::</span><span class="n">PostParsingRequestHandler</span><span class="p">();</span>
+<span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-24'>
+    <div class='span6 example-doc-text'>
+      <h2><span id="enregistrement-du-module" href="enregistrement-du-module"> Enregistrement du module </span></h2>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-25'>
+    <div class='span6 example-doc-text'>
+      <p>Cette fonction est la méthode d'entrée d'un module, elle permettra
+au serveur d'avoir une instance du module. Certains modules peuvent
+nécessiter l'accès à la configuration du server pour se loader,
+c'est pourquoi on envoie en paramètre un <code>ServerConfig</code> et
+<code>IConfHelper</code>.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre><span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="n">BREF_DLL</span>
+<span class="n">bref</span><span class="o">::</span><span class="n">IModule</span> <span class="o">*</span><span class="n">loadModule</span><span class="p">(</span><span class="n">bref</span><span class="o">::</span><span class="n">ILogger</span> <span class="o">*</span><span class="n">logger</span><span class="p">,</span>
+                          <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">ServerConfig</span> <span class="o">&amp;</span><span class="p">,</span>
+                          <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">IConfHelper</span> <span class="o">&amp;</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">LOG_DEBUG</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Loading URL rewrite module&quot;</span><span class="p">;</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="n">ModRewrite</span><span class="p">;</span>
+<span class="p">}</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  
+</div>

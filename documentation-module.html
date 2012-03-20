@@ -2,15 +2,119 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bref. Une API Zia</title>
-    <style>
-        body {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;padding:150px 0 0 0;background-color:#f5f5f5;text-align:center;}
-        h1{margin:0 0 5px 0;font-weight:bold;color:#333333;font-size:81px;text-rendering:optimizelegibility;line-height:1;letter-spacing:-1px;}
-        p{font-size:30px;font-weight:200;line-height:27px;}
-    </style>
+    <title>Bref. Une API Zia - Documentation - Implémenter un module</title>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./assets/css/prettify.css" rel="stylesheet">
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-29009488-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
   </head>
-  <body>
-    <h1>Bref.</h1>
-    <p>Exemples bientôt en ligne.</p>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="index.html">Bref.</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="documentation-intro.html">Découvrir l'API</a></li>
+              <li><a href="documentation-api.html">Implémenter l'API</a></li>
+              <li class="active"><a href="documentation-module.html">Implémenter un module</a></li>
+              <li><a href="doxygen">Doxygen</a></li>
+              <li><a href="https://github.com/bref/bref-api">Le projet sur Github</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <header class="jumbotron subhead" id="overview">
+        <h1>Implémenter un module</h1>
+        <p class="lead">Comment implémenter un module en utilisant l'API Bref ? Des exemples ici !</p>
+      </header>
+      <div class="page-header">
+        <h1>ModRewrite.cpp</h1>
+      </div>
+      <div class="row">
+        <div class="span2">
+          <a href="documentation-example-ModRewrite.html" class="thumbnail"><img src="./assets/img/home-examples.jpg" alt="Implémentez un module"></a>
+        </div>
+        <div class="span10">
+          <p>Exemple de module effectuant des transformations sur une URL avant la génération de contenu.</p>
+          <p class="pull-right"><a href="documentation-example-ModRewrite.html" class="btn">Voir l'exemple &raquo;</a></p>
+        </div>
+      </div>
+      <hr>
+      <footer>
+        <p class="pull-right">
+          <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=bref&repo=bref-api&type=watch&size=large"
+            allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+          <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=bref&repo=bref-api&type=fork&size=large"
+            allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+          <a href="http://twitter.com/BrefAPI" /><img src="./assets/img/icon_twitter.png" alt="Suivez-nous sur twitter" /></a>
+          <a href="irc://irc.epitech.net/bref"><img src="./assets/img/icon_irc.png" id="irc" />
+        </p>
+        <p class="pull-left epilogo"><a href="http://www.epitech.eu"><img src="./assets/img/epitech.gif" alt="Epitech" /></a></p>
+        <p>Bref. L'API Zia Epitech Nantes 2014.</p>
+        <p>Par
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=badaud_t">badaud_t</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=chiron_f">chiron_f</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=giersc_v">giersc_v</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=papin_g">papin_g</a> et
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=rannou_p">rannou_p</a>.
+        </p>
+      </footer>
+
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="./assets/js/bootstrap-scrollspy.js"></script>
+    <script src="./assets/js/prettify/prettify.js"></script>
+    <script>
+      $(document).ready(function() {
+        prettyPrint();
+
+        var $win = $(window)
+          , $nav = $('.subnav')
+          , navTop = $('.subnav').length && $('.subnav').offset().top - 40
+          , isFixed = 0;
+
+        function processScroll() {
+          var i, scrollTop = $win.scrollTop()
+          if (scrollTop >= navTop && !isFixed) {
+            isFixed = 1;
+            $nav.addClass('subnav-fixed');
+          } else if (scrollTop <= navTop && isFixed) {
+            isFixed = 0
+            $nav.removeClass('subnav-fixed')
+          }
+        }
+
+        processScroll();
+        $win.on('scroll', processScroll);
+      });
+    </script>
   </body>
 </html>
