@@ -184,9 +184,7 @@ du processus CGI.</strong></p>&nbsp;
         <span class="p">{</span>
             <span class="n">close</span><span class="p">(</span><span class="n">fdIn_</span><span class="p">);</span>
             <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="n">inBuffer</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span></pre></div>
+        <span class="p">}</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -195,7 +193,7 @@ du processus CGI.</strong></p>&nbsp;
       <p>On écrit le buffer du body de la requète HTTP sur le pipe de l'entrée standard du processus CGI.</p>&nbsp;
     </div>
     <div class='span6 example-doc-code'>
-      <div class="highlight"><pre>            <span class="o">::</span><span class="n">write</span><span class="p">(</span><span class="n">fdIn_</span><span class="p">,</span> <span class="n">inBuffer</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">inBuffer</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+      <div class="highlight"><pre>        <span class="o">::</span><span class="n">write</span><span class="p">(</span><span class="n">fdIn_</span><span class="p">,</span> <span class="n">inBuffer</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">inBuffer</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
         <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
     <span class="p">}</span></pre></div>
     </div>
