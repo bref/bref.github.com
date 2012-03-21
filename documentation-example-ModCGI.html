@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bref. Une API Zia - Documentation - Implémenter un module</title>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./assets/css/prettify.css" rel="stylesheet">
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-29009488-1']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="index.html">Bref.</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="documentation-intro.html">Découvrir l'API</a></li>
+              <li><a href="documentation-api.html">Implémenter l'API</a></li>
+              <li class="active"><a href="documentation-module.html">Implémenter un module</a></li>
+              <li><a href="doxygen">Doxygen</a></li>
+              <li><a href="https://github.com/bref/bref-api">Le projet sur Github</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>    
+<div class="container doc-exemple">
+  
+  <header class="jumbotron subhead" id="overview">
+    <h1>Exemple : ModCGI.cpp</h1>
+  </header>
+  <div class='clearall example-wrapper'>
+  <div class="background"></div>
+  <div class='row' id='section-0'>
+    <div class='span6 example-doc-text'><iframe width='540' height='315' src='http://www.youtube.com/embed/rdKvE2qo70g' frameborder='0' allowfullscreen></iframe>
+      &nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm"> * \file   ModCGI.cpp</span>
+<span class="cm"> * \author Rannou Pierre &lt;pierre.rannou@epitech.eu&gt;</span>
+<span class="cm"> * \date   Mon Mar 19 08:59:45 2012</span>
+<span class="cm"> *</span>
+<span class="cm"> * \brief  ModCGI class definition.</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+
+<span class="cp">#include     &lt;boost/algorithm/string/predicate.hpp&gt;</span>
+<span class="cp">#include     &lt;utility&gt;</span>
+
+<span class="cp">#include     &lt;sys/ioctl.h&gt;</span>
+<span class="cp">#include     &lt;unistd.h&gt;</span>
+<span class="cp">#include     &lt;errno.h&gt;</span>
+<span class="cp">#include     &lt;stdio.h&gt;</span>
+
+<span class="cp">#include     &quot;bref/IModule.h&quot;</span>
+<span class="cp">#include     &quot;bref/ScopedLogger.h&quot;</span>
+<span class="cp">#include     &quot;bref/IConfHelper.h&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-1'>
+    <div class='span6 example-doc-text'>
+      <p>Prototype du <a href="documentation-example-ModCGI.html#exemple-d'un-début-d'implémentation-d'un-contenthooks">handler</a>.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre><span class="n">bref</span><span class="o">::</span><span class="n">Pipeline</span><span class="o">::</span><span class="n">IContentRequestHandler</span> <span class="o">*</span>
+<span class="n">ModCGIGenerator</span><span class="p">(</span><span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Environment</span> <span class="o">&amp;</span>  <span class="n">env</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">HttpRequest</span> <span class="o">&amp;</span>  <span class="n">req</span><span class="p">,</span>
+                <span class="n">bref</span><span class="o">::</span><span class="n">HttpResponse</span> <span class="o">&amp;</span>       <span class="n">response</span><span class="p">,</span>
+                <span class="n">bref</span><span class="o">::</span><span class="n">FdType</span> <span class="o">&amp;</span>             <span class="n">fd</span><span class="p">);</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-2'>
+    <div class='span6 example-doc-text'>
+      <h2><span id="initialisation-du-module" href="initialisation-du-module"> Initialisation du module </span></h2>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-3'>
+    <div class='span6 example-doc-text'>
+      <p><strong>Pour savoir comment implémenter un module avec l'API Bref, regardez le code
+documenté du <a href="documentation-example-ModRewrite.html#code">ModRewrite</a></strong>.</p>
+<p>La documentation du <em>ModCGI</em> se porte essentiellement sur l'implémentation d'un
+module se liant sur le hook <em>contentHooks</em> en utilisant le système d'évènements du
+serveur.</p>
+<p>Pour un module plus simple, générant du contenu statique, nous vous conseillons de
+regarderle <a href="https://github.com/bref/bref-api/tree/master/examples/ModHello">ModHello</a>
+disponible sur le dépôt Github de l'API Bref.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-4'>
+    <div class='span6 example-doc-text'>
+      &nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">ModCGI</span> <span class="o">:</span> <span class="k">public</span> <span class="n">bref</span><span class="o">::</span><span class="n">IModule</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span>         <span class="n">name_</span><span class="p">;</span>
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span>         <span class="n">description_</span><span class="p">;</span>
+  <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span>       <span class="n">version_</span><span class="p">;</span>
+  <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span>       <span class="n">apiVersion_</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">float</span>               <span class="n">priority_</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">ModCGI</span><span class="p">()</span>
+    <span class="o">:</span> <span class="n">name_</span><span class="p">(</span><span class="s">&quot;mod_cgi&quot;</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">description_</span><span class="p">(</span><span class="s">&quot;A CGI module able to execute Ruby&quot;</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">version_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">apiVersion_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-5'>
+    <div class='span6 example-doc-text'>
+      <p>Priorité haute : on génère du contenu dynamique avant d'autres potentiels
+modules qui retourneraient le script comme du contenu statique.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>    <span class="p">,</span> <span class="n">priority_</span><span class="p">(</span><span class="mf">1.f</span><span class="p">)</span>
+  <span class="p">{</span> <span class="p">}</span>
+
+  <span class="k">virtual</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span>   <span class="n">name</span><span class="p">()</span>              <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">name_</span><span class="p">;}</span>
+  <span class="k">virtual</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span>   <span class="n">description</span><span class="p">()</span>       <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">description_</span><span class="p">;}</span>
+  <span class="k">virtual</span> <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span> <span class="o">&amp;</span> <span class="n">version</span><span class="p">()</span>           <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">version_</span><span class="p">;}</span>
+  <span class="k">virtual</span> <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span> <span class="o">&amp;</span> <span class="n">minimumApiVersion</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">apiVersion_</span><span class="p">;}</span>
+
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">dispose</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">delete</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">virtual</span> <span class="o">~</span><span class="n">ModCGI</span><span class="p">()</span>
+  <span class="p">{</span> <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="n">registerHooks</span><span class="p">(</span><span class="n">bref</span><span class="o">::</span><span class="n">Pipeline</span> <span class="o">&amp;</span> <span class="n">pipeline</span><span class="p">)</span>
+  <span class="p">{</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-6'>
+    <div class='span6 example-doc-text'>
+      <p>Le hook est enristré en tant que "contentHooks" sur la pipeline</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>     <span class="n">pipeline</span><span class="p">.</span><span class="n">contentHooks</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_pair</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ModCGIGenerator</span><span class="p">,</span>
+                                                    <span class="n">priority_</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">};</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-7'>
+    <div class='span6 example-doc-text'>
+      <h2><span id="callbacks" href="callbacks"> Callbacks </span></h2>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre><span class="k">struct</span> <span class="n">ModCGIRequestHandler</span> <span class="o">:</span> <span class="k">public</span> <span class="n">bref</span><span class="o">::</span><span class="n">Pipeline</span><span class="o">::</span><span class="n">IContentRequestHandler</span>
+<span class="p">{</span>
+    <span class="n">ModCGIRequestHandler</span><span class="p">(</span><span class="n">bref</span><span class="o">::</span><span class="n">FdType</span> <span class="o">&amp;</span> <span class="n">fdIn</span><span class="p">,</span>
+                         <span class="n">bref</span><span class="o">::</span><span class="n">FdType</span> <span class="o">&amp;</span> <span class="n">fdOut</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">fdIn_</span><span class="p">(</span><span class="n">fdIn</span><span class="p">),</span> <span class="n">fdOut_</span><span class="p">(</span><span class="n">fdOut</span><span class="p">)</span>
+    <span class="p">{</span> <span class="p">}</span>
+
+    <span class="o">~</span><span class="n">ModCGIRequestHandler</span><span class="p">()</span>
+    <span class="p">{</span> <span class="p">}</span>
+
+    <span class="n">bref</span><span class="o">::</span><span class="n">FdType</span> <span class="o">&amp;</span> <span class="n">fdIn_</span><span class="p">;</span>
+    <span class="n">bref</span><span class="o">::</span><span class="n">FdType</span> <span class="o">&amp;</span> <span class="n">fdOut_</span><span class="p">;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-8'>
+    <div class='span6 example-doc-text'>
+      <h3><span id="callback-in" href="callback-in"> Callback in </span></h3>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-9'>
+    <div class='span6 example-doc-text'>
+      <p><strong>Cette fonction sera exécutée par le serveur avec un morceau de buffer du body de la requête
+HTTP. Un appel avec un buffer vide entrainera la fermeture du pipe de l'entree standard
+du processus CGI.</strong></p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>    <span class="kt">bool</span> 	<span class="n">inContent</span><span class="p">(</span><span class="n">bref</span><span class="o">::</span><span class="n">HttpResponse</span> <span class="o">&amp;</span> <span class="n">response</span><span class="p">,</span>
+                      <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Buffer</span> <span class="o">&amp;</span> <span class="n">inBuffer</span><span class="p">)</span>
+    <span class="p">{</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-10'>
+    <div class='span6 example-doc-text'>
+      <p>Plus de données à écrire.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="n">inBuffer</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">close</span><span class="p">(</span><span class="n">fdIn_</span><span class="p">);</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">inBuffer</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-11'>
+    <div class='span6 example-doc-text'>
+      <p>On écrit le buffer du body de la requète HTTP sur le pipe de l'entrée standard du processus CGI.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>            <span class="o">::</span><span class="n">write</span><span class="p">(</span><span class="n">fdIn_</span><span class="p">,</span> <span class="n">inBuffer</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">inBuffer</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-12'>
+    <div class='span6 example-doc-text'>
+      <h3><span id="callback-out" href="callback-out"> Callback out </span></h3>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-13'>
+    <div class='span6 example-doc-text'>
+      <p><strong>Cette fonction sera appelée lorsqu'il aura de l'activité sur le fd enregistré par le hook du module
+par votre système d'évènements (kqueue / epoll / WSApoll / select / ...).</strong></p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>    <span class="kt">bool</span> 	<span class="n">outContent</span><span class="p">(</span><span class="n">bref</span><span class="o">::</span><span class="n">HttpResponse</span> <span class="o">&amp;</span> <span class="n">response</span><span class="p">,</span>
+                       <span class="n">bref</span><span class="o">::</span><span class="n">Buffer</span> <span class="o">&amp;</span>       <span class="n">outBuffer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-14'>
+    <div class='span6 example-doc-text'>
+      <p>On récupère la taille disponible à lire.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="o">::</span><span class="n">ioctl</span><span class="p">(</span><span class="n">fdOut_</span><span class="p">,</span> <span class="n">FIONREAD</span><span class="p">,</span> <span class="n">len</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+
+        <span class="kt">char</span> <span class="o">*</span><span class="n">buff</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">len</span><span class="p">];</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-15'>
+    <div class='span6 example-doc-text'>
+      <p>On lit les données sur la sortie standard / d'erreur du processus CGI.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="o">::</span><span class="n">read</span><span class="p">(</span><span class="n">fdOut_</span><span class="p">,</span> <span class="n">buff</span><span class="p">,</span> <span class="n">len</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">delete</span><span class="p">[]</span> <span class="n">buff</span><span class="p">;</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-16'>
+    <div class='span6 example-doc-text'>
+      <p>On insert les données dans notre buffer de sortie.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>        <span class="n">outBuffer</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">outBuffer</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">buff</span><span class="p">,</span> <span class="n">buff</span> <span class="o">+</span> <span class="n">len</span><span class="p">);</span>
+        <span class="k">delete</span><span class="p">[]</span> <span class="n">buff</span><span class="p">;</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">dispose</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">close</span><span class="p">(</span><span class="n">fdOut_</span><span class="p">);</span>
+        <span class="k">delete</span> <span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-17'>
+    <div class='span6 example-doc-text'>
+      <h3><span id="exemple-d'un-début-d'implémentation-d'un-contenthooks" href="exemple-d'un-début-d'implémentation-d'un-contenthooks"> Exemple d'un début d'implémentation d'un contentHooks </span></h3>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-18'>
+    <div class='span6 example-doc-text'>
+      <p>Cet exemple est un <strong>début d'implémentation incomplet</strong> d'un <strong>potentiel</strong> module CGI
+Il sert uniquement à montrer le fonctionnement des modules de l'API Bref, notamment
+l'utilisation d'un fd comme évènement déclancheur d'une callback.
+En conséquence l'exemple, incomplet (pas d'environnement, pas de wait des process, etc.),
+ne contient aucune abstraction et est prévu pour tourner uniquement sous UNIX.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre><span class="n">bref</span><span class="o">::</span><span class="n">Pipeline</span><span class="o">::</span><span class="n">IContentRequestHandler</span> <span class="o">*</span>
+<span class="n">ModCGIGenerator</span><span class="p">(</span><span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Environment</span> <span class="o">&amp;</span>  <span class="n">env</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">HttpRequest</span> <span class="o">&amp;</span>  <span class="n">req</span><span class="p">,</span>
+                <span class="n">bref</span><span class="o">::</span><span class="n">HttpResponse</span> <span class="o">&amp;</span>       <span class="n">response</span><span class="p">,</span>
+                <span class="n">bref</span><span class="o">::</span><span class="n">FdType</span> <span class="o">&amp;</span>             <span class="n">fd</span><span class="p">)</span>
+<span class="p">{</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-19'>
+    <div class='span6 example-doc-text'>
+      <p>On limite notre exécution CGI aux scripts ruby.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">boost</span><span class="o">::</span><span class="n">algorithm</span><span class="o">::</span><span class="n">ends_with</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">getUri</span><span class="p">(),</span> <span class="s">&quot;.rb&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">fdOut</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">fdIn</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="n">pid_t</span> <span class="n">pid</span><span class="p">;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-20'>
+    <div class='span6 example-doc-text'>
+      <p>On crée deux pipe pour le corps de la requête et la réponse.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>    <span class="k">if</span> <span class="p">(</span><span class="n">pipe</span><span class="p">(</span><span class="n">fdOut</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="n">pipe</span><span class="p">(</span><span class="n">fdIn</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="p">(</span><span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">())</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-21'>
+    <div class='span6 example-doc-text'>
+      <p>Si un appel système échoue, on log l'erreur et retourne une 500.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>        <span class="n">LOG_ERROR</span><span class="p">(</span><span class="n">env</span><span class="p">.</span><span class="n">logger</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;[ModCGI] &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">);</span>
+        <span class="n">response</span><span class="p">.</span><span class="n">setStatus</span><span class="p">(</span><span class="n">bref</span><span class="o">::</span><span class="n">status_codes</span><span class="o">::</span><span class="n">InternalServerError</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-22'>
+    <div class='span6 example-doc-text'>
+      <p>On dup l'entrée standard et les sorties standard / d'erreur du processus CGI.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="n">close</span><span class="p">(</span><span class="n">fdIn</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="n">close</span><span class="p">(</span><span class="n">fdOut</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span>
+            <span class="n">dup2</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">fdIn</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span>
+            <span class="n">dup2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">fdOut</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="n">dup2</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">fdOut</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">LOG_ERROR</span><span class="p">(</span><span class="n">env</span><span class="p">.</span><span class="n">logger</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;[ModCGI] &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">);</span>
+            <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-23'>
+    <div class='span6 example-doc-text'>
+      <p>On récupère le répertoire de base du serveur / virtualhost. Cette fonction
+<a href="http://bref.github.com/documentation-api.html#confhelper">findValue</a>
+retourne la valeur la plus pertinente en fonction de la requête.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">DocumentRoot</span> <span class="o">=</span> <span class="n">env</span><span class="p">.</span><span class="n">serverConfigHelper</span><span class="p">.</span><span class="n">findValue</span><span class="p">(</span><span class="s">&quot;DocumentRoot&quot;</span><span class="p">,</span> <span class="n">req</span><span class="p">).</span><span class="n">asString</span><span class="p">();</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-24'>
+    <div class='span6 example-doc-text'>
+      <p>Le chemin absolu du script : DocumentRoot + URI,
+par exemple : "/var/www" + "/script.rb" = /var/www/script.rb</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">script</span> <span class="o">=</span> <span class="n">DocumentRoot</span> <span class="o">+</span> <span class="n">req</span><span class="p">.</span><span class="n">getUri</span><span class="p">();</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-25'>
+    <div class='span6 example-doc-text'>
+      <p>On exécute le script CGI.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>        <span class="n">execlp</span><span class="p">(</span><span class="n">script</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">script</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="nb">NULL</span><span class="p">);</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-26'>
+    <div class='span6 example-doc-text'>
+      <p>Si l'<code>execlp</code> échoue.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>        <span class="n">LOG_ERROR</span><span class="p">(</span><span class="n">env</span><span class="p">.</span><span class="n">logger</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;[ModCGI] &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">close</span><span class="p">(</span><span class="n">fdIn</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="n">close</span><span class="p">(</span><span class="n">fdOut</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">LOG_ERROR</span><span class="p">(</span><span class="n">env</span><span class="p">.</span><span class="n">logger</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;[ModCGI] &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">);</span>
+        <span class="n">response</span><span class="p">.</span><span class="n">setStatus</span><span class="p">(</span><span class="n">bref</span><span class="o">::</span><span class="n">status_codes</span><span class="o">::</span><span class="n">InternalServerError</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-27'>
+    <div class='span6 example-doc-text'>
+      <p>On définit le fd pour qu'il soit utilisé dans le système d'évènements du serveur.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>    <span class="n">fd</span> <span class="o">=</span> <span class="n">fdOut</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-28'>
+    <div class='span6 example-doc-text'>
+      <p>On retoure un handler.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre>    <span class="k">return</span> <span class="k">new</span> <span class="n">ModCGIRequestHandler</span><span class="p">(</span><span class="n">fdIn</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fdOut</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-29'>
+    <div class='span6 example-doc-text'>
+      <h2><span id="enregistrement-du-module" href="enregistrement-du-module"> Enregistrement du module </span></h2>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='row' id='section-30'>
+    <div class='span6 example-doc-text'>
+      <p>Pour plus d'informations, regarde le module <a href="documentation-example-ModRewrite.html#enregistrement-du-module">ModRewrite</a>.</p>&nbsp;
+    </div>
+    <div class='span6 example-doc-code'>
+      <div class="highlight"><pre><span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="n">BREF_DLL</span>
+<span class="n">bref</span><span class="o">::</span><span class="n">IModule</span> <span class="o">*</span><span class="n">loadModule</span><span class="p">(</span><span class="n">bref</span><span class="o">::</span><span class="n">ILogger</span> <span class="o">*</span><span class="n">logger</span><span class="p">,</span>
+                          <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">ServerConfig</span> <span class="o">&amp;</span><span class="p">,</span>
+                          <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">IConfHelper</span> <span class="o">&amp;</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">LOG_INFO</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Load CGI module&quot;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">ModCGI</span><span class="p">();</span>
+<span class="p">}</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  
+</div>
+
+      <hr>
+      <footer>
+        <p class="pull-right">
+          <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=bref&repo=bref-api&type=watch&size=large"
+            allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+          <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=bref&repo=bref-api&type=fork&size=large"
+            allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+          <a href="http://twitter.com/BrefAPI" /><img src="./assets/img/icon_twitter.png" alt="Suivez-nous sur twitter" /></a>
+          <a href="irc://irc.epitech.net/bref"><img src="./assets/img/icon_irc.png" id="irc" />
+        </p>
+        <p class="pull-left epilogo"><a href="http://www.epitech.eu"><img src="./assets/img/epitech.gif" alt="Epitech" /></a></p>
+        <p>Bref. L'API Zia Epitech Nantes 2014.</p>
+        <p>Par
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=badaud_t">badaud_t</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=chiron_f">chiron_f</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=giersc_v">giersc_v</a>,
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=papin_g">papin_g</a> et
+          <a href="http://www.epitech.eu/intra/index.php?section=etudiant&page=rapport&login=rannou_p">rannou_p</a>.
+        </p>
+      </footer>
+      
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="./assets/js/bootstrap-scrollspy.js"></script>
+    <script src="./assets/js/prettify/prettify.js"></script>
+    <script>
+      $(document).ready(function() {
+        prettyPrint();
+
+        var $win = $(window)
+          , $nav = $('.subnav')
+          , navTop = $('.subnav').length && $('.subnav').offset().top - 40
+          , isFixed = 0;
+
+        function processScroll() {
+          var i, scrollTop = $win.scrollTop()
+          if (scrollTop >= navTop && !isFixed) {
+            isFixed = 1;
+            $nav.addClass('subnav-fixed');
+          } else if (scrollTop <= navTop && isFixed) {
+            isFixed = 0
+            $nav.removeClass('subnav-fixed')
+          }
+        }
+                        
+        processScroll();
+        $win.on('scroll', processScroll);
+      });
+    </script>
+    <script type="text/javascript">
+      var uvOptions = {};
+      (function() {
+        var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+        uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/2Do8WywvBVXH9Qyv847nBA.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+      })();
+    </script>
+  </body>
+</html>
