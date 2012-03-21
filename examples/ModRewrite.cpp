@@ -34,6 +34,11 @@
 #include "bref/IModule.h"
 
 //
+// Utile pour le l'utilisation de d'`ostream` pour le logging.
+//
+#include "bref/ScopedLogger.h"
+
+//
 // Prototype du handler pour la ré-écriture d'URL (voir:
 // [[ModRewrite#code-de-rewriting]]).
 //
@@ -185,6 +190,10 @@ bref::IModule *loadModule(bref::ILogger *logger,
                           const bref::ServerConfig &,
                           const bref::IConfHelper &)
 {
+  //
+  // Voir les macros de logging [sur le
+  // doxygen](/doxygen/_scoped_logger_8h.html).
+  //
   LOG_DEBUG(logger) << "Loading URL rewrite module";
   return new ModRewrite;
 }
