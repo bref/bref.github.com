@@ -120,7 +120,9 @@ Protected Member Functions</h2></td></tr>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Class used to operate with dynamically loaded modules. </p>
 <p>Each module must provide a function to allow its loading at runtime, matching the following prototype:</p>
-<div class="fragment"><pre class="fragment"> <span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a class="code" href="classbref_1_1_i_module.html" title="Class used to operate with dynamically loaded modules.">bref::IModule</a> *loadModule(<a class="code" href="classbref_1_1_i_logger.html" title="Bref API logger interface.">bref::ILogger</a> *); 
+<div class="fragment"><pre class="fragment"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a class="code" href="classbref_1_1_i_module.html" title="Class used to operate with dynamically loaded modules.">bref::IModule</a> *loadModule(<a class="code" href="classbref_1_1_i_logger.html" title="Bref API logger interface.">bref::ILogger</a> *,
+                                     <span class="keyword">const</span> <a class="code" href="classbref_1_1_bref_value.html" title="Contains a generic value.">bref::ServerConfig</a> &amp;,
+                                     <span class="keyword">const</span> <a class="code" href="classbref_1_1_i_conf_helper.html" title="Helper class for BrefValue and the server configuration.">bref::IConfHelper</a> &amp;);
 </pre></div><p>Once the module is loaded, a version check should be performed as follows:</p>
 <ul>
 <li>If the major number of the API doesn't match with the major number of the minimum Api version supported by the module. The module is not used and a warning is emitted.</li>
@@ -301,7 +303,7 @@ Protected Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 20 2012 19:26:44 for bref by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 21 2012 01:39:11 for bref by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>
