@@ -30,7 +30,7 @@
    <div id="projectname">bref
    
    </div>
-   <div id="projectbrief">Our proposed API of the Zia HTTP server.</div>
+   <div id="projectbrief">API 2014 of the Zia HTTP server.</div>
   </td>
   
   
@@ -100,6 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">bref::Environment Struct Reference<div class="ingroups"><a class="el" href="group___pipeline.html">Pipeline</a></div></div>  </div>
@@ -117,17 +118,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbref_1_1_environment_1_1_client.html">Client</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This structure contains client informations.  <a href="structbref_1_1_environment_1_1_client.html#details">More...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a55f613481030a8a56401625d04b056eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a55f613481030a8a56401625d04b056eb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Environment</b> (const <a class="el" href="group___pipeline.html#ga9af254d2f49ba7e77095265d6dd5566b">ServerConfig</a> &amp;theServerConfig, const <a class="el" href="classbref_1_1_i_conf_helper.html">IConfHelper</a> &amp;theServerConfigHelper, <a class="el" href="classbref_1_1_i_logger.html">ILogger</a> *theLogger, <a class="el" href="structbref_1_1_environment_1_1_client.html">Client</a> theClient)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a5b1b25bc216565a3613d39aa5155ccd4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group___pipeline.html#ga9af254d2f49ba7e77095265d6dd5566b">ServerConfig</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbref_1_1_environment.html#a5b1b25bc216565a3613d39aa5155ccd4">serverConfig</a></td></tr>
 <tr class="memitem:a446fc9c28d2cfd0dd1b69b1434cb3600"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classbref_1_1_i_conf_helper.html">IConfHelper</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbref_1_1_environment.html#a446fc9c28d2cfd0dd1b69b1434cb3600">serverConfigHelper</a></td></tr>
 <tr class="memitem:a1b445623d4bfd29af9f5ed105664088c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbref_1_1_i_logger.html">ILogger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbref_1_1_environment.html#a1b445623d4bfd29af9f5ed105664088c">logger</a></td></tr>
+<tr class="memitem:af4388662766a9ebdb7971c0c71b73a24"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structbref_1_1_environment_1_1_client.html">bref::Environment::Client</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbref_1_1_environment.html#af4388662766a9ebdb7971c0c71b73a24">client</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This structure defines the environment of a request. </p>
 <p>The environment of a request contains a logger and the server configuration.</p>
 <p>We choose to do this because an implementation is free to handle different <a class="el" href="classbref_1_1_i_logger.html" title="Bref API logger interface.">ILogger</a> (with different output file) for each virtual host for example. </p>
 </div><hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="af4388662766a9ebdb7971c0c71b73a24"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structbref_1_1_environment_1_1_client.html">bref::Environment::Client</a>                      <a class="el" href="structbref_1_1_environment.html#af4388662766a9ebdb7971c0c71b73a24">bref::Environment::client</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The client description </p>
+
+</div>
+</div>
 <a class="anchor" id="a1b445623d4bfd29af9f5ed105664088c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -171,13 +191,13 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/Users/giersc_v/projets/zia/src/api/include/bref/<a class="el" href="_pipeline_8h_source.html">Pipeline.h</a></li>
+<li>/Users/giersc_v/projets/zia/api/include/bref/<a class="el" href="_pipeline_8h_source.html">Pipeline.h</a></li>
 </ul>
 </div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 3 2012 10:19:40 for bref by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 3 2012 22:14:54 for bref by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>
