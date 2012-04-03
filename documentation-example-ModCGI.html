@@ -79,7 +79,7 @@
 <span class="cp">#include     &lt;errno.h&gt;</span>
 <span class="cp">#include     &lt;stdio.h&gt;</span>
 
-<span class="cp">#include     &quot;bref/IModule.h&quot;</span>
+<span class="cp">#include     &quot;bref/AModule.h&quot;</span>
 <span class="cp">#include     &quot;bref/ScopedLogger.h&quot;</span>
 <span class="cp">#include     &quot;bref/IConfHelper.h&quot;</span></pre></div>
     </div>
@@ -115,7 +115,7 @@ documenté du <a href="documentation-example-ModRewrite.html#code">ModRewrite</a
 module se liant sur le hook <em>contentHooks</em> en utilisant le système d'évènements du
 serveur.</p>
 <p>Pour un module plus simple, générant du contenu statique, nous vous conseillons de
-regarderle <a href="https://github.com/bref/bref-api/tree/master/examples/ModHello">ModHello</a>
+regarder le <a href="https://github.com/bref/bref-api/tree/master/examples/ModHello">ModHello</a>
 disponible sur le dépôt Github de l'API Bref.</p>&nbsp;
     </div>
     <div class='span6 example-doc-code'>
@@ -128,21 +128,13 @@ disponible sur le dépôt Github de l'API Bref.</p>&nbsp;
       &nbsp;
     </div>
     <div class='span6 example-doc-code'>
-      <div class="highlight"><pre><span class="k">class</span> <span class="nc">ModCGI</span> <span class="o">:</span> <span class="k">public</span> <span class="n">bref</span><span class="o">::</span><span class="n">IModule</span>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">ModCGI</span> <span class="o">:</span> <span class="k">public</span> <span class="n">bref</span><span class="o">::</span><span class="n">AModule</span>
 <span class="p">{</span>
 <span class="k">private</span><span class="o">:</span>
-  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span>         <span class="n">name_</span><span class="p">;</span>
-  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span>         <span class="n">description_</span><span class="p">;</span>
-  <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span>       <span class="n">version_</span><span class="p">;</span>
-  <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span>       <span class="n">apiVersion_</span><span class="p">;</span>
   <span class="k">const</span> <span class="kt">float</span>               <span class="n">priority_</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">ModCGI</span><span class="p">()</span>
-    <span class="o">:</span> <span class="n">name_</span><span class="p">(</span><span class="s">&quot;mod_cgi&quot;</span><span class="p">)</span>
-    <span class="p">,</span> <span class="n">description_</span><span class="p">(</span><span class="s">&quot;A CGI module able to execute Ruby&quot;</span><span class="p">)</span>
-    <span class="p">,</span> <span class="n">version_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="p">,</span> <span class="n">apiVersion_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></pre></div>
+  <span class="n">ModCGI</span><span class="p">()</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -152,13 +144,9 @@ disponible sur le dépôt Github de l'API Bref.</p>&nbsp;
 modules qui retourneraient le script comme du contenu statique.</p>&nbsp;
     </div>
     <div class='span6 example-doc-code'>
-      <div class="highlight"><pre>    <span class="p">,</span> <span class="n">priority_</span><span class="p">(</span><span class="mf">1.f</span><span class="p">)</span>
+      <div class="highlight"><pre>    <span class="o">:</span> <span class="n">priority_</span><span class="p">(</span><span class="mf">1.f</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">AModule</span><span class="p">(</span><span class="s">&quot;mod_cgi&quot;</span><span class="p">,</span> <span class="s">&quot;A CGI module able to execute Ruby&quot;</span><span class="p">,</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
   <span class="p">{</span> <span class="p">}</span>
-
-  <span class="k">virtual</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span>   <span class="n">name</span><span class="p">()</span>              <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">name_</span><span class="p">;}</span>
-  <span class="k">virtual</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span>   <span class="n">description</span><span class="p">()</span>       <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">description_</span><span class="p">;}</span>
-  <span class="k">virtual</span> <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span> <span class="o">&amp;</span> <span class="n">version</span><span class="p">()</span>           <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">version_</span><span class="p">;}</span>
-  <span class="k">virtual</span> <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span> <span class="o">&amp;</span> <span class="n">minimumApiVersion</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">apiVersion_</span><span class="p">;}</span>
 
   <span class="k">virtual</span> <span class="kt">void</span> <span class="n">dispose</span><span class="p">()</span>
   <span class="p">{</span>
@@ -479,7 +467,7 @@ par exemple : "/var/www" + "/script.rb" = /var/www/script.rb</p>&nbsp;
     </div>
     <div class='span6 example-doc-code'>
       <div class="highlight"><pre><span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="n">BREF_DLL</span>
-<span class="n">bref</span><span class="o">::</span><span class="n">IModule</span> <span class="o">*</span><span class="n">loadModule</span><span class="p">(</span><span class="n">bref</span><span class="o">::</span><span class="n">ILogger</span> <span class="o">*</span><span class="n">logger</span><span class="p">,</span>
+<span class="n">bref</span><span class="o">::</span><span class="n">AModule</span> <span class="o">*</span><span class="n">loadModule</span><span class="p">(</span><span class="n">bref</span><span class="o">::</span><span class="n">ILogger</span> <span class="o">*</span><span class="n">logger</span><span class="p">,</span>
                           <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">ServerConfig</span> <span class="o">&amp;</span><span class="p">,</span>
                           <span class="k">const</span> <span class="n">bref</span><span class="o">::</span><span class="n">IConfHelper</span> <span class="o">&amp;</span><span class="p">)</span>
 <span class="p">{</span>
