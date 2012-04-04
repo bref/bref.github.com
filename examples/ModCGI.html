@@ -82,7 +82,8 @@ disponible sur le dépôt Github de l'API Bref.</p>&nbsp;
   <span class="k">const</span> <span class="kt">float</span>               <span class="n">priority_</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">ModCGI</span><span class="p">()</span></pre></div>
+  <span class="n">ModCGI</span><span class="p">()</span>
+    <span class="o">:</span> <span class="n">AModule</span><span class="p">(</span><span class="s">&quot;mod_cgi&quot;</span><span class="p">,</span> <span class="s">&quot;A CGI module able to execute Ruby&quot;</span><span class="p">,</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -92,8 +93,7 @@ disponible sur le dépôt Github de l'API Bref.</p>&nbsp;
 modules qui retourneraient le script comme du contenu statique.</p>&nbsp;
     </div>
     <div class='span6 example-doc-code'>
-      <div class="highlight"><pre>    <span class="o">:</span> <span class="n">priority_</span><span class="p">(</span><span class="mf">1.f</span><span class="p">)</span>
-    <span class="p">,</span> <span class="n">AModule</span><span class="p">(</span><span class="s">&quot;mod_cgi&quot;</span><span class="p">,</span> <span class="s">&quot;A CGI module able to execute Ruby&quot;</span><span class="p">,</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">bref</span><span class="o">::</span><span class="n">Version</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+      <div class="highlight"><pre>    <span class="p">,</span> <span class="n">priority_</span><span class="p">(</span><span class="mf">1.f</span><span class="p">)</span>
   <span class="p">{</span> <span class="p">}</span>
 
   <span class="k">virtual</span> <span class="kt">void</span> <span class="n">dispose</span><span class="p">()</span>
