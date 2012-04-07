@@ -73,6 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -111,6 +112,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <a href="classbref_1_1_a_module.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_a_module_8h_source.html">AModule.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for bref::AModule:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classbref_1_1_a_module.png" usemap="#bref::AModule_map" alt=""/>
+  <map id="bref::AModule_map" name="bref::AModule_map">
+<area href="classbref_1_1_i_disposable.html" title="Define a dispose() method, useful for resources de-allocation in a DLL." alt="bref::IDisposable" shape="rect" coords="0,0,106,24"/>
+</map>
+ </div></div>
 
 <p><a href="classbref_1_1_a_module-members.html">List of all members.</a></p>
 <table class="memberdecls">
@@ -124,10 +134,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5142ff4046909696f35a3cac649a7f2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the module's version.  <a href="#a5142ff4046909696f35a3cac649a7f2b"></a><br/></td></tr>
 <tr class="memitem:ad2a3eae45b4b62b7a080d835a896e798"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="structbref_1_1_version.html">Version</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_a_module.html#ad2a3eae45b4b62b7a080d835a896e798">minimumApiVersion</a> () const </td></tr>
 <tr class="memdesc:ad2a3eae45b4b62b7a080d835a896e798"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the minimum API version the module is compatible with.  <a href="#ad2a3eae45b4b62b7a080d835a896e798"></a><br/></td></tr>
-<tr class="memitem:a4c333a44ae81a5fde0fa1ac09db7f688"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_a_module.html#a4c333a44ae81a5fde0fa1ac09db7f688">registerHooks</a> (<a class="el" href="structbref_1_1_pipeline.html">Pipeline</a> &amp;pipeline)=0</td></tr>
-<tr class="memdesc:a4c333a44ae81a5fde0fa1ac09db7f688"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the module hooks on the convenient hookpoints of the pipeline.  <a href="#a4c333a44ae81a5fde0fa1ac09db7f688"></a><br/></td></tr>
-<tr class="memitem:af08477d7177424e9ef7514e723f8ce08"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_a_module.html#af08477d7177424e9ef7514e723f8ce08">dispose</a> ()=0</td></tr>
-<tr class="memdesc:af08477d7177424e9ef7514e723f8ce08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispose of the resources allocated by the module.  <a href="#af08477d7177424e9ef7514e723f8ce08"></a><br/></td></tr>
+<tr class="memitem:a5bfa44a28d5e7b190f0ee4464a028ff2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_a_module.html#a5bfa44a28d5e7b190f0ee4464a028ff2">registerHooks</a> (<a class="el" href="structbref_1_1_pipeline.html">Pipeline</a> &amp;)</td></tr>
+<tr class="memdesc:a5bfa44a28d5e7b190f0ee4464a028ff2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the module hooks on the convenient hookpoints of the pipeline.  <a href="#a5bfa44a28d5e7b190f0ee4464a028ff2"></a><br/></td></tr>
+<tr class="memitem:a218b6b4fbe726e8c8e7aaaa9ebf693df"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbref_1_1_i_disposable.html">IDisposable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_a_module.html#a218b6b4fbe726e8c8e7aaaa9ebf693df">registerSessionHooks</a> (<a class="el" href="structbref_1_1_pipeline.html">Pipeline</a> &amp;)</td></tr>
+<tr class="memdesc:a218b6b4fbe726e8c8e7aaaa9ebf693df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the module hooks on the convenient hookpoints of the pipeline.  <a href="#a218b6b4fbe726e8c8e7aaaa9ebf693df"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a479c00825b5f95213fc18c2a750dd526"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_a_module.html#a479c00825b5f95213fc18c2a750dd526">AModule</a> (const std::string &amp;<a class="el" href="classbref_1_1_a_module.html#aabe968bb388b395bd6bac819ac0bb10b">name</a>, const std::string &amp;<a class="el" href="classbref_1_1_a_module.html#ae0df32bb0b57b86400aa4c6d9dd8d63d">description</a>, const <a class="el" href="structbref_1_1_version.html">Version</a> &amp;<a class="el" href="classbref_1_1_a_module.html#a5142ff4046909696f35a3cac649a7f2b">version</a>, const <a class="el" href="structbref_1_1_version.html">Version</a> &amp;<a class="el" href="classbref_1_1_a_module.html#ad2a3eae45b4b62b7a080d835a896e798">minimumApiVersion</a>)</td></tr>
@@ -224,9 +234,9 @@ Protected Attributes</h2></td></tr>
 <div class="memdoc">
 
 <p>Virtual destructor for the module. </p>
-<p>The <code>delete()</code> operator should not be called on the <a class="el" href="classbref_1_1_a_module.html" title="Class used to operate with dynamically loaded modules.">AModule</a> instance. Please refer to the <code><a class="el" href="classbref_1_1_a_module.html#af08477d7177424e9ef7514e723f8ce08" title="Dispose of the resources allocated by the module.">dispose()</a></code> method.</p>
+<p>The <code>delete()</code> operator should not be called on the <a class="el" href="classbref_1_1_a_module.html" title="Class used to operate with dynamically loaded modules.">AModule</a> instance. Please refer to the <code><a class="el" href="classbref_1_1_i_disposable.html#a8bbfa55e936a8ad3b04d69b7e7eeac67" title="Dispose allocated resources by the module.">dispose()</a></code> method.</p>
 <dl class="section note"><dt>Note:</dt><dd>The destructor is protected in order to disable the call to the <code>delete()</code> operator from the server code.</dd></dl>
-<dl class="section see"><dt>See also:</dt><dd><a class="el" href="classbref_1_1_a_module.html#af08477d7177424e9ef7514e723f8ce08" title="Dispose of the resources allocated by the module.">dispose()</a> </dd></dl>
+<dl class="section see"><dt>See also:</dt><dd><a class="el" href="classbref_1_1_i_disposable.html#a8bbfa55e936a8ad3b04d69b7e7eeac67" title="Dispose allocated resources by the module.">dispose()</a> </dd></dl>
 
 </div>
 </div>
@@ -247,26 +257,6 @@ Protected Attributes</h2></td></tr>
 
 <p>Retrieve the module's description. </p>
 <dl class="section return"><dt>Returns:</dt><dd>The module's description. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="af08477d7177424e9ef7514e723f8ce08"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void <a class="el" href="classbref_1_1_a_module.html#af08477d7177424e9ef7514e723f8ce08">bref::AModule::dispose</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [pure virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Dispose of the resources allocated by the module. </p>
-<dl class="section note"><dt>Note:</dt><dd>This is often represented by a simple: <div class="fragment"><pre class="fragment"> <span class="keyword">delete</span> <span class="keyword">this</span>; 
-</pre></div> </dd></dl>
 
 </div>
 </div>
@@ -308,23 +298,24 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4c333a44ae81a5fde0fa1ac09db7f688"></a>
+<a class="anchor" id="a5bfa44a28d5e7b190f0ee4464a028ff2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classbref_1_1_a_module.html#a4c333a44ae81a5fde0fa1ac09db7f688">bref::AModule::registerHooks</a> </td>
+          <td class="memname">virtual void <a class="el" href="classbref_1_1_a_module.html#a5bfa44a28d5e7b190f0ee4464a028ff2">bref::AModule::registerHooks</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbref_1_1_pipeline.html">Pipeline</a> &amp;&#160;</td>
-          <td class="paramname"><em>pipeline</em></td><td>)</td>
-          <td><code> [pure virtual]</code></td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>Register the module hooks on the convenient hookpoints of the pipeline. </p>
-<div class="fragment"><pre class="fragment">    Example:</pre></div> <div class="fragment"><pre class="fragment"><span class="keywordtype">void</span> <a class="code" href="classbref_1_1_a_module.html#a4c333a44ae81a5fde0fa1ac09db7f688" title="Register the module hooks on the convenient hookpoints of the pipeline.">registerHooks</a>(Pipeline &amp; pipeline)
+<p>Example:</p>
+<div class="fragment"><pre class="fragment"><span class="keywordtype">void</span> <a class="code" href="classbref_1_1_a_module.html#a5bfa44a28d5e7b190f0ee4464a028ff2" title="Register the module hooks on the convenient hookpoints of the pipeline.">registerHooks</a>(Pipeline &amp; pipeline)
 {
   <span class="keyword">const</span> <span class="keywordtype">float</span> lowPriority = 0.5f;
 
@@ -337,6 +328,61 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a218b6b4fbe726e8c8e7aaaa9ebf693df"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classbref_1_1_i_disposable.html">IDisposable</a>* <a class="el" href="classbref_1_1_a_module.html#a218b6b4fbe726e8c8e7aaaa9ebf693df">bref::AModule::registerSessionHooks</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbref_1_1_pipeline.html">Pipeline</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Register the module hooks on the convenient hookpoints of the pipeline. </p>
+<p>This method should be called by the server each time a new connection is made. The server should call <a class="el" href="classbref_1_1_i_disposable.html#a8bbfa55e936a8ad3b04d69b7e7eeac67" title="Dispose allocated resources by the module.">IDisposable::dispose()</a> on the returned value (if not null) when the connection is closed.</p>
+<p>Example: </p>
+<div class="fragment"><pre class="fragment"><span class="keyword">using namespace </span>bref;
+
+<span class="keyword">class </span>ModuleSession : <span class="keyword">public</span> <a class="code" href="classbref_1_1_i_disposable.html" title="Define a dispose() method, useful for resources de-allocation in a DLL.">IDisposable</a>
+{
+<span class="keyword">public</span>:
+  <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Pipeline::OnReceiveRequestHandler</a> receive(<span class="keyword">const</span> <a class="code" href="structbref_1_1_environment.html" title="This structure defines the environment of a request.">Environment</a> &amp;)
+  {
+    <span class="keywordflow">return</span> <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Pipeline::OnReceiveRequestHandler</a>();
+  }
+
+  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbref_1_1_i_disposable.html#a8bbfa55e936a8ad3b04d69b7e7eeac67" title="Dispose allocated resources by the module.">dispose</a>() { <span class="keyword">delete</span> <span class="keyword">this</span>; }
+  <span class="keyword">virtual</span> ~ModuleSession() { }
+};
+
+<span class="keyword">class </span>Module
+{
+  <span class="keyword">virtual</span> <a class="code" href="classbref_1_1_i_disposable.html" title="Define a dispose() method, useful for resources de-allocation in a DLL.">IDisposable</a> *<a class="code" href="classbref_1_1_a_module.html#a218b6b4fbe726e8c8e7aaaa9ebf693df" title="Register the module hooks on the convenient hookpoints of the pipeline.">registerSessionHooks</a>(<a class="code" href="structbref_1_1_pipeline.html" title="Where the AModule classes register their hooks.">Pipeline</a> &amp; pipeline)
+  {
+    ModuleSession           *ms = <span class="keyword">new</span> ModuleSession();
+    <a class="code" href="classbref_1_1_function.html" title="Polymorphic Function Object Wrapper.">Pipeline::OnReceiveHook</a>  hook(ms, &amp;ModuleSession::receive);
+
+    pipeline.<a class="code" href="group___gate.html#ga51d877e54aadec12db7ecd293e3eba66" title="List of received hooks.">onReceiveHooks</a>.push_back(std::make_pair(hook, 0.5f));
+    <span class="keywordflow">return</span> ms;
+  }
+
+  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbref_1_1_i_disposable.html#a8bbfa55e936a8ad3b04d69b7e7eeac67" title="Dispose allocated resources by the module.">dispose</a>() { <span class="keyword">delete</span> <span class="keyword">this</span>; }
+};
+</pre></div><dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">pipeline</td><td>The pipeline.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns:</dt><dd>A disposable instance, or null instead. </dd></dl>
 
 </div>
 </div>
@@ -431,7 +477,7 @@ Protected Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 3 2012 22:14:54 for bref by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 7 2012 02:45:58 for bref by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

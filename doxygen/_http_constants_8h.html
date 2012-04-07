@@ -113,78 +113,83 @@ Namespaces</h2></td></tr>
 <tr><td colspan="2"><h2><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:abbf19a5d9daf06df9e4c44f70878d3f9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebref_1_1request__methods.html#abbf19a5d9daf06df9e4c44f70878d3f9">bref::request_methods::Type</a> { <br/>
-&#160;&#160;<b>Options</b> =  0, 
+&#160;&#160;<b>UndefinedRequestMethod</b> =  0, 
+<b>Options</b>, 
 <b>Get</b>, 
 <b>Head</b>, 
-<b>Post</b>, 
 <br/>
-&#160;&#160;<b>Put</b>, 
+&#160;&#160;<b>Post</b>, 
+<b>Put</b>, 
 <b>Delete</b>, 
 <b>Trace</b>, 
-<b>Connect</b>
+<br/>
+&#160;&#160;<b>Connect</b>
 <br/>
  }</td></tr>
 <tr class="memdesc:abbf19a5d9daf06df9e4c44f70878d3f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration containing the various HTTP methods. <br/></td></tr>
 <tr class="memitem:acc319a192be09bdd540d2c6569a95e92"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebref_1_1status__codes.html#acc319a192be09bdd540d2c6569a95e92">bref::status_codes::Type</a> { <br/>
-&#160;&#160;<b>Continue</b> =  100, 
+&#160;&#160;<b>UndefinedStatusCode</b> =  0, 
+<b>Continue</b> =  100, 
 <b>SwitchingProtocols</b> =  101, 
 <b>OK</b> =  200, 
-<b>Created</b> =  201, 
 <br/>
-&#160;&#160;<b>Accepted</b> =  202, 
+&#160;&#160;<b>Created</b> =  201, 
+<b>Accepted</b> =  202, 
 <b>NonAuthoritativeInformation</b> =  203, 
 <b>NoContent</b> =  204, 
-<b>ResetContent</b> =  205, 
 <br/>
-&#160;&#160;<b>PartialContent</b> =  206, 
+&#160;&#160;<b>ResetContent</b> =  205, 
+<b>PartialContent</b> =  206, 
 <b>MultipleChoices</b> =  300, 
 <b>MovedPermanently</b> =  301, 
-<b>Found</b> =  302, 
 <br/>
-&#160;&#160;<b>SeeOther</b> =  303, 
+&#160;&#160;<b>Found</b> =  302, 
+<b>SeeOther</b> =  303, 
 <b>NotModified</b> =  304, 
 <b>UseProxy</b> =  305, 
-<b>TemporaryRedirect</b> =  307, 
 <br/>
-&#160;&#160;<b>BadRequest</b> =  400, 
+&#160;&#160;<b>TemporaryRedirect</b> =  307, 
+<b>BadRequest</b> =  400, 
 <b>Unauthorized</b> =  401, 
 <b>PaymentRequired</b> =  402, 
-<b>Forbidden</b> =  403, 
 <br/>
-&#160;&#160;<b>NotFound</b> =  404, 
+&#160;&#160;<b>Forbidden</b> =  403, 
+<b>NotFound</b> =  404, 
 <b>MethodNotAllowed</b> =  405, 
 <b>NotAcceptable</b> =  406, 
-<b>ProxyAuthenticationRequired</b> =  407, 
 <br/>
-&#160;&#160;<b>RequestTimeOut</b> =  408, 
+&#160;&#160;<b>ProxyAuthenticationRequired</b> =  407, 
+<b>RequestTimeOut</b> =  408, 
 <b>Conflict</b> =  409, 
 <b>Gone</b> =  410, 
-<b>LengthRequired</b> =  411, 
 <br/>
-&#160;&#160;<b>PreconditionFailed</b> =  412, 
+&#160;&#160;<b>LengthRequired</b> =  411, 
+<b>PreconditionFailed</b> =  412, 
 <b>RequestEntityTooLarge</b> =  413, 
 <b>RequestURITooLarge</b> =  414, 
-<b>UnsupportedMediaType</b> =  415, 
 <br/>
-&#160;&#160;<b>RequestedRangeNotSatisfiable</b> =  416, 
+&#160;&#160;<b>UnsupportedMediaType</b> =  415, 
+<b>RequestedRangeNotSatisfiable</b> =  416, 
 <b>ExpectationFailed</b> =  417, 
 <b>InternalServerError</b> =  500, 
-<b>NotImplemented</b> =  501, 
 <br/>
-&#160;&#160;<b>BadGateway</b> =  502, 
+&#160;&#160;<b>NotImplemented</b> =  501, 
+<b>BadGateway</b> =  502, 
 <b>ServiceUnavailable</b> =  503, 
 <b>GatewayTimeOut</b> =  504, 
-<b>HTTPVersionNotSupported</b> =  505
+<br/>
+&#160;&#160;<b>HTTPVersionNotSupported</b> =  505
 <br/>
  }</td></tr>
 <tr class="memdesc:acc319a192be09bdd540d2c6569a95e92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration containing the various HTTP status codes. <br/></td></tr>
 <tr class="memitem:a78e3b857be3307e792eabf724d675f6d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebref_1_1status__codes.html#a78e3b857be3307e792eabf724d675f6d">bref::status_codes::Category</a> { <br/>
-&#160;&#160;<b>Informational</b> =  100, 
+&#160;&#160;<b>UndefinedCategory</b> =  0, 
+<b>Informational</b> =  100, 
 <b>Success</b> =  200, 
 <b>Redirection</b> =  300, 
-<b>ClientError</b> =  400, 
 <br/>
-&#160;&#160;<b>ServerError</b> =  500
+&#160;&#160;<b>ClientError</b> =  400, 
+<b>ServerError</b> =  500
 <br/>
  }</td></tr>
 <tr class="memdesc:a78e3b857be3307e792eabf724d675f6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration containing the various HTTP status code categories. <br/></td></tr>
@@ -197,7 +202,7 @@ Enumerations</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 3 2012 22:14:53 for bref by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 7 2012 02:45:58 for bref by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

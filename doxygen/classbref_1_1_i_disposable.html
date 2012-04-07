@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>bref: bref::IConfHelper Class Reference</title>
+<title>bref: bref::IDisposable Class Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -94,89 +94,98 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><b>bref</b>      </li>
-      <li class="navelem"><a class="el" href="classbref_1_1_i_conf_helper.html">IConfHelper</a>      </li>
+      <li class="navelem"><a class="el" href="classbref_1_1_i_disposable.html">IDisposable</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">bref::IConfHelper Class Reference</div>  </div>
+<div class="title">bref::IDisposable Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Helper class for <a class="el" href="classbref_1_1_bref_value.html" title="Contains a generic value.">BrefValue</a> and the server configuration.  
- <a href="classbref_1_1_i_conf_helper.html#details">More...</a></p>
+<p>Define a <a class="el" href="classbref_1_1_i_disposable.html#a8bbfa55e936a8ad3b04d69b7e7eeac67" title="Dispose allocated resources by the module.">dispose()</a> method, useful for resources de-allocation in a DLL.  
+ <a href="classbref_1_1_i_disposable.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_i_conf_helper_8h_source.html">IConfHelper.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_i_disposable_8h_source.html">IDisposable.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for bref::IDisposable:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classbref_1_1_i_disposable.png" usemap="#bref::IDisposable_map" alt=""/>
+  <map id="bref::IDisposable_map" name="bref::IDisposable_map">
+<area href="classbref_1_1_a_module.html" title="Class used to operate with dynamically loaded modules." alt="bref::AModule" shape="rect" coords="0,56,227,80"/>
+<area href="classbref_1_1_pipeline_1_1_i_content_request_handler.html" title="Handler called to execute a request." alt="bref::Pipeline::IContentRequestHandler" shape="rect" coords="237,56,464,80"/>
+</map>
+ </div></div>
 
-<p><a href="classbref_1_1_i_conf_helper-members.html">List of all members.</a></p>
+<p><a href="classbref_1_1_i_disposable-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad0b295901aa60e8b8cd033acc7f59152"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classbref_1_1_bref_value.html">BrefValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_i_conf_helper.html#ad0b295901aa60e8b8cd033acc7f59152">findValue</a> (std::string const &amp;key) const =0</td></tr>
-<tr class="memdesc:ad0b295901aa60e8b8cd033acc7f59152"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an acceptable value for "key" param.  <a href="#ad0b295901aa60e8b8cd033acc7f59152"></a><br/></td></tr>
-<tr class="memitem:addd06b658c23b92bf013b9b51e10f624"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classbref_1_1_bref_value.html">BrefValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_i_conf_helper.html#addd06b658c23b92bf013b9b51e10f624">findValue</a> (std::string const &amp;key, <a class="el" href="classbref_1_1_http_request.html">HttpRequest</a> const &amp;request) const =0</td></tr>
-<tr class="memdesc:addd06b658c23b92bf013b9b51e10f624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an acceptable value for "key" param, using request.  <a href="#addd06b658c23b92bf013b9b51e10f624"></a><br/></td></tr>
+<tr class="memitem:a8bbfa55e936a8ad3b04d69b7e7eeac67"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_i_disposable.html#a8bbfa55e936a8ad3b04d69b7e7eeac67">dispose</a> ()=0</td></tr>
+<tr class="memdesc:a8bbfa55e936a8ad3b04d69b7e7eeac67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispose allocated resources by the module.  <a href="#a8bbfa55e936a8ad3b04d69b7e7eeac67"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a2520ba1e970e6de8affae101ab0ba217"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbref_1_1_i_disposable.html#a2520ba1e970e6de8affae101ab0ba217">~IDisposable</a> ()</td></tr>
+<tr class="memdesc:a2520ba1e970e6de8affae101ab0ba217"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#a2520ba1e970e6de8affae101ab0ba217"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Helper class for <a class="el" href="classbref_1_1_bref_value.html" title="Contains a generic value.">BrefValue</a> and the server configuration. </p>
-<p>This class aimed to give an easier access to the server configuration. </p>
-</div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ad0b295901aa60e8b8cd033acc7f59152"></a>
+<div class="textblock"><p>Define a <a class="el" href="classbref_1_1_i_disposable.html#a8bbfa55e936a8ad3b04d69b7e7eeac67" title="Dispose allocated resources by the module.">dispose()</a> method, useful for resources de-allocation in a DLL. </p>
+<dl class="section see"><dt>See also:</dt><dd><a class="el" href="classbref_1_1_i_disposable.html#a8bbfa55e936a8ad3b04d69b7e7eeac67" title="Dispose allocated resources by the module.">dispose()</a> </dd></dl>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a2520ba1e970e6de8affae101ab0ba217"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="classbref_1_1_bref_value.html">BrefValue</a>&amp; <a class="el" href="classbref_1_1_i_conf_helper.html#ad0b295901aa60e8b8cd033acc7f59152">bref::IConfHelper::findValue</a> </td>
+          <td class="memname">virtual <a class="el" href="classbref_1_1_i_disposable.html#a2520ba1e970e6de8affae101ab0ba217">bref::IDisposable::~IDisposable</a> </td>
           <td>(</td>
-          <td class="paramtype">std::string const &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const<code> [pure virtual]</code></td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, protected, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Return an acceptable value for "key" param. </p>
-<dl class="section return"><dt>Returns:</dt><dd>Return value if exists, a <a class="el" href="classbref_1_1_bref_value.html" title="Contains a generic value.">BrefValue</a> with a "nullType" otherwise. </dd></dl>
+<p>Virtual destructor. </p>
+<p>The <code>delete()</code> operator should not be called, please refer to the <code><a class="el" href="classbref_1_1_i_disposable.html#a8bbfa55e936a8ad3b04d69b7e7eeac67" title="Dispose allocated resources by the module.">dispose()</a></code> method.</p>
+<dl class="section note"><dt>Note:</dt><dd>The destructor is protected in order to disable the call to the <code>delete()</code> operator from the server code.</dd></dl>
+<dl class="section see"><dt>See also:</dt><dd><a class="el" href="classbref_1_1_i_disposable.html#a8bbfa55e936a8ad3b04d69b7e7eeac67" title="Dispose allocated resources by the module.">dispose()</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="addd06b658c23b92bf013b9b51e10f624"></a>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a8bbfa55e936a8ad3b04d69b7e7eeac67"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="classbref_1_1_bref_value.html">BrefValue</a>&amp; <a class="el" href="classbref_1_1_i_conf_helper.html#ad0b295901aa60e8b8cd033acc7f59152">bref::IConfHelper::findValue</a> </td>
+          <td class="memname">virtual void <a class="el" href="classbref_1_1_i_disposable.html#a8bbfa55e936a8ad3b04d69b7e7eeac67">bref::IDisposable::dispose</a> </td>
           <td>(</td>
-          <td class="paramtype">std::string const &amp;&#160;</td>
-          <td class="paramname"><em>key</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classbref_1_1_http_request.html">HttpRequest</a> const &amp;&#160;</td>
-          <td class="paramname"><em>request</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const<code> [pure virtual]</code></td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [pure virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Return an acceptable value for "key" param, using request. </p>
-<p>This can be use, for example to find virtual host configuration value for a given key.</p>
-<dl class="section return"><dt>Returns:</dt><dd>Return value if exists, a <a class="el" href="classbref_1_1_bref_value.html" title="Contains a generic value.">BrefValue</a> with a "nullType" otherwise. </dd></dl>
+<p>Dispose allocated resources by the module. </p>
+<p>Please refer to:</p>
+<ul>
+<li><a href="http://chadaustin.me/cppinterface.html">http://chadaustin.me/cppinterface.html</a> (Revision 3)</li>
+<li>"the internet" for other reasons</li>
+</ul>
+<dl class="section note"><dt>Note:</dt><dd>This is often represented by a simple: <div class="fragment"><pre class="fragment"> <span class="keyword">delete</span> <span class="keyword">this</span>; 
+</pre></div> </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/Users/giersc_v/projets/zia/api/include/bref/<a class="el" href="_i_conf_helper_8h_source.html">IConfHelper.h</a></li>
+<li>/Users/giersc_v/projets/zia/api/include/bref/<a class="el" href="_i_disposable_8h_source.html">IDisposable.h</a></li>
 </ul>
 </div><!-- contents -->
 
